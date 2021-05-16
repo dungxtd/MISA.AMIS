@@ -1,0 +1,80 @@
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS\MISA.Core\bin\Debug\net5.0\MISA.Core.deps.json
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS\MISA.Core\bin\Debug\net5.0\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS\MISA.Core\bin\Debug\net5.0\ref\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS\MISA.Core\bin\Debug\net5.0\MISA.Core.pdb
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS\MISA.Core\obj\Debug\net5.0\MISA.Core.csprojAssemblyReference.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS\MISA.Core\obj\Debug\net5.0\MISA.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfoInputs.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfo.cs
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS\MISA.Core\obj\Debug\net5.0\MISA.Core.csproj.CoreCompileInputs.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS\MISA.Core\obj\Debug\net5.0\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS\MISA.Core\obj\Debug\net5.0\ref\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS\MISA.Core\obj\Debug\net5.0\MISA.Core.pdb
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\MISA.Core.deps.json
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\ref\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\MISA.Core.pdb
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.csprojAssemblyReference.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfoInputs.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfo.cs
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.csproj.CoreCompileInputs.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\ref\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA.AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.pdb
+F:\tddung\dotnet\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\MISA.Core.deps.json
+F:\tddung\dotnet\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\MISA.Core.dll
+F:\tddung\dotnet\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\ref\MISA.Core.dll
+F:\tddung\dotnet\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\MISA.Core.pdb
+F:\tddung\dotnet\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.csprojAssemblyReference.cache
+F:\tddung\dotnet\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.GeneratedMSBuildEditorConfig.editorconfig
+F:\tddung\dotnet\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfoInputs.cache
+F:\tddung\dotnet\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfo.cs
+F:\tddung\dotnet\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.csproj.CoreCompileInputs.cache
+F:\tddung\dotnet\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.dll
+F:\tddung\dotnet\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\ref\MISA.Core.dll
+F:\tddung\dotnet\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.pdb
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\MISA.Core.deps.json
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\ref\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\MISA.Core.pdb
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.csprojAssemblyReference.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfoInputs.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfo.cs
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.csproj.CoreCompileInputs.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\ref\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.pdb
+F:\tddung\dotnet\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.Properties.Resources.resources
+F:\tddung\dotnet\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.csproj.GenerateResource.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.Properties.Resources.resources
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.csproj.GenerateResource.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\New folder\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\MISA.Core.deps.json
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\New folder\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\New folder\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\ref\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\New folder\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\MISA.Core.pdb
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\New folder\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.csprojAssemblyReference.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\New folder\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.Properties.Resources.resources
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\New folder\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.csproj.GenerateResource.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\New folder\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\New folder\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfoInputs.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\New folder\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfo.cs
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\New folder\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.csproj.CoreCompileInputs.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\New folder\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\New folder\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\ref\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\New folder\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.pdb
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\MISA.Core.deps.json
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\ref\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Core\bin\Debug\net5.0\MISA.Core.pdb
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.csprojAssemblyReference.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.Properties.Resources.resources
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.csproj.GenerateResource.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfoInputs.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfo.cs
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.csproj.CoreCompileInputs.cache
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\ref\MISA.Core.dll
+C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Core\obj\Debug\net5.0\MISA.Core.pdb

@@ -1,0 +1,236 @@
+.header {
+  height: 44px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+}
+.header-left .header-icon {
+  background-position: -843px -30px;
+  margin: 0 10px;
+}
+.header-left .header-branch {
+  display: flex;
+  align-items: center;
+}
+.header-branch .header-branch-name {
+  width: fit-content;
+  padding-left: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  color: #111;
+}
+.header-branch .cover-icon {
+  display: flex;
+  align-items: center;
+}
+.header-branch .cover-icon .header-branch-icon {
+  background-position: -75px -356px;
+  transform: rotate(90deg);
+  margin: 0 10px;
+}
+.header-left .header-current {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ebedf0;
+  padding: 0 13px;
+  border-radius: 40px;
+  font-size: 13px;
+  cursor: pointer;
+  height: 28px;
+  margin: 0 10px;
+}
+.header-current .header-current-icon {
+  width: 6px;
+  height: 6px;
+  background-color: #4ea344;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+.header-current .header-current-text {
+  padding-left: 7px;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  color: #111;
+}
+.header-right .filter-input {
+  position: relative;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 20px;
+}
+.filter-input .filter-input-label {
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  font-size: 13px;
+  height: 32px;
+  padding: 6px 10px;
+  padding-right: 1.75rem;
+  background: #fff;
+  border-radius: 3px;
+  color: #111;
+  border: 1px solid #ebedf0;
+  padding-left: 0.85em;
+  max-width: 300px;
+  min-width: 200px;
+}
+input {
+  font-family: NotoSans-Regular !important;
+  outline: none;
+}
+input::placeholder {
+  font-family: NotoSans-Italic !important;
+  font-size: 13px;
+  color: #dedede;
+}
+.header-right .filter-input .filter-input-icon {
+  background-position: -986px -356px;
+  color: #fff;
+  left: auto;
+  right: 5px;
+  border-right: 0;
+  padding-left: 3px;
+  margin-right: 4px;
+  cursor: pointer;
+  position: absolute;
+  font-size: 1.1rem;
+  padding-right: 3px;
+  user-select: none;
+  top: 4px;
+}
+.header-right .option-cover {
+  align-items: center;
+  height: 44px;
+}
+.header-right .option-cover:hover {
+  background-color: #2ca01c;
+}
+.header-right .option-cover:hover:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-bottom: 4px solid transparent;
+  border-left: 22px solid transparent;
+  border-right: 22px solid transparent;
+  border-top: 12px solid #2ca01c;
+  position: absolute;
+  bottom: -16px;
+  box-sizing: content-box;
+}
+.header-right .category-cover {
+  align-items: center;
+  height: 48px;
+}
+.header-right .category-cover:hover {
+  background-color: #2ca01c;
+}
+.header-right .category-cover:hover:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-bottom: 4px solid transparent;
+  border-left: 22px solid transparent;
+  border-right: 22px solid transparent;
+  border-top: 12px solid #2ca01c;
+  position: absolute;
+  bottom: -16px;
+  box-sizing: content-box;
+}
+.header-right .category-cover:hover > .category-icon {
+  background-position: -558px -66px;
+  padding: 10px;
+  margin: 0;
+}
+.header-right .category-cover .category-icon {
+  background-position: -558px -20px;
+  padding: 10px;
+  margin: 0;
+}
+.header-right .setting-cover:hover > .setting-icon {
+  background-position: -134px -78px;
+  padding: 10px;
+  margin: 0;
+}
+.header-right .setting-cover .setting-icon {
+  background-position: -665px -20px;
+  padding: 10px;
+  margin: 0;
+}
+.header-right .chat-cover:hover > .chat-icon {
+  background-position: -358px -78px;
+  padding: 10px;
+  margin: 0;
+}
+.header-right .chat-cover .chat-icon {
+  background-position: -889px -19px;
+  padding: 10px;
+  margin: 0;
+}
+.header-right .help-cover:hover > .help-icon {
+  background-position: -190px -78px;
+  padding: 10px;
+  margin: 0;
+}
+.header-right .help-cover .help-icon {
+  background-position: -721px -20px;
+  padding: 10px;
+  margin: 0;
+}
+.header-right .bell-cover:hover > .bell-icon {
+  background-position: -246px -78px;
+  padding: 10px;
+  margin: 0;
+}
+.header-right .bell-cover .bell-icon {
+  background-position: -777px -20px;
+  padding: 10px;
+  margin: 0;
+}
+
+.cover-user {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+.cover-user .user-logo {
+  width: 32px;
+  height: 32px;
+  margin: 0 10px;
+}
+.cover-user .user-name {
+  white-space: nowrap;
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: NotoSans-Bold;
+  font-size: 14px;
+  margin-right: 2px;
+}
+.cover-user .extend-icon {
+  background-position: -1072px -27px;
+  margin-right: 10px;
+  position: relative;
+  right: 0px;
+}

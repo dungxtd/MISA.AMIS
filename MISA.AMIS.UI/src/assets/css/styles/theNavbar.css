@@ -1,0 +1,132 @@
+.nav_bar {
+  width: 178px;
+  background-color: #38393d;
+  height: 100vh;
+  float: left;
+}
+.logo-box {
+  display: flex;
+  background-color: #38393d;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  height: 0;
+}
+.logo-box .toggle-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  background: url(../../img/Sprites.svg) no-repeat -424px -86px;
+}
+.logo-box .amis-logo {
+  width: 96px;
+  height: 32px;
+  background: url(../../img/Logo.svg) no-repeat;
+  background-size: contain;
+}
+.navbar-content {
+  height: calc(100vh - 62px);
+  padding-top: 14px;
+  overflow-y: auto;
+}
+
+.navbar-content .nav-item {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 42px;
+  height: 42px;
+  border-left: 6px solid transparent;
+  padding-left: 8px;
+  color: #fff;
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  background-color: #38393d;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.navbar-content .nav-item:hover {
+  background-color: #616164;
+}
+.icon {
+  background: url(../../img/Sprites.svg) no-repeat;
+  cursor: pointer;
+}
+.icon-24 {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  margin-right: 8px;
+}
+.navbar-content .nav-item .nav-item-text {
+  font-family: inherit;
+  font-size: inherit;
+}
+.navbar-content .nav-item .nav-item-1 {
+  background-position: -30px -1628px;
+}
+.navbar-content .nav-item .nav-item-2 {
+  background-position: -73px -1628px;
+}
+.navbar-content .nav-item .nav-item-3 {
+  background-position: -117px -1628px;
+}
+.navbar-content .nav-item .nav-item-4 {
+  background-position: -161px -1628px;
+}
+.navbar-content .nav-item .nav-item-5 {
+  background-position: -204px -1628px;
+}
+.navbar-content .nav-item .nav-item-6 {
+  background-position: -249px -1628px;
+}
+.navbar-content .nav-item .nav-item-7 {
+  background-position: -291px -1628px;
+}
+.navbar-content .nav-item .nav-item-8 {
+  background-position: -336px -1628px;
+}
+.navbar-content .nav-item .nav-item-9 {
+  background-position: -378px -1630px;
+}
+.navbar-content .nav-item .nav-item-10 {
+  background-position: -423px -1630px;
+}
+.navbar-content .nav-item .nav-item-11 {
+  background-position: -467px -1628px;
+}
+.navbar-content .nav-item .nav-item-12 {
+  background-position: -510px -1628px;
+}
+.navbar-content .nav-item .nav-item-13 {
+  background-position: -378px -1659px;
+}
+.navbar-content .nav-item .nav-item-14 {
+  background-position: -547px -1628px;
+}
+.navbar-content .nav-item .nav-item-15 {
+  background-position: -204px -1664px;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
