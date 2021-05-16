@@ -6,7 +6,7 @@
           <div
             class="icon"
             :class="[
-              { 'icon-success': statusLog },
+              { 'icon-report': statusLog },
               { 'icon-warning': !statusLog },
             ]"
             style="margin: auto 0"
@@ -84,8 +84,8 @@ export default {
   min-width: 48px;
   min-height: 48px;
 }
-.icon-success {
-  background-position: -89px -954px !important;
+.icon-report {
+  background-position: -592px -456px !important;
   width: 48px;
   height: 48px;
   min-width: 48px;

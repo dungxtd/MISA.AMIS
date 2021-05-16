@@ -219,7 +219,6 @@
 </template>
 <script>
 import axios from "axios";
-
 export default {
   components: {},
   created() {
@@ -239,9 +238,7 @@ export default {
     //Date : 11/5/2021
     //Ham an vao nut xong
     btnAddEdit() {
-      console.log("connect");
       this.addEmployee();
-      console.log("not connect");
     },
     /**
      * CreatedBy: TDDUNG
@@ -262,6 +259,7 @@ export default {
           })
           .catch((err) => {
             console.log(err);
+
             this.$emit("showStatusLog", err.response.data.devMsg);
           });
       }

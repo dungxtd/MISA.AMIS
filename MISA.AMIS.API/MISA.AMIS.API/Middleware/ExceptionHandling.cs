@@ -60,8 +60,7 @@ namespace MISA.AMIS.API.Middleware
             var response = new
             {
                 devMsg = exception.Message,
-                userMsg = "Có lỗi xảy ra vui lòng liên hệ MISA",
-                data = exception.Data,
+                devCode = exception.Data,
             };
 
             var result = JsonSerializer.Serialize(response);

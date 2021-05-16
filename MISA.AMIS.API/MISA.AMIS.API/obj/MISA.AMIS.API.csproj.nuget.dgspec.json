@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.AMIS.API\\MISA.AMIS.API.csproj": {}
+    "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.AMIS.API\\MISA.AMIS.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.AMIS.API\\MISA.AMIS.API.csproj": {
+    "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.AMIS.API\\MISA.AMIS.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.AMIS.API\\MISA.AMIS.API.csproj",
+        "projectUniqueName": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.AMIS.API\\MISA.AMIS.API.csproj",
         "projectName": "MISA.AMIS.API",
-        "projectPath": "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.AMIS.API\\MISA.AMIS.API.csproj",
+        "projectPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.AMIS.API\\MISA.AMIS.API.csproj",
         "packagesPath": "C:\\Users\\dungxtd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.AMIS.API\\obj\\",
+        "outputPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.AMIS.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -31,11 +31,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.Core\\MISA.Core.csproj": {
-                "projectPath": "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.Core\\MISA.Core.csproj"
+              "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj": {
+                "projectPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj"
               },
-              "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.Infrastructure\\MISA.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.Infrastructure\\MISA.Infrastructure.csproj"
+              "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\MISA.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\MISA.Infrastructure.csproj"
               }
             }
           }
@@ -81,14 +81,14 @@
         }
       }
     },
-    "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.Core\\MISA.Core.csproj": {
+    "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.Core\\MISA.Core.csproj",
+        "projectUniqueName": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj",
         "projectName": "MISA.Core",
-        "projectPath": "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.Core\\MISA.Core.csproj",
+        "projectPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj",
         "packagesPath": "C:\\Users\\dungxtd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.Core\\obj\\",
+        "outputPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -138,14 +138,14 @@
         }
       }
     },
-    "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.Infrastructure\\MISA.Infrastructure.csproj": {
+    "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\MISA.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.Infrastructure\\MISA.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\MISA.Infrastructure.csproj",
         "projectName": "MISA.Infrastructure",
-        "projectPath": "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.Infrastructure\\MISA.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\MISA.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\dungxtd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -165,8 +165,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.Core\\MISA.Core.csproj": {
-                "projectPath": "C:\\Users\\dungxtd\\Desktop\\Bài tập nâng cao\\MISA-AMIS\\MISA-AMIS\\MISA.AMIS.Api\\MISA.Core\\MISA.Core.csproj"
+              "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj": {
+                "projectPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj"
               }
             }
           }

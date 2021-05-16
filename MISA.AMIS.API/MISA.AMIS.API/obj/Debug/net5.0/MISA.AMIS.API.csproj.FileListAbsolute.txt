@@ -228,3 +228,43 @@ C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\
 C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.AMIS.API\obj\Debug\net5.0\ref\MISA.AMIS.API.dll
 C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.pdb
 C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.genruntimeconfig.cache
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\appsettings.json
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\MISA.AMIS.API.exe
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\MISA.AMIS.API.deps.json
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\MISA.AMIS.API.runtimeconfig.json
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\MISA.AMIS.API.runtimeconfig.dev.json
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\MISA.AMIS.API.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\ref\MISA.AMIS.API.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\MISA.AMIS.API.pdb
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\Dapper.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\EPPlus.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\MySqlConnector.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\System.Xml.XPath.XmlDocument.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\MISA.Core.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\MISA.Infrastructure.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\MISA.Core.pdb
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\bin\Debug\net5.0\MISA.Infrastructure.pdb
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.csprojAssemblyReference.cache
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.Properties.Resources.resources
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.csproj.GenerateResource.cache
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.AssemblyInfoInputs.cache
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.AssemblyInfo.cs
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.csproj.CoreCompileInputs.cache
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\staticwebassets\MISA.AMIS.API.StaticWebAssets.Manifest.cache
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\staticwebassets\MISA.AMIS.API.StaticWebAssets.xml
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\scopedcss\bundle\MISA.AMIS.API.styles.css
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.RazorTargetAssemblyInfo.cache
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.csproj.CopyComplete
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\ref\MISA.AMIS.API.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.pdb
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.AMIS.API\obj\Debug\net5.0\MISA.AMIS.API.genruntimeconfig.cache

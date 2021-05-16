@@ -88,3 +88,18 @@ C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\
 C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.dll
 C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Infrastructure\obj\Debug\net5.0\ref\MISA.Infrastructure.dll
 C:\Users\dungxtd\Desktop\Bài tập nâng cao\MISA-AMIS\MISA-AMIS\MISA.AMIS.Api\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.pdb
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.Infrastructure\bin\Debug\net5.0\MISA.Infrastructure.deps.json
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.Infrastructure\bin\Debug\net5.0\MISA.Infrastructure.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.Infrastructure\bin\Debug\net5.0\ref\MISA.Infrastructure.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.Infrastructure\bin\Debug\net5.0\MISA.Infrastructure.pdb
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.Infrastructure\bin\Debug\net5.0\MISA.Core.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.Infrastructure\bin\Debug\net5.0\MISA.Core.pdb
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.csprojAssemblyReference.cache
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.AssemblyInfo.cs
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.csproj.CopyComplete
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.Infrastructure\obj\Debug\net5.0\ref\MISA.Infrastructure.dll
+C:\Users\dungxtd\Desktop\MISA.AMIS\MISA.AMIS.API\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.pdb

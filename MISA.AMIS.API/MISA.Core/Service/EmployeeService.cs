@@ -39,6 +39,12 @@ namespace MISA.Core.Service
                 {
                     throw new BadRequestException(Properties.Resources.emptyEmployeeCode);
                 }
+                //Check trùng mã
+                var isExits = _employeeRepository.CheckEmployeeCodeExits(employee.EmployeeCode);
+                if (isExits.Single())
+                {
+                    throw new BadRequestException(Properties.Resources.duplidateEmployeeCode);
+                }
                 if (string.IsNullOrEmpty(employee.EmployeeName))
                 {
                     throw new BadRequestException(Properties.Resources.emptyEmployeeName);
@@ -47,12 +53,7 @@ namespace MISA.Core.Service
                 {
                     throw new BadRequestException(Properties.Resources.emptyEmployeePss);
                 }
-                //Check trùng mã
-                var isExits = _employeeRepository.CheckEmployeeCodeExits(employee.EmployeeCode);
-                if (isExits.Single())
-                {
-                    throw new BadRequestException(Properties.Resources.duplidateEmployeeCode);
-                }
+                
 
             }
         }

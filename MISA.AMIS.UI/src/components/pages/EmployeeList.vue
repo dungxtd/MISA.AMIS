@@ -99,6 +99,7 @@
                   :screenX="screenX"
                   :screenY="screenY"
                   v-if="index == indexTemp && isShowMoreOption"
+                  v-click-outside="clickOutSide"
                 />
               </tr>
             </tbody>
@@ -129,10 +130,11 @@
     <EmployeeDetail
       v-if="isShowDetail == true"
       :employee="employee"
-      @hideDetailPage="hideDetailPage"
-      @showStatusLog="showStatusLog"
       :formMode="formMode"
       :inputFocus="inputFocus"
+      @hideDetailPage="hideDetailPage"
+      @showStatusLog="showStatusLog"
+      @setTypeOfStatus="setTypeOfStatus"
     />
     <StatusDialog
       v-if="isShowStatusLog == true"
@@ -147,6 +149,9 @@ import MoreOptions from "../dialogs/MoreOption";
 import LoadingScreen from "../dialogs/LoadingScreen";
 import EmployeeDetail from "../dialogs/EmployeeDetail";
 import StatusDialog from "../dialogs/StatusDialog";
+import Vue from "vue";
+import vClickOutside from "v-click-outside";
+Vue.use(vClickOutside);
 const LOADING = 0;
 const SUCCESS = 1;
 export default {
@@ -162,7 +167,7 @@ export default {
       employee: {},
       maxPage: 0, // Số số trang
       pageIndex: 1, // Biến chỉ trang hiện tại
-      pageSize: 30, // Biến chứa số lượng bản ghi 1 trang
+      pageSize: 10, // Biến chứa số lượng bản ghi 1 trang
       indexTemp: 0, //Biến tạm chỉ giá trị index vòng for
       isShowMoreOption: false, //Bien hien thi bang more option
       screenX: 0, // Biến toạ độ con trỏ chuột
@@ -172,9 +177,9 @@ export default {
       debouncedInput: "", // Biến hiện thị filter search sau khi có trễ time
       isShowDetail: false, //biến ẩn hay hiện bảng detail
       formMode: "add", //Biến chứa thông tin thêm hay sửa gửi thị lên dialog
-      emptyData: true, //Biến theo dõi data
       isShowStatusLog: false, //Biến hiển thị cửa sổ thồn báo lỗi
       mesStatus: "", // Biến chứa câu thông báo lỗi
+      typeOfStatus: "", // Biến chỉ loại cảnh báo
     };
   },
   created() {
@@ -370,6 +375,23 @@ export default {
      */
     hideStatusLog() {
       this.isShowStatusLog = false;
+    },
+    /**
+     * Ham set cảnh báo
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
+    setTypeOfStatus(value) {
+      this.typeOfStatus = value;
+    },
+    /**
+     * Ham bat su kien click ben ngoai
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
+    clickOutSide() {
+      // console.log("click out side");
+      this.hideMoreOption();
     },
   },
   computed: {
