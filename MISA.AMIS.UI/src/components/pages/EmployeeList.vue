@@ -109,16 +109,30 @@
             bản ghi
           </div>
           <div class="paging-footer">
-            <div class="page-size"></div>
-            <div class="pre-page">Trước</div>
-            <div class="number-page">
-              <div class="page">...</div>
-              <div class="page pageSelected">1</div>
-              <div class="page">2</div>
-              <div class="page">3</div>
-              <div class="page">...</div>
+            <div class="page-size" style="width: 200px">
+              <PageSizeBox
+                :options="[
+                  '10 bản ghi trên 1 trang',
+                  '20 bản ghi trên 1 trang',
+                  '30 bản ghi trên 1 trang',
+                  '40 bản ghi trên 1 trang',
+                ]"
+                :default="'20 bản ghi trên 1 trang'"
+                class="select"
+                @setPageSize="setPageSize"
+              />
             </div>
-            <div class="next-page">Sau</div>
+            <div style="margin: auto; display: flex">
+              <div class="pre-page">Trước</div>
+              <div class="number-page">
+                <div class="page">...</div>
+                <div class="page pageSelected">1</div>
+                <div class="page">2</div>
+                <div class="page">3</div>
+                <div class="page">...</div>
+              </div>
+              <div class="next-page">Sau</div>
+            </div>
           </div>
         </div>
       </div>
@@ -127,15 +141,23 @@
     <EmployeeDetail
       v-if="isShowDetail == true"
       :employeeProp="employee"
+      :employeeBackUp="employeeBackUp"
       :formMode="formMode"
       :inputFocus="inputFocus"
       @hideDetailPage="hideDetailPage"
       @showStatusLog="showStatusLog"
+      @setFormModeAdd="setFormModeAdd"
+      @showWarningLog="showWarningLog"
     />
     <StatusDialog
       v-if="isShowStatusLog == true"
       @hideStatusLog="hideStatusLog"
       :mesStatus="mesStatus"
+    />
+    <WarningDialog
+      v-if="isShowWarningLog == true"
+      :warningMsg="errMsg"
+      @hideWarningLog="hideWarningLog"
     />
   </div>
 </template>
@@ -145,6 +167,9 @@ import MoreOptions from "../dialogs/MoreOption";
 import LoadingScreen from "../dialogs/LoadingScreen";
 import EmployeeDetail from "../dialogs/EmployeeDetail";
 import StatusDialog from "../dialogs/StatusDialog";
+import WarningDialog from "../dialogs/WarningDialog";
+import PageSizeBox from "../dialogs/PageSizeBox";
+
 import Vue from "vue";
 import vClickOutside from "v-click-outside";
 Vue.use(vClickOutside);
@@ -156,6 +181,8 @@ export default {
     LoadingScreen,
     EmployeeDetail,
     StatusDialog,
+    WarningDialog,
+    PageSizeBox,
   },
   data() {
     return {
@@ -180,9 +207,29 @@ export default {
         email: "",
         accountState: "",
       },
+      employeeBackUp: {
+        employeeCode: "",
+        employeeName: "",
+        gender: null,
+        dateOfBirth: null,
+        identityNumber: "",
+        identityDate: null,
+        identityPlace: "",
+        employeePosition: "",
+        address: "",
+        departmentId: null,
+        departmentName: "",
+        bankAccountNumber: "",
+        bankName: "",
+        bankBranchName: "",
+        phoneNumber: "",
+        telephoneNumber: "",
+        email: "",
+        accountState: "",
+      },
       maxPage: 0, // Số số trang
       pageIndex: 1, // Biến chỉ trang hiện tại
-      pageSize: 10, // Biến chứa số lượng bản ghi 1 trang
+      pageSize: 20, // Biến chứa số lượng bản ghi 1 trang
       indexTemp: 0, //Biến tạm chỉ giá trị index vòng for
       isShowMoreOption: false, //Bien hien thi bang more option
       screenX: 0, // Biến toạ độ con trỏ chuột
@@ -194,7 +241,8 @@ export default {
       formMode: "add", //Biến chứa thông tin thêm hay sửa gửi thị lên dialog
       isShowStatusLog: false, //Biến hiển thị cửa sổ thồn báo lỗi
       mesStatus: "", // Biến chứa câu thông báo lỗi
-      typeOfStatus: "", // Biến chỉ loại cảnh báo
+      isShowWarningLog: false, //Biến hiển thị cửa sổ thồn báo trùng nhân viên
+      errMsg: "", //Biến chứa câu thông báo cảnh báo
     };
   },
   created() {
@@ -267,6 +315,12 @@ export default {
       this.getData();
       this.getCount();
     },
+    setPageSize(pageSize) {
+      this.pageSize = pageSize;
+      this.pageIndex = 1;
+      this.getData();
+      this.getCount();
+    },
     /**
      * Ham xuat ra file excel
      * CreatedBy: TDDUNG
@@ -329,6 +383,7 @@ export default {
      */
     async showDialogDetail() {
       this.formMode = "add";
+      this.employee = { ...this.employeeBackUp };
       var aipUrl = "https://localhost:44368/api/v1/Employees/getMaxCode";
       await axios
         .get(aipUrl)
@@ -416,6 +471,16 @@ export default {
     clickOutSide() {
       // console.log("click out side");
       this.hideMoreOption();
+    },
+    setFormModeAdd() {
+      this.formMode = "add";
+    },
+    showWarningLog(errMsg) {
+      this.errMsg = errMsg;
+      this.isShowWarningLog = true;
+    },
+    hideWarningLog() {
+      this.isShowWarningLog = false;
     },
   },
   computed: {

@@ -43,7 +43,7 @@ namespace MISA.Core.Service
                 var isExits = _employeeRepository.CheckEmployeeCodeExits(employee.EmployeeCode);
                 if (isExits.Single())
                 {
-                    throw new BadRequestException(Properties.Resources.duplidateEmployeeCode);
+                    throw new BadRequestException(Properties.Resources.duplidateEmployeeCodeBefore + entity.EmployeeCode + Properties.Resources.duplidateEmployeeCodeAfter);
                 }
                 if (string.IsNullOrEmpty(employee.EmployeeName))
                 {
@@ -64,12 +64,24 @@ namespace MISA.Core.Service
         /// Hàm validate cho sửa nhân viên
         /// </summary>
         /// <param name="entity"></param>
-        protected override void CustomValidateUpdate(Employee entity)
+        protected override void CustomValidateUpdate(Employee employee)
         {
-            var isExist = _employeeRepository.CheckEmployeeCodeExitsUpdate(entity.EmployeeCode, entity.EmployeeId);
+            var isExist = _employeeRepository.CheckEmployeeCodeExitsUpdate(employee.EmployeeCode, employee.EmployeeId);
+            if (string.IsNullOrEmpty(employee.EmployeeCode))
+            {
+                throw new BadRequestException(Properties.Resources.emptyEmployeeCode);
+            }
             if (isExist.Single())
             {
-                throw new BadRequestException(Properties.Resources.duplidateEmployeeCode);
+                throw new BadRequestException(Properties.Resources.duplidateEmployeeCodeBefore + employee.EmployeeCode + Properties.Resources.duplidateEmployeeCodeAfter);
+            }
+            if (string.IsNullOrEmpty(employee.EmployeeName))
+            {
+                throw new BadRequestException(Properties.Resources.emptyEmployeeName);
+            }
+            if (string.IsNullOrEmpty(employee.DepartmentId.ToString()))
+            {
+                throw new BadRequestException(Properties.Resources.emptyEmployeePss);
             }
         }
         #endregion

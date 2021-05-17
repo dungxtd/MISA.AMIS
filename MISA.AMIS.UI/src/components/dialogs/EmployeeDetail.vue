@@ -106,34 +106,12 @@
                     Đơn vị
                     <div style="color: red; display: inline">*</div>
                   </div>
-
-                  <select
-                    type="text"
-                    style="width: 90%"
-                    v-model="employee.departmentId"
-                    v-bind:class="{
-                      error: formValidate(employee.departmentId) && pssBlured,
-                    }"
-                    v-on:blur="pssBlured = true"
-                  >
-                    <option value="11452b0c-768e-5ff7-0d63-eeb1d8ed8cef">
-                      Phòng Nhân sự
-                    </option>
-                    <option value="17120d02-6ab5-3e43-18cb-66948daf6128">
-                      Phòng Đào tạo
-                    </option>
-                    <option value="469b3ece-744a-45d5-957d-e8c757976496">
-                      Phòng Marketing
-                    </option>
-                    <option value="142cb08f-7c31-21fa-8e90-67245e8b283e">
-                      Phòng Kế toán
-                    </option>
-                    <option value="4e272fc4-7875-78d6-7d32-6a1673ffca7c">
-                      Phòng Nghiên cứu
-                    </option>
-                  </select>
-
-                  <div class="warning-text">Vị trí không được để trống.</div>
+                  <ComboBox
+                    @setPssBlured="setPssBlured"
+                    @setDepartmentName="setDepartmentName"
+                    :pssBlured="pssBlured"
+                    :departmentName="employee.departmentName"
+                  />
                 </div>
                 <div class="flex flex-1">
                   <div class="mgr10 flex-1">
@@ -210,7 +188,7 @@
           <div class="cancel-botton" @click="hideDetailPage()">Huỷ</div>
           <div class="flex">
             <div class="accept-btn1" @click="btnAddEdit">Cất</div>
-            <div class="accept-btn2" @click="btnAddEdit">Cất và Thêm</div>
+            <div class="accept-btn2" @click="btnAddMore">Cất và Thêm</div>
           </div>
         </div>
       </div>
@@ -219,24 +197,22 @@
 </template>
 <script>
 import axios from "axios";
+import ComboBox from "./Combobox";
 export default {
-  components: {},
+  components: { ComboBox },
   created() {
     this.$nextTick(() => this.$refs.employeeCode.focus());
     this.employee = { ...this.employeeProp };
   },
   props: {
     employeeProp: { type: Object, default: Object.create(null) },
+    employeeBackUp: { type: Object, default: Object.create(null) },
     formMode: { type: String, default: "" },
     inputFocus: { type: Boolean, default: false },
   },
   data() {
     return {
-      employee: {
-        employeeCode: "",
-        employeeName: "",
-        departmentId: null,
-      },
+      employee: {},
       codeBlured: false, //Blur ra khỏi ô input code
       nameBlured: false, //Blur ra khỏi ô input name
       pssBlured: false, //Blur ra khỏi ô input đơn vị
@@ -276,7 +252,9 @@ export default {
           })
           .catch((err) => {
             console.log(err);
-            this.$emit("showStatusLog", err.response.data.errMsg);
+            var errMsg = err.response.data.errMsg.split("/");
+            if (errMsg[0] == 1) this.$emit("showStatusLog", errMsg[1]);
+            else if (errMsg[0] == 0) this.$emit("showWarningLog", errMsg[1]);
           });
       }
       //CreatedBy: TDDUUNG
@@ -294,9 +272,76 @@ export default {
           })
           .catch((err) => {
             console.log(err.response);
-            this.$emit("showStatusLog", err.response.data.errMsg);
+            var errMsg = err.response.data.errMsg.split("/");
+            if (errMsg[0] == 1) this.$emit("showStatusLog", errMsg[1]);
+            else if (errMsg[0] == 0) this.$emit("showWarningLog", errMsg[1]);
           });
       }
+    },
+    /**
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
+    //Goi ipa them nhan vien
+    async addMoreEmployee() {
+      var aipUrl = "https://localhost:44368/api/v1/Employees/";
+      if (this.formMode == "add") {
+        await axios
+          .post(aipUrl, this.employee)
+          .then((res) => {
+            console.log(res);
+            if (res.status == 200) {
+              this.resetForm();
+              console.log(res);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+            var errMsg = err.response.data.errMsg.split("/");
+            if (errMsg[0] == 1) this.$emit("showStatusLog", errMsg[1]);
+            else if (errMsg[0] == 0) this.$emit("showWarningLog", errMsg[1]);
+          });
+      } else {
+        await axios
+          .put(aipUrl, this.employee)
+          .then((res) => {
+            console.log(res.data);
+            if (res.status == 200) {
+              this.resetForm();
+              console.log(res);
+            }
+          })
+          .catch((err) => {
+            console.log(err.response);
+            var errMsg = err.response.data.errMsg.split("/");
+            if (errMsg[0] == 1) this.$emit("showStatusLog", errMsg[1]);
+            else if (errMsg[0] == 0) this.$emit("showWarningLog", errMsg[1]);
+          });
+      }
+    },
+    btnAddMore() {
+      this.addMoreEmployee();
+      this.$nextTick(() => this.$refs.employeeCode.focus());
+    },
+    async resetForm() {
+      this.employee = { ...this.employeeBackUp };
+      this.codeBlured = false;
+      this.nameBlured = false;
+      this.pssBlured = false;
+      this.$emit("setFormModeAdd");
+      var aipUrl = "https://localhost:44368/api/v1/Employees/getMaxCode";
+      await axios
+        .get(aipUrl)
+        .then((res) => {
+          var temp = res.data[0].split("-");
+          this.employee.employeeCode =
+            temp[0] + "-" + (parseInt(temp[1]) + 1).toString();
+          this.employee.employeeCode;
+          console.log(this.employee.employeeCode);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     /**
      * CreatedBy: TDDUNG
@@ -306,6 +351,29 @@ export default {
     formValidate(value) {
       if (value == "" || value == null) return true;
       else return false;
+    },
+    setPssBlured(value) {
+      this.pssBlured = value;
+    },
+    setDepartmentName(value) {
+      this.employee.departmentName = value;
+      switch (value) {
+        case "Phòng Nhân sự":
+          this.employee.departmentId = "11452b0c-768e-5ff7-0d63-eeb1d8ed8cef";
+          break;
+        case "Phòng Kế toán":
+          this.employee.departmentId = "142cb08f-7c31-21fa-8e90-67245e8b283e";
+          break;
+        case "Phòng Đào tạo":
+          this.employee.departmentId = "17120d02-6ab5-3e43-18cb-66948daf6128";
+          break;
+        case "Phòng Marketing":
+          this.employee.departmentId = "469b3ece-744a-45d5-957d-e8c757976496";
+          break;
+        case "Phòng Nghiên cứu":
+          this.employee.departmentId = "4e272fc4-7875-78d6-7d32-6a1673ffca7c";
+          break;
+      }
     },
   },
   //CreatedBy: TDDUUNG
@@ -339,6 +407,7 @@ input[type="date"] {
 }
 input[type="radio"] {
   margin: 5px;
+  padding: 0px !important;
   width: 20px;
   height: 20px;
 }

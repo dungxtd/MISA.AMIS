@@ -61,16 +61,25 @@ namespace MISA.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mã nhân viên đã tồn tại trên hệ thống..
+        ///   Looks up a localized string similar to &gt; đã tồn tại trên hệ thống, vui lòng kiểm tra lại..
         /// </summary>
-        internal static string duplidateEmployeeCode {
+        internal static string duplidateEmployeeCodeAfter {
             get {
-                return ResourceManager.GetString("duplidateEmployeeCode", resourceCulture);
+                return ResourceManager.GetString("duplidateEmployeeCodeAfter", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mã nhân viên không được dài quá 20 kí tự..
+        ///   Looks up a localized string similar to 0/Mã nhân viên &lt;.
+        /// </summary>
+        internal static string duplidateEmployeeCodeBefore {
+            get {
+                return ResourceManager.GetString("duplidateEmployeeCodeBefore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1/Mã nhân viên không được dài quá 20 kí tự..
         /// </summary>
         internal static string employeeLengthErr {
             get {
@@ -79,7 +88,7 @@ namespace MISA.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mã nhân viên không được phép để trống..
+        ///   Looks up a localized string similar to 1/Mã nhân viên không được phép để trống..
         /// </summary>
         internal static string emptyEmployeeCode {
             get {
@@ -88,7 +97,7 @@ namespace MISA.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tên nhân viên không được phép để trống..
+        ///   Looks up a localized string similar to 1/Tên nhân viên không được phép để trống..
         /// </summary>
         internal static string emptyEmployeeName {
             get {
@@ -97,7 +106,7 @@ namespace MISA.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phòng ban không được phép để trống..
+        ///   Looks up a localized string similar to 1/Phòng ban không được phép để trống..
         /// </summary>
         internal static string emptyEmployeePss {
             get {
@@ -106,7 +115,7 @@ namespace MISA.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to không được phép để trống..
+        ///   Looks up a localized string similar to 1/không được phép để trống..
         /// </summary>
         internal static string emptyErr {
             get {
@@ -115,7 +124,7 @@ namespace MISA.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Page size và page index phải là số nguyên.
+        ///   Looks up a localized string similar to 1/Page size và page index phải là số nguyên.
         /// </summary>
         internal static string pagingErr {
             get {

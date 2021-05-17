@@ -7,15 +7,11 @@
             class="icon icon-edit-warning"
             style="margin: auto 0; margin-right: 10px"
           ></div>
-          <div class="text-edit-warning">
-            Bạn có thật sự muốn xoá nhân viên <br />
-            &#60;{{ codeDelete }}&#62; không ?
-          </div>
+          <div class="text-edit-warning">{{ warningMsg }}</div>
         </div>
         <div class="mess-line"></div>
         <div class="report-footer" style="flex: 3 1 0%">
-          <div class="no-btn" @click="noClick">Không</div>
-          <div class="yes-btn" @click="yesClick">Có</div>
+          <div class="yes-btn" @click="acceptClick">Đồng ý</div>
         </div>
       </div>
     </div>
@@ -25,15 +21,11 @@
 <script>
 export default {
   props: {
-    codeDelete: { type: String, default: "" },
+    warningMsg: { type: String, default: "" },
   },
   methods: {
-    noClick() {
-      this.$emit("hideReportLog");
-    },
-    yesClick() {
-      this.$emit("deleteEmployee");
-      this.$emit("hideReportLog");
+    acceptClick() {
+      this.$emit("hideWarningLog");
     },
   },
 };
@@ -53,7 +45,7 @@ export default {
   margin: auto;
   color: rgb(17, 17, 17) !important;
   width: 254px;
-  padding-left: 20px;
+  padding-left: 0px !important;
   font-weight: 100 !important;
 }
 .report-model {

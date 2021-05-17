@@ -9,7 +9,7 @@
               { 'icon-report': statusLog },
               { 'icon-warning': !statusLog },
             ]"
-            style="margin: auto 0"
+            style="margin: auto 0px; margin-right: 10px"
           ></div>
           <div
             class="text-warning"
@@ -61,9 +61,8 @@ export default {
 }
 .log-content {
   display: flex;
-  margin: auto;
+  margin: 0 50px;
   flex: 6;
-  /* display: flex; */
   padding: 0;
   vertical-align: middle;
 }
@@ -93,7 +92,7 @@ export default {
 }
 .log-footer div {
   font-weight: 600;
-  padding: 15px 40px;
+  padding: 13px 30px;
   border-radius: 4px;
   display: inline-block;
   margin: auto;
