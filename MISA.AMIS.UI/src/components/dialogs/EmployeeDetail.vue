@@ -223,7 +223,7 @@ export default {
   components: {},
   created() {
     this.$nextTick(() => this.$refs.employeeCode.focus());
-    this.employee = this.employeeTemp;
+    this.employee.employeeCode = this.employeeTemp.employeeCode;
   },
   props: {
     employeeTemp: { type: Object, default: Object.create(null) },
@@ -260,7 +260,6 @@ export default {
           })
           .catch((err) => {
             console.log(err);
-
             this.$emit("showStatusLog", err.response.data.devMsg);
           });
       }
