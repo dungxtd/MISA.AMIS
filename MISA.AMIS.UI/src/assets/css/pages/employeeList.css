@@ -109,6 +109,7 @@ input:focus-visible {
   overflow: scroll;
   top: 60px;
   max-height: calc(100vh - 230px);
+  min-height: calc(100vh - 370px);
   height: 100%;
 }
 table {

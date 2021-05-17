@@ -59,8 +59,7 @@ namespace MISA.AMIS.API.Middleware
             }
             var response = new
             {
-                devMsg = exception.Message,
-                devCode = exception.Data,
+                errMsg = exception.Message,
             };
 
             var result = JsonSerializer.Serialize(response);

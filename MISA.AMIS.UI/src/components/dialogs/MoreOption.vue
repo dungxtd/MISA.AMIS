@@ -30,27 +30,51 @@ export default {
   props: {
     screenX: { type: NaN, default: 0 },
     screenY: { type: NaN, default: 0 },
-    idDelete: { type: String, default: "" },
-    codeDelete: { type: String, default: "" },
+    employeeProp: { type: Object, default: Object.create(null) },
   },
   data() {
     return {
       isShowReportLog: false, //Bien hien thi report
       codeDeleteTemp: "", //Bien
+      employee: {},
     };
   },
 
   methods: {
     deleteClick() {
-      this.codeDeleteTemp = this.codeDelete;
+      this.codeDeleteTemp = this.employeeProp.employeeCode;
       this.isShowReportLog = true;
     },
-    clickClone() {
-      this.$emit("cloneEmployee");
+    /**
+     * Hàm gọi api lấy mã nhân viên lớn nhất và clone
+     * Createby: TDDUNG
+     * Date: 11/5/2021
+     */
+    async clickClone() {
+      this.employee = { ...this.employeeProp };
+      var aipUrl = "https://localhost:44368/api/v1/Employees/getMaxCode";
+      await axios
+        .get(aipUrl)
+        .then((res) => {
+          var temp = res.data[0].split("-");
+          this.employee.employeeCode =
+            temp[0] + "-" + (parseInt(temp[1]) + 1).toString();
+          // console.log(this.employee.employeeCode);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      this.$emit("cloneEmployee", this.employee);
     },
+    /**
+     * Hàm gọi api xoá nhân viên
+     * Createby: TDDUNG
+     * Date: 11/5/2021
+     */
     async deleteEmployee() {
       var aipUrl =
-        "https://localhost:44368/api/v1/Employees?id=" + this.idDelete;
+        "https://localhost:44368/api/v1/Employees?id=" +
+        this.employeeProp.employeeId;
       axios
         .delete(aipUrl)
         .then((res) => {

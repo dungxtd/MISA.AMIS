@@ -5,7 +5,8 @@
         <div class="report-content">
           <div class="icon icon-edit-warning" style="margin: auto 0"></div>
           <div class="text-edit-warning">
-            Bạn có thật sự muốn xoá nhân viên {{ codeDelete }} không ?
+            Bạn có thật sự muốn xoá nhân viên <br />
+            &#60;{{ codeDelete }}&#62; không ?
           </div>
         </div>
         <div class="mess-line"></div>

@@ -223,12 +223,24 @@ export default {
   components: {},
   created() {
     this.$nextTick(() => this.$refs.employeeCode.focus());
-    this.employee.employeeCode = this.employeeTemp.employeeCode;
+    this.employee = { ...this.employeeProp };
   },
   props: {
-    employeeTemp: { type: Object, default: Object.create(null) },
+    employeeProp: { type: Object, default: Object.create(null) },
     formMode: { type: String, default: "" },
     inputFocus: { type: Boolean, default: false },
+  },
+  data() {
+    return {
+      employee: {
+        employeeCode: "",
+        employeeName: "",
+        departmentId: null,
+      },
+      codeBlured: false, //Blur ra khỏi ô input code
+      nameBlured: false, //Blur ra khỏi ô input name
+      pssBlured: false, //Blur ra khỏi ô input đơn vị
+    };
   },
   methods: {
     //Ham an vao nut thoat
@@ -239,6 +251,10 @@ export default {
     //Date : 11/5/2021
     //Ham an vao nut xong
     btnAddEdit() {
+      this.codeBlured = true;
+      this.nameBlured = true;
+      this.pssBlured = true;
+      this.employee;
       this.addEmployee();
     },
     /**
@@ -260,7 +276,7 @@ export default {
           })
           .catch((err) => {
             console.log(err);
-            this.$emit("showStatusLog", err.response.data.devMsg);
+            this.$emit("showStatusLog", err.response.data.errMsg);
           });
       }
       //CreatedBy: TDDUUNG
@@ -278,7 +294,7 @@ export default {
           })
           .catch((err) => {
             console.log(err.response);
-            this.$emit("showStatusLog", err.response.data.devMsg);
+            this.$emit("showStatusLog", err.response.data.errMsg);
           });
       }
     },
@@ -294,33 +310,7 @@ export default {
   },
   //CreatedBy: TDDUUNG
   //Date : 11/5/2021
-  data() {
-    return {
-      employee: {
-        employeeCode: "",
-        employeeName: "",
-        gender: null,
-        dateOfBirth: null,
-        identityNumber: "",
-        identityDate: null,
-        identityPlace: "",
-        employeePosition: "",
-        address: "",
-        departmentId: "",
-        departmentName: "",
-        bankAccountNumber: "",
-        bankName: "",
-        bankBranchName: "",
-        phoneNumber: "",
-        telephoneNumber: "",
-        email: "",
-        accountState: "",
-      },
-      codeBlured: false, //Blur ra khỏi ô input code
-      nameBlured: false, //Blur ra khỏi ô input name
-      pssBlured: false, //Blur ra khỏi ô input đơn vị
-    };
-  },
+
   watch: {},
   computed: {},
 };

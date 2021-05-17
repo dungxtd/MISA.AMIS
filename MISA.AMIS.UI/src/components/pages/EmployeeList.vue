@@ -76,11 +76,7 @@
                 <div class="action">
                   <div
                     class="edit-text"
-                    style="
-                      font-weight: 600;
-                          margin: 0 20px
-                      cursor: pointer;
-                    "
+                    style="font-weight: 600; margin: 0 20px; cursor: pointer"
                     @click="clickEditEmployee(employee)"
                   >
                     Sửa
@@ -95,9 +91,8 @@
                 <MoreOptions
                   @getData="getData()"
                   @hideMoreOption="hideMoreOption()"
-                  @cloneEmployee="cloneEmployee()"
-                  :idDelete="employee.employeeId"
-                  :codeDelete="employee.employeeCode"
+                  @cloneEmployee="cloneEmployee"
+                  :employeeProp="employee"
                   :screenX="screenX"
                   :screenY="screenY"
                   v-if="index == indexTemp && isShowMoreOption"
@@ -131,12 +126,11 @@
     </div>
     <EmployeeDetail
       v-if="isShowDetail == true"
-      :employeeTemp="employee"
+      :employeeProp="employee"
       :formMode="formMode"
       :inputFocus="inputFocus"
       @hideDetailPage="hideDetailPage"
       @showStatusLog="showStatusLog"
-      @setTypeOfStatus="setTypeOfStatus"
     />
     <StatusDialog
       v-if="isShowStatusLog == true"
@@ -176,7 +170,7 @@ export default {
         identityPlace: "",
         employeePosition: "",
         address: "",
-        departmentId: "",
+        departmentId: null,
         departmentName: "",
         bankAccountNumber: "",
         bankName: "",
@@ -303,9 +297,8 @@ export default {
     clickShowMoreOption(index, employee) {
       this.indexTemp = index;
       this.employee = employee;
-      console.log(index + " " + this.indexTemp);
-      if (this.isShowMoreOption == false) this.isShowMoreOption = true;
-      else this.isShowMoreOption = false;
+      // console.log(index + " " + this.indexTemp);
+      this.isShowMoreOption = !this.isShowMoreOption;
     },
     /**
      * Ham lay vi tri cua con tro chuot
@@ -385,8 +378,9 @@ export default {
      * CreatedBy: TDDUNG
      * DATE: 16/5/2021
      */
-    async cloneEmployee() {
+    async cloneEmployee(employee) {
       this.formMode = "add";
+      this.employee = employee;
       if (this.employee.dateOfBirth != null)
         this.employee.dateOfBirth = this.employee.dateOfBirth.substring(0, 10);
       if (this.employee.identityDate != null)
@@ -394,18 +388,6 @@ export default {
           0,
           10
         );
-      var aipUrl = "https://localhost:44368/api/v1/Employees/getMaxCode";
-      await axios
-        .get(aipUrl)
-        .then((res) => {
-          var temp = res.data[0].split("-");
-          this.employee.employeeCode =
-            temp[0] + "-" + (parseInt(temp[1]) + 1).toString();
-          console.log(this.employee.employeeCode);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
       this.isShowDetail = true;
       this.inputFocus = true;
     },
@@ -425,14 +407,6 @@ export default {
      */
     hideStatusLog() {
       this.isShowStatusLog = false;
-    },
-    /**
-     * Ham set cảnh báo
-     * CreatedBy: TDDUNG
-     * DATE: 16/5/2021
-     */
-    setTypeOfStatus(value) {
-      this.typeOfStatus = value;
     },
     /**
      * Ham bat su kien click ben ngoai
