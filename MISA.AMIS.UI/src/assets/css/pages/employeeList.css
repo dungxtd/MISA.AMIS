@@ -44,6 +44,7 @@ input {
   font-family: NotoSans-Italic;
   font-size: 12px;
   color: #8d9096;
+  border: 1px solid #babec5;
 }
 input:hover {
   border: 1px solid #8d9096;
@@ -99,7 +100,7 @@ input:focus-visible {
 }
 .list-grid {
   overflow: unset;
-  max-height: none;
+  /* max-height: none; */
   /* min-width: calc(100% + 30px); */
   /* position: absolute; */
   /* background-color: green; */
@@ -107,7 +108,8 @@ input:focus-visible {
   right: 25px;
   overflow: scroll;
   top: 60px;
-  height: calc(100vh - 230px);
+  max-height: calc(100vh - 230px);
+  height: 100%;
 }
 table {
   border-spacing: 0;
@@ -153,4 +155,7 @@ th {
 .pageSelected {
   border: 1px solid #e0e0e0;
   font-weight: 700;
+}
+input[type="text"]::placeholder {
+  color: #babec5;
 }

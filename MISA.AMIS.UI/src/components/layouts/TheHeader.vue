@@ -10,14 +10,14 @@
       </div>
     </div>
     <div class="header-right">
-      <div class="filter-input">
+      <!-- <div class="filter-input">
         <input
           type="text"
           placeholder="Nhập từ khóa tìm kiếm"
           class="filter-input-label"
         />
         <div class="icon icon-24 filter-input-icon"></div>
-      </div>
+      </div> -->
       <div class="option-cover bell-cover">
         <div class="icon icon-24 bell-icon"></div>
       </div>

@@ -14,7 +14,7 @@ table thead th {
   padding-top: 8px !important;
   font-size: 13px;
   position: sticky;
-  top: -1px;
+  top: 0px;
   background-color: #eceef1;
   /* max-height: 30px; */
   font-size: 12px;
@@ -59,17 +59,19 @@ th:last-child {
   border-right: none;
   position: sticky;
   right: 0;
+  top: 1px;
   z-index: 2;
   height: 33px;
   background: #eceef1;
 }
 
 td:first-child {
-  /* border-bottom: 1px solid #e5e5e5; */
+  border-bottom: 1px solid #e5e5e5;
   display: flex;
   border-right: none;
   position: sticky;
   left: 0;
+  top: 0px !important;
   z-index: 10;
   background: white;
   border-right: 1px dashed #c7c7c7;

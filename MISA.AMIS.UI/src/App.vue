@@ -25,6 +25,9 @@ export default {
 
 <style>
 @import "./assets/css/index.css";
+#app {
+  display: flex;
+}
 #container {
   width: calc(100% - 178px);
   display: inline-block;

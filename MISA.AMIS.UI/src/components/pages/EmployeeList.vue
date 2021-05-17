@@ -105,26 +105,27 @@
             </tbody>
           </table>
         </div>
-      </div>
-      <div class="footer">
-        <div class="title-footer">
-          Tống số:
-          <div class="cout-paging">{{ count }}</div>
-          bản ghi
-        </div>
-        <div class="paging-footer">
-          <div class="page-size"></div>
-          <div class="pre-page">Trước</div>
-          <div class="number-page">
-            <div class="page">...</div>
-            <div class="page pageSelected">1</div>
-            <div class="page">2</div>
-            <div class="page">3</div>
-            <div class="page">...</div>
+        <div class="footer">
+          <div class="title-footer">
+            Tống số:
+            <div class="cout-paging">{{ count }}</div>
+            bản ghi
           </div>
-          <div class="next-page">Sau</div>
+          <div class="paging-footer">
+            <div class="page-size"></div>
+            <div class="pre-page">Trước</div>
+            <div class="number-page">
+              <div class="page">...</div>
+              <div class="page pageSelected">1</div>
+              <div class="page">2</div>
+              <div class="page">3</div>
+              <div class="page">...</div>
+            </div>
+            <div class="next-page">Sau</div>
+          </div>
         </div>
       </div>
+
       <!-- v-if="isShowDetail == true" -->
     </div>
     <EmployeeDetail
@@ -193,7 +194,7 @@ export default {
      */
     loadData() {
       this.pageIndex = 1;
-      this.pageSize = 10;
+      this.pageSize = 20;
       this.getData();
     },
     /**
