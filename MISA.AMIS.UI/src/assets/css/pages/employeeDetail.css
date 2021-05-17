@@ -9,7 +9,7 @@
   right: 0;
   background-color: black;
   opacity: 0.4;
-  z-index: 10;
+  z-index: 20;
 }
 .dialog-content {
   position: fixed;

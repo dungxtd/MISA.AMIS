@@ -78,7 +78,7 @@
                     class="edit-text"
                     style="
                       font-weight: 600;
-                      margin-right: 10px;
+                          margin: 0 20px
                       cursor: pointer;
                     "
                     @click="clickEditEmployee(employee)"
@@ -87,13 +87,15 @@
                   </div>
                   <div
                     class="icon icon-24 icon-more"
-                    v-on:click="clickShowMoreOption(index)"
+                    :class="{ outLine: index == indexTemp && isShowMoreOption }"
+                    v-on:click="clickShowMoreOption(index, employee)"
                     @click="someMethod"
                   ></div>
                 </div>
                 <MoreOptions
                   @getData="getData()"
                   @hideMoreOption="hideMoreOption()"
+                  @cloneEmployee="cloneEmployee()"
                   :idDelete="employee.employeeId"
                   :codeDelete="employee.employeeCode"
                   :screenX="screenX"
@@ -125,12 +127,11 @@
           </div>
         </div>
       </div>
-
       <!-- v-if="isShowDetail == true" -->
     </div>
     <EmployeeDetail
       v-if="isShowDetail == true"
-      :employee="employee"
+      :employeeTemp="employee"
       :formMode="formMode"
       :inputFocus="inputFocus"
       @hideDetailPage="hideDetailPage"
@@ -165,7 +166,26 @@ export default {
   data() {
     return {
       employees: [], //Bien chua mang nhan vien
-      employee: {},
+      employee: {
+        employeeCode: "",
+        employeeName: "",
+        gender: null,
+        dateOfBirth: null,
+        identityNumber: "",
+        identityDate: null,
+        identityPlace: "",
+        employeePosition: "",
+        address: "",
+        departmentId: "",
+        departmentName: "",
+        bankAccountNumber: "",
+        bankName: "",
+        bankBranchName: "",
+        phoneNumber: "",
+        telephoneNumber: "",
+        email: "",
+        accountState: "",
+      },
       maxPage: 0, // Số số trang
       pageIndex: 1, // Biến chỉ trang hiện tại
       pageSize: 10, // Biến chứa số lượng bản ghi 1 trang
@@ -184,7 +204,7 @@ export default {
     };
   },
   created() {
-    this.getData();
+    this.loadData();
   },
   methods: {
     /**
@@ -280,8 +300,9 @@ export default {
      * CreatedBy: TDDUNG
      * DATE: 16/5/2021
      */
-    clickShowMoreOption(index) {
+    clickShowMoreOption(index, employee) {
       this.indexTemp = index;
+      this.employee = employee;
       console.log(index + " " + this.indexTemp);
       if (this.isShowMoreOption == false) this.isShowMoreOption = true;
       else this.isShowMoreOption = false;
@@ -306,6 +327,7 @@ export default {
      */
     hideMoreOption() {
       this.isShowMoreOption = false;
+      this.employee = Object.create(null);
     },
     /**
      * Ham lay so ban ghi lon nhat va hien cua so them
@@ -314,8 +336,6 @@ export default {
      */
     async showDialogDetail() {
       this.formMode = "add";
-      this.employee = {};
-      this.employee.employeeCode = "";
       var aipUrl = "https://localhost:44368/api/v1/Employees/getMaxCode";
       await axios
         .get(aipUrl)
@@ -357,6 +377,35 @@ export default {
           0,
           10
         );
+      this.isShowDetail = true;
+      this.inputFocus = true;
+    },
+    /**
+     * Ham hiển thị cửa sổ detail khi ấn nhân bản
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
+    async cloneEmployee() {
+      this.formMode = "add";
+      if (this.employee.dateOfBirth != null)
+        this.employee.dateOfBirth = this.employee.dateOfBirth.substring(0, 10);
+      if (this.employee.identityDate != null)
+        this.employee.identityDate = this.employee.identityDate.substring(
+          0,
+          10
+        );
+      var aipUrl = "https://localhost:44368/api/v1/Employees/getMaxCode";
+      await axios
+        .get(aipUrl)
+        .then((res) => {
+          var temp = res.data[0].split("-");
+          this.employee.employeeCode =
+            temp[0] + "-" + (parseInt(temp[1]) + 1).toString();
+          console.log(this.employee.employeeCode);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       this.isShowDetail = true;
       this.inputFocus = true;
     },
@@ -473,7 +522,10 @@ input:checked[type="checkbox"]::before {
   min-width: 200px;
 }
 .icon-more {
-  background-position: -884px -359px !important;
+  background-position: -891px -357px !important;
   cursor: pointer;
+}
+.outLine {
+  outline: 1px solid #0075c0;
 }
 </style>

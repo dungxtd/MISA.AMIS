@@ -3,11 +3,11 @@
     <ul
       class="more-option"
       :style="{
-        top: screenY - 10 + 'px',
-        left: screenX - 112 + 'px',
+        top: screenY - 8 + 'px',
+        left: screenX - 120 + 'px',
       }"
     >
-      <li>Nhân bản</li>
+      <li @click="clickClone()">Nhân bản</li>
       <li @click="deleteClick()">Xoá</li>
       <li>Ngưng sử dụng</li>
     </ul>
@@ -45,24 +45,29 @@ export default {
       this.codeDeleteTemp = this.codeDelete;
       this.isShowReportLog = true;
     },
+    clickClone() {
+      this.$emit("cloneEmployee");
+    },
     async deleteEmployee() {
       var aipUrl =
         "https://localhost:44368/api/v1/Employees?id=" + this.idDelete;
-      await axios
+      axios
         .delete(aipUrl)
         .then((res) => {
           console.log(res);
           if (res.status == 200) {
             this.$emit("hideMoreOption");
-            this.$emit("getData");
           }
         })
         .catch((err) => {
           console.log(err);
         });
+      await this.$emit("getData");
     },
     hideReportLog() {
       this.isShowReportLog = false;
+      this.$emit("hideMoreOption");
+      this.$emit("getData");
     },
   },
 };
@@ -70,7 +75,7 @@ export default {
 
 <style scope>
 .more-option {
-  z-index: 99;
+  z-index: 15;
   position: absolute;
   background-color: rgb(255, 255, 255);
   border: 1px solid #dedede;
@@ -90,5 +95,12 @@ ul li {
 ul li:hover {
   background-color: #eee;
   color: #2cbc18;
+}
+.unselectable {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 </style>

@@ -223,9 +223,10 @@ export default {
   components: {},
   created() {
     this.$nextTick(() => this.$refs.employeeCode.focus());
+    this.employee = this.employeeTemp;
   },
   props: {
-    employee: { type: Object, default: Object.create(null) },
+    employeeTemp: { type: Object, default: Object.create(null) },
     formMode: { type: String, default: "" },
     inputFocus: { type: Boolean, default: false },
   },
@@ -296,6 +297,26 @@ export default {
   //Date : 11/5/2021
   data() {
     return {
+      employee: {
+        employeeCode: "",
+        employeeName: "",
+        gender: null,
+        dateOfBirth: null,
+        identityNumber: "",
+        identityDate: null,
+        identityPlace: "",
+        employeePosition: "",
+        address: "",
+        departmentId: "",
+        departmentName: "",
+        bankAccountNumber: "",
+        bankName: "",
+        bankBranchName: "",
+        phoneNumber: "",
+        telephoneNumber: "",
+        email: "",
+        accountState: "",
+      },
       codeBlured: false, //Blur ra khỏi ô input code
       nameBlured: false, //Blur ra khỏi ô input name
       pssBlured: false, //Blur ra khỏi ô input đơn vị
