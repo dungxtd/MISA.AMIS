@@ -174,7 +174,4 @@ export default {
   border: 1px solid #8d9096;
   cursor: pointer;
 }
-
-.right-footer {
-}
 </style>

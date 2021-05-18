@@ -26,6 +26,7 @@
     </div>
     <div class="main-list">
       <LoadingScreen v-if="status == 0" />
+      <EmptyData v-if="status == 1 && employees.length == 0" />
       <div class="list-control">
         <div class="list-grid">
           <table>
@@ -168,6 +169,7 @@ import EmployeeDetail from "../dialogs/EmployeeDetail";
 import StatusDialog from "../dialogs/StatusDialog";
 import WarningDialog from "../dialogs/WarningDialog";
 import PageSizeBox from "../dialogs/PageSizeBox";
+import EmptyData from "../dialogs/EmptyData";
 import Vue from "vue";
 import vClickOutside from "v-click-outside";
 Vue.use(vClickOutside);
@@ -181,6 +183,7 @@ export default {
     StatusDialog,
     WarningDialog,
     PageSizeBox,
+    EmptyData,
   },
   data() {
     return {
