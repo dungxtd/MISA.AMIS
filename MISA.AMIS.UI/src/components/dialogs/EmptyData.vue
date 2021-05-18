@@ -1,8 +1,10 @@
 <template>
   <div>
     <div class="loading-model">
-      <div class="empty-icon"></div>
-      <div class="empty-text">Không có dữ liệu</div>
+      <div class="empty-content">
+        <div class="empty-icon"></div>
+        <div class="empty-text">Không có dữ liệu</div>
+      </div>
     </div>
   </div>
 </template>

@@ -11,7 +11,7 @@
   height: 50px;
   background-size: cover;
   top: 50%;
-  left: calc(50% + 89px);
+  left: calc(50% + 80px);
   position: absolute;
 }
 .empty-icon {
@@ -19,13 +19,14 @@
   width: 132px;
   height: 74px;
   background-size: cover;
-  top: 40%;
-  left: calc(50% + 89px);
-  position: absolute;
 }
 .empty-text {
-  position: absolute;
-  top: 50%;
-  left: calc(50% + 102px);
   font-weight: 500;
+  margin-top: 10px;
+  padding-left: 10px;
+}
+.empty-content {
+  top: 45%;
+  left: calc(50% + 70px);
+  position: absolute;
 }
