@@ -25,12 +25,22 @@
 <script>
 export default {
   props: {
-    codeDelete: { type: String, default: "" },
+    codeDelete: { type: String, default: "" }, //Biến chứa code nhân viên muốn xoá
   },
   methods: {
+    /**
+     * Bắt sự kiện khi nhấn phím không
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     noClick() {
       this.$emit("hideReportLog");
     },
+    /**
+     * Bắt sự kiện khi nhấn phím có
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     yesClick() {
       this.$emit("deleteEmployee");
       this.$emit("hideReportLog");
@@ -39,7 +49,7 @@ export default {
 };
 </script>
 
-<style scope>
+<style scoped>
 .mess-line {
   height: 1px;
   background: #b8bcc3;
@@ -128,10 +138,10 @@ export default {
   line-height: 10px;
   justify-content: center;
   align-items: center;
-  border: 1px solid #111;
+  border: 1px solid #8d9096;
   cursor: pointer;
 }
 .report-footer .no-btn:hover {
-  background-color: rgba(145, 145, 145, 0.678);
+  background-color: #d2d3d6;
 }
 </style>

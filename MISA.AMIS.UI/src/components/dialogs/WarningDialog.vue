@@ -21,9 +21,14 @@
 <script>
 export default {
   props: {
-    warningMsg: { type: String, default: "" },
+    warningMsg: { type: String, default: "" }, // Biến chứa câu thông báo
   },
   methods: {
+    /**
+     * Bắt sự kiện khi nhấn phím đồng ý
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     acceptClick() {
       this.$emit("hideWarningLog");
     },

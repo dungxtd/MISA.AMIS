@@ -19,7 +19,7 @@
             <div class="icon icon-24 icon-help"></div>
             <div
               class="icon icon-24 icon-cancel"
-              @click="hideDetailPage()"
+              @click="cancelDetailPage()"
             ></div>
           </div>
         </div>
@@ -193,39 +193,99 @@
         </div>
       </div>
     </div>
+    <DataChangedDialog
+      v-if="isShowDataChanged == true"
+      @hideDataChangedDialog="hideDataChangedDialog"
+      @hideDetailPage="hideDetailPage"
+      @saveDataChanged="saveDataChanged"
+    />
   </div>
 </template>
 <script>
 import axios from "axios";
 import ComboBox from "./Combobox";
+import DataChangedDialog from "./DataChangedDialog";
 export default {
-  components: { ComboBox },
+  components: { ComboBox, DataChangedDialog },
   created() {
+    //focus vào ô mã nhân viên
     this.$nextTick(() => this.$refs.employeeCode.focus());
+    //gán nhân viên bằng giá trị truyền lên từ list
     this.employee = { ...this.employeeProp };
+    this.employeeEqual = { ...this.employeeProp };
   },
   props: {
-    employeeProp: { type: Object, default: Object.create(null) },
-    employeeBackUp: { type: Object, default: Object.create(null) },
-    formMode: { type: String, default: "" },
-    inputFocus: { type: Boolean, default: false },
+    employeeProp: { type: Object, default: Object.create(null) }, //biến employee truyền lên từ employee list
+    employeeBackUp: { type: Object, default: Object.create(null) }, // biến dùng để backup employee khi reset form
+    formMode: { type: String, default: "" }, // biến chỉ kiểu cất là sửa hay thêm
   },
   data() {
     return {
       employee: {},
+      employeeEqual: {},
+      isShowDataChanged: false, //Biến hiển thị cửa sổ thồn báo data đã bị thay đổi
       codeBlured: false, //Blur ra khỏi ô input code
       nameBlured: false, //Blur ra khỏi ô input name
       pssBlured: false, //Blur ra khỏi ô input đơn vị
     };
   },
   methods: {
-    //Ham an vao nut thoat
+    /**
+     * Hàm ấn vào nút cancel x ở trên
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
+    cancelDetailPage() {
+      if (!this.deepEqual(this.employee, this.employeeEqual))
+        this.isShowDataChanged = true;
+      else this.hideDetailPage();
+    },
+
+    /**
+     * Hàm so sánh sâu 2 object
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
+    deepEqual(object1, object2) {
+      const keys1 = Object.keys(object1);
+      const keys2 = Object.keys(object2);
+      if (keys1.length !== keys2.length) {
+        return false;
+      }
+      for (const key of keys1) {
+        const val1 = object1[key];
+        const val2 = object2[key];
+        const areObjects = this.isObject(val1) && this.isObject(val2);
+        if (
+          (areObjects && !this.deepEqual(val1, val2)) ||
+          (!areObjects && val1 !== val2)
+        ) {
+          return false;
+        }
+      }
+      return true;
+    },
+    /**
+     * Hàm kiểm tra xem có phải object hay không
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
+    isObject(object) {
+      return object != null && typeof object === "object";
+    },
+    /**
+     * Hàm ẩn form chi tiết
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     hideDetailPage() {
       this.$emit("hideDetailPage");
     },
-    //CreatedBy: TDDUUNG
-    //Date : 11/5/2021
-    //Ham an vao nut xong
+    /**
+     * Hàm ấn vào nút cất
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     btnAddEdit() {
       this.codeBlured = true;
       this.nameBlured = true;
@@ -234,6 +294,7 @@ export default {
       this.addEmployee();
     },
     /**
+     * Hàm gọi API thêm nhân viên và cất form chi tiết
      * CreatedBy: TDDUNG
      * Date: 11/5/2021
      */
@@ -257,8 +318,6 @@ export default {
             else if (errMsg[0] == 0) this.$emit("showWarningLog", errMsg[1]);
           });
       }
-      //CreatedBy: TDDUUNG
-      //Date : 11/5/2021
       // Goi api sua nhan vien
       else {
         await axios
@@ -279,11 +338,12 @@ export default {
       }
     },
     /**
+     * Hàm gọi API thêm nhân viên nhưng không cất form chi tiết
      * CreatedBy: TDDUNG
      * Date: 11/5/2021
      */
-    //Goi ipa them nhan vien
     async addMoreEmployee() {
+      //Goi ipa them nhan vien
       var aipUrl = "https://localhost:44368/api/v1/Employees/";
       if (this.formMode == "add") {
         await axios
@@ -302,6 +362,7 @@ export default {
             else if (errMsg[0] == 0) this.$emit("showWarningLog", errMsg[1]);
           });
       } else {
+        //Goi ipa sửa nhan vien
         await axios
           .put(aipUrl, this.employee)
           .then((res) => {
@@ -319,12 +380,23 @@ export default {
           });
       }
     },
+    /**
+     * Hàm ấn vào nút cất và thêm
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     btnAddMore() {
       this.addMoreEmployee();
       this.$nextTick(() => this.$refs.employeeCode.focus());
     },
+    /**
+     * Hàm reset form chi tiết
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     async resetForm() {
       this.employee = { ...this.employeeBackUp };
+      this.employeeEqual = this.employee;
       this.codeBlured = false;
       this.nameBlured = false;
       this.pssBlured = false;
@@ -346,15 +418,25 @@ export default {
     /**
      * CreatedBy: TDDUNG
      * Date: 11/5/2021
-     * Hàm check thông tin ở client
+     * Hàm check thông tin ở client ( 1 hàm dùng chung nhaaaaaaaaaaa)
      */
     formValidate(value) {
       if (value == "" || value == null) return true;
       else return false;
     },
+    /**
+     * Hàm set giá trị khi ko focus vào ô vị trí ( vì phải dùng conbobox )
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     setPssBlured(value) {
       this.pssBlured = value;
     },
+    /**
+     * Hàm gán departmentId từ departmentName
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     setDepartmentName(value) {
       this.employee.departmentName = value;
       switch (value) {
@@ -373,17 +455,35 @@ export default {
         case "Phòng Nghiên cứu":
           this.employee.departmentId = "4e272fc4-7875-78d6-7d32-6a1673ffca7c";
           break;
+        case "":
+          this.employee.departmentId = null;
+          break;
+        default:
+          this.employee.departmentId = null;
       }
     },
+    /**
+     * Hàm ẩn cửa sổ dữ liệu đã bị thay đổi
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
+    hideDataChangedDialog() {
+      this.isShowDataChanged = false;
+    },
+    /**
+     * Hàm ẩn cửa sổ dữ liệu đã bị thay đổi và cất dữ liệu thay đổi
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
+    saveDataChanged() {
+      this.hideDataChangedDialog();
+      this.btnAddEdit();
+    },
   },
-  //CreatedBy: TDDUUNG
-  //Date : 11/5/2021
-
   watch: {},
   computed: {},
 };
 </script>
-
 <style scoped>
 .cancel-botton:hover,
 .accept-btn1:hover,

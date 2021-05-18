@@ -30,34 +30,24 @@
 <script>
 export default {
   props: {
-    options: {
-      type: Array,
-      required: true,
-    },
-    default: {
-      type: String,
-      required: false,
-      default: null,
-    },
-    tabindex: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
+    options: { type: Array, required: true }, // Biến chứa mảng sau khi đã lọc
+    default: { type: String, required: false, default: null }, // Biến mặc định cho ô input
+    tabindex: { type: Number, required: false, default: 0 }, //
   },
   data() {
     return {
-      selected: this.default
+      selected: this.default // Biến chỉ ô đã chọn
         ? this.default
         : this.options.length > 0
         ? this.options[0]
         : null,
-      open: false,
-      numberSelected: 20,
+      open: false, //Biến chỉ trạng thái cửa sổ options
+      numberSelected: 20, //Biến chỉ số bản ghi trên 1 trang đã chọn
     };
   },
   mounted() {},
   watch: {
+    // Theo dõi biến page size
     selected() {
       this.numberSelected = parseInt(this.selected.split(" ")[0]);
       this.$emit("setPageSize", this.numberSelected);

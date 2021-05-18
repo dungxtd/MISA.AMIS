@@ -29,10 +29,15 @@
 <script>
 export default {
   props: {
-    mesStatus: { type: String, default: "" },
-    statusLog: { type: Boolean, default: false },
+    mesStatus: { type: String, default: "" }, //Biến chứa câu thông báo
+    statusLog: { type: Boolean, default: false }, //Biến chứa kiểu thông báo
   },
   methods: {
+    /**
+     * Bắt sự kiện khi nhấn phím đóng
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     cancelLog() {
       this.$emit("hideStatusLog");
     },

@@ -143,7 +143,6 @@
       :employeeProp="employee"
       :employeeBackUp="employeeBackUp"
       :formMode="formMode"
-      :inputFocus="inputFocus"
       @hideDetailPage="hideDetailPage"
       @showStatusLog="showStatusLog"
       @setFormModeAdd="setFormModeAdd"
@@ -169,12 +168,11 @@ import EmployeeDetail from "../dialogs/EmployeeDetail";
 import StatusDialog from "../dialogs/StatusDialog";
 import WarningDialog from "../dialogs/WarningDialog";
 import PageSizeBox from "../dialogs/PageSizeBox";
-
 import Vue from "vue";
 import vClickOutside from "v-click-outside";
 Vue.use(vClickOutside);
-const LOADING = 0;
-const SUCCESS = 1;
+const LOADING = 0; // Biến chỉ trạng thái page là đang loading
+const SUCCESS = 1; // Biến chỉ trạng thái page là loading thành công
 export default {
   components: {
     MoreOptions,
@@ -206,7 +204,7 @@ export default {
         telephoneNumber: "",
         email: "",
         accountState: "",
-      },
+      }, // Biến nhân viên
       employeeBackUp: {
         employeeCode: "",
         employeeName: "",
@@ -226,7 +224,7 @@ export default {
         telephoneNumber: "",
         email: "",
         accountState: "",
-      },
+      }, //Biến nhân viên dùng để backup form
       maxPage: 0, // Số số trang
       pageIndex: 1, // Biến chỉ trang hiện tại
       pageSize: 20, // Biến chứa số lượng bản ghi 1 trang
@@ -246,6 +244,7 @@ export default {
     };
   },
   created() {
+    // Load data khi bắt đầu
     this.loadData();
   },
   methods: {
@@ -260,7 +259,7 @@ export default {
       this.getData();
     },
     /**
-     * Ham lay ve data
+     * Ham gọi API lấy data về
      * CreatedBy: TDDUNG
      * DATE: 16/5/2021
      */
@@ -315,6 +314,11 @@ export default {
       this.getData();
       this.getCount();
     },
+    /**
+     * Ham set pageSize từ PageSizeBox
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
     setPageSize(pageSize) {
       this.pageSize = pageSize;
       this.pageIndex = 1;
@@ -335,11 +339,9 @@ export default {
       }).then((response) => {
         var fileURL = window.URL.createObjectURL(new Blob([response.data]));
         var fileLink = document.createElement("a");
-
         fileLink.href = fileURL;
-        fileLink.setAttribute("download", "data.xlsx");
+        fileLink.setAttribute("download", "DanhSachNhanVien.xlsx");
         document.body.appendChild(fileLink);
-
         fileLink.click();
       });
     },
@@ -398,7 +400,6 @@ export default {
           console.log(err);
         });
       this.isShowDetail = true;
-      this.inputFocus = true;
     },
     /**
      * Ham Ham an cua so dialog
@@ -407,7 +408,6 @@ export default {
      */
     hideDetailPage() {
       this.isShowDetail = false;
-      this.inputFocus = false;
       this.getData();
     },
     /**
@@ -426,7 +426,6 @@ export default {
           10
         );
       this.isShowDetail = true;
-      this.inputFocus = true;
     },
     /**
      * Ham hiển thị cửa sổ detail khi ấn nhân bản
@@ -444,7 +443,6 @@ export default {
           10
         );
       this.isShowDetail = true;
-      this.inputFocus = true;
     },
     /**
      * Ham hiển thị cửa sổ cảnh báo
@@ -472,18 +470,38 @@ export default {
       // console.log("click out side");
       this.hideMoreOption();
     },
+    /**
+     * Ham set form mode là add khi sửa nhưng nhấn cất và thêm
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
     setFormModeAdd() {
       this.formMode = "add";
     },
+    /**
+     * Ham hiển thị cửa sổ cảnh báo là trùng mã
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
     showWarningLog(errMsg) {
       this.errMsg = errMsg;
       this.isShowWarningLog = true;
     },
+    /**
+     * Ham ẩn cửa sổ cảnh báo
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
     hideWarningLog() {
       this.isShowWarningLog = false;
     },
   },
   computed: {
+    /**
+     * Theo dõi ô input filter có set time out
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
     inputFilter: {
       get() {
         return this.debouncedInput;
@@ -497,6 +515,11 @@ export default {
     },
   },
   watch: {
+    /**
+     * Ham theo dõi biến input đã set tiomout có thay đổi thì thực hiện tìm kiếm
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
     debouncedInput() {
       if (this.debouncedInput != String.Empty) {
         this.searchAndArrangePage();

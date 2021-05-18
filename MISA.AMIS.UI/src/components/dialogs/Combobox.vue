@@ -41,25 +41,31 @@ import axios from "axios";
 Vue.use(vClickOutside);
 export default {
   props: {
-    pssBlured: { type: Boolean, default: false },
-    departmentName: { type: String, default: "" },
+    pssBlured: { type: Boolean, default: false }, // Biến khi plur khỏi ô input
+    departmentName: { type: String, default: "" }, //Biến tên phòng ban truyền lên
   },
   data() {
     return {
-      departments: {},
-      options: [],
-      option: "",
-      model: false,
-      filteredOptions: [],
-      indexSelect: -1,
-      isChecked: false, //
-      isValided: false,
+      departments: {}, //Biến chứa tất cả phòng ban gọi về từ api
+      options: [], //Biến chứa tất cả tên phòng ban
+      option: "", //Biến chỉ option đã chọn
+      model: false, // Biến chỉ trạng thái dialog
+      filteredOptions: [], //Biến chứa tên phòng ban sau khi lọc
+      indexSelect: -1, //Biến chỉ index đầu tiền khi ấn từ bàn phím
+      isChecked: false, //Biến chỉ đã check trống hay chưa
+      isValided: false, //Biến chỉ đã check validate hay chưa
     };
   },
   created() {
+    // Gọi lấy mảng departments khi created
     this.getDepartments();
   },
   methods: {
+    /**
+     * Hàm gọi API lấy mảng departments
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     async getDepartments() {
       if (this.departmentName != null || this.departmentName != "") {
         this.option = this.departmentName;
@@ -78,16 +84,36 @@ export default {
       });
       this.filteredOptions = this.options;
     },
+    /**
+     * Bắt sự kiện khi phím được tha lên
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     keyout() {
       this.model = true;
     },
+    /**
+     * Bắt sự kiện khi focus vào ô input
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     focusInput() {
       this.model = !this.model;
       this.filterOptions();
     },
+    /**
+     * Bắt sự kiện khi click bên ngoài
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     clickOutSide() {
       this.model = false;
     },
+    /**
+     * Hàm lọc giá trị input với mảng departments
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     filterOptions() {
       if (this.option.length == 0) {
         this.filteredOptions = this.options;
@@ -96,6 +122,11 @@ export default {
         return options.toLowerCase().startsWith(this.option.toLowerCase());
       });
     },
+    /**
+     * Set giá trị cho ô input khi click
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     setOption(option) {
       this.option = option;
       this.model = !this.model;
@@ -103,16 +134,30 @@ export default {
       this.checkValue();
       this.$emit("setDepartmentName", this.option);
     },
-
+    /**
+     * Bắt sự kiện khi nhấn phím xuống
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     keydown() {
       this.model = true;
       if (this.indexSelect < this.filteredOptions.length - 1)
         this.indexSelect++;
       else this.indexSelect = 0;
     },
+    /**
+     * Bắt sự kiện khi nhấn phím lên
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     keyup() {
       if (this.indexSelect > 0) this.indexSelect--;
     },
+    /**
+     * Bắt sự kiện khi nhấn phím enter
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     enter() {
       console.log(this.indexSelect);
       if (this.indexSelect >= 0)
@@ -121,6 +166,11 @@ export default {
       this.filterOptions();
       this.indexSelect = -1;
     },
+    /**
+     * Check giá trị của ô input có phải đúng phòng ban hay Không
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     checkValue() {
       this.$emit("setPssBlured", true);
       this.isChecked = false;
@@ -134,12 +184,20 @@ export default {
         this.option = "";
         this.isValided = true;
       }
-      if (this.option == "") this.isValided = true;
+      if (this.option == "") {
+        this.isValided = true;
+        // this.setOption("");
+      }
     },
   },
   watch: {
+    // Theo dõi biến tên phòng ban
     departmentName() {
       this.option = this.departmentName;
+    },
+    // Theo dõi biến ô input
+    option() {
+      if (this.option == "") this.$emit("setDepartmentName", this.option);
     },
   },
   mounted() {

@@ -28,19 +28,24 @@ export default {
     ReportDialog,
   },
   props: {
-    screenX: { type: NaN, default: 0 },
-    screenY: { type: NaN, default: 0 },
-    employeeProp: { type: Object, default: Object.create(null) },
+    screenX: { type: NaN, default: 0 }, //Biến chứa toạ độ x của chuột khi ấn
+    screenY: { type: NaN, default: 0 }, //Biến chứa toạ độ y của chuột khi ấn
+    employeeProp: { type: Object, default: Object.create(null) }, //Biến chứa thông tin nhân viên khi truyền lên
   },
   data() {
     return {
       isShowReportLog: false, //Bien hien thi report
-      codeDeleteTemp: "", //Bien
-      employee: {},
+      codeDeleteTemp: "", //Bien tạm thời lưu code nhân viên cần xoá
+      employee: {}, // Biến chứa thông tin nhân viên
     };
   },
 
   methods: {
+    /**
+     * Bắt sự kiện khi nhấn xoá
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     deleteClick() {
       this.codeDeleteTemp = this.employeeProp.employeeCode;
       this.isShowReportLog = true;
@@ -88,6 +93,11 @@ export default {
         });
       await this.$emit("getData");
     },
+    /**
+     * Hàm ẩn cửa sổ thông báo
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     hideReportLog() {
       this.isShowReportLog = false;
       this.$emit("hideMoreOption");
