@@ -73,12 +73,7 @@
   font-size: 15px;
   font-family: notoSans-Regular;
 }
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-  /* padding: 0; */
-  margin: auto;
-}
+
 .provider {
   display: -webkit-inline-box;
   /* margin-left: 30px; */

@@ -15,7 +15,7 @@
   position: absolute;
 }
 .empty-icon {
-  background: url(/img/Empty-data.76e50bd8.svg) no-repeat;
+  background: url(../../img/Empty-data.svg) no-repeat;
   width: 132px;
   height: 74px;
   background-size: cover;

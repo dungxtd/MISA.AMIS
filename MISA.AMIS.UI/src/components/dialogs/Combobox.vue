@@ -16,7 +16,7 @@
       />
 
       <div class="warning-text">Vị trí không được để trống.</div>
-      <div class="icon-combobox" @click="focusInput"></div>
+      <div class="icon-combobox" @click="model = !model"></div>
     </div>
 
     <div v-if="filteredOptions && model" class="main-cbb">
@@ -98,7 +98,7 @@ export default {
      * Date: 11/5/2021
      */
     focusInput() {
-      this.model = !this.model;
+      this.model = true;
       this.filterOptions();
     },
     /**
@@ -173,6 +173,7 @@ export default {
      */
     checkValue() {
       this.$emit("setPssBlured", true);
+      this.model = false;
       this.isChecked = false;
       this.options.forEach((element) => {
         if (this.option == element) {

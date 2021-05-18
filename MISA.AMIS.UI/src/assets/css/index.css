@@ -3,6 +3,8 @@
 @import url(../css/styles/theNavbar.css);
 @import url(../css/pages/employeeList.css);
 @import url(../css/pages/employeeDetail.css);
+@import url(../css/common/input.css);
+@import url(../css/common/table.css);
 
 body {
   margin: 0;
