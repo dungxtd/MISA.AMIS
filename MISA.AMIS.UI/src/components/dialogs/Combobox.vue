@@ -5,17 +5,17 @@
         type="text"
         autocomplete="off"
         v-model="option"
-        @input="filterOptions"
+        @input="filterOptions()"
         @focus="focusInput"
         @keyup.up="keyup"
         @keyup.down="keydown"
         @keyup.enter="enter"
-        @keydown="keyout"
-        v-on:blur="blurInput()"
+        @keydown.tab="keyout"
+        @keydown="model = true"
         @click="model = !model"
+        @blur="checkValue"
         v-bind:class="{ error: isValided && pssBlured }"
       />
-
       <div class="warning-text">Vị trí không được để trống.</div>
       <div class="icon-combobox" @click="model = !model"></div>
     </div>
@@ -91,8 +91,7 @@ export default {
      * Date: 11/5/2021
      */
     keyout() {
-      // this.checkValue();
-      this.model = true;
+      this.checkValue();
     },
     /**
      * Bắt sự kiện khi focus vào ô input
@@ -100,8 +99,8 @@ export default {
      * Date: 11/5/2021
      */
     focusInput() {
+      // this.model = true;
       this.filterOptions();
-      // this.model = !this.model;
     },
     /**
      * Bắt sự kiện khi click bên ngoài
@@ -110,6 +109,7 @@ export default {
      */
     clickOutSide() {
       this.model = false;
+      // this.checkValue();
     },
     /**
      * Hàm lọc giá trị input với mảng departments
@@ -121,7 +121,6 @@ export default {
         this.filteredOptions = this.options;
       }
       this.filteredOptions = this.options.filter((options) => {
-        // return options.toLowerCase().startsWith(this.option.toLowerCase());
         return options.toLowerCase().match(this.option.toLowerCase());
       });
     },
@@ -131,11 +130,11 @@ export default {
      * Date: 11/5/2021
      */
     setOption(option) {
-      // this.isValided = false;
+      this.isValided = false;
       this.option = option;
       this.model = false;
-      this.filterOptions();
-      this.checkValue();
+      this.filteredOptions = this.options;
+      // this.checkValue();
       // this.isValided = false;
       this.$emit("setDepartmentName", this.option);
     },
@@ -167,13 +166,9 @@ export default {
       // console.log(this.indexSelect);
       if (this.indexSelect >= 0)
         this.option = this.filteredOptions[this.indexSelect];
-      this.checkValue();
-      this.filterOptions();
-      this.indexSelect = -1;
       this.model = false;
-    },
-    blurInput() {
-      this.checkValue();
+      this.filteredOptions = this.options;
+      this.indexSelect = -1;
     },
     /**
      * Check giá trị của ô input có phải đúng phòng ban hay Không
@@ -187,6 +182,7 @@ export default {
         if (this.option == element) {
           this.isChecked = true;
           this.isValided = false;
+          this.filteredOptions = this.options;
         }
       });
       if (!this.isChecked) {
@@ -197,7 +193,6 @@ export default {
         this.isValided = true;
         // this.setOption("");
       }
-      this.model = false;
     },
   },
   watch: {
@@ -209,12 +204,9 @@ export default {
     option() {
       if (this.option == "") this.$emit("setDepartmentName", this.option);
     },
-    // pssBlured() {
-    //   if (this.pssBlured) this.checkValue();
-    // },
   },
   mounted() {
-    this.filterOptions();
+    // this.filterOptions();
   },
   computed: {},
 };
