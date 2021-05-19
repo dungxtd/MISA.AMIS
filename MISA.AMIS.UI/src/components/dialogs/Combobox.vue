@@ -10,7 +10,7 @@
         @keyup.up="keyup"
         @keyup.down="keydown"
         @keyup.enter="enter"
-        @keydown.tab="keyout"
+        @keydown="keyout"
         v-on:blur="blurInput()"
         @click="model = !model"
         v-bind:class="{ error: isValided && pssBlured }"
@@ -91,8 +91,8 @@ export default {
      * Date: 11/5/2021
      */
     keyout() {
-      this.checkValue();
-      this.model = false;
+      // this.checkValue();
+      this.model = true;
     },
     /**
      * Bắt sự kiện khi focus vào ô input
@@ -110,7 +110,6 @@ export default {
      */
     clickOutSide() {
       this.model = false;
-      this.checkValue();
     },
     /**
      * Hàm lọc giá trị input với mảng departments
@@ -174,7 +173,7 @@ export default {
       this.model = false;
     },
     blurInput() {
-      // this.checkValue();
+      this.checkValue();
     },
     /**
      * Check giá trị của ô input có phải đúng phòng ban hay Không
