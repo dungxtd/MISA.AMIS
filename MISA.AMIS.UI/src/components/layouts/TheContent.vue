@@ -1,21 +1,21 @@
 <template>
   <div id="content">
-    <!-- <EmployeeList /> -->
-    <Test />
+    <EmployeeList />
+    <!-- <Test /> -->
   </div>
 </template>
 
 <script>
-// import EmployeeList from "../pages/EmployeeList";
-import Test from "../dialogs/Test";
+import EmployeeList from "../pages/EmployeeList";
+// import Test from "../dialogs/Test";
 export default {
   name: "TheContent",
   data() {
     return {};
   },
   components: {
-    Test,
-    // EmployeeList,
+    // Test,
+    EmployeeList,
   },
   methods: {},
 };

@@ -5,13 +5,14 @@
         type="text"
         autocomplete="off"
         v-model="option"
-        @input="filterOptions()"
+        @input="filterOptions"
         @focus="focusInput"
         @keyup.up="keyup"
         @keyup.down="keydown"
         @keyup.enter="enter"
-        @keydown="keyout"
-        v-on:blur="checkValue"
+        @keydown.tab="keyout"
+        v-on:blur="blurInput()"
+        @click="model = !model"
         v-bind:class="{ error: isValided && pssBlured }"
       />
 
@@ -24,8 +25,8 @@
         <div
           class="option-combobox"
           v-for="(filteredOption, index) in filteredOptions"
+          v-on:click="setOption(filteredOption)"
           :key="index"
-          @click="setOption(filteredOption)"
           :class="{ select: index == indexSelect }"
         >
           {{ filteredOption }}
@@ -90,7 +91,8 @@ export default {
      * Date: 11/5/2021
      */
     keyout() {
-      this.model = true;
+      this.checkValue();
+      this.model = false;
     },
     /**
      * Bắt sự kiện khi focus vào ô input
@@ -98,8 +100,8 @@ export default {
      * Date: 11/5/2021
      */
     focusInput() {
-      this.model = true;
       this.filterOptions();
+      // this.model = !this.model;
     },
     /**
      * Bắt sự kiện khi click bên ngoài
@@ -108,6 +110,7 @@ export default {
      */
     clickOutSide() {
       this.model = false;
+      this.checkValue();
     },
     /**
      * Hàm lọc giá trị input với mảng departments
@@ -115,11 +118,12 @@ export default {
      * Date: 11/5/2021
      */
     filterOptions() {
-      if (this.option.length == 0) {
+      if (this.option == "") {
         this.filteredOptions = this.options;
       }
       this.filteredOptions = this.options.filter((options) => {
-        return options.toLowerCase().startsWith(this.option.toLowerCase());
+        // return options.toLowerCase().startsWith(this.option.toLowerCase());
+        return options.toLowerCase().match(this.option.toLowerCase());
       });
     },
     /**
@@ -128,10 +132,12 @@ export default {
      * Date: 11/5/2021
      */
     setOption(option) {
+      // this.isValided = false;
       this.option = option;
-      this.model = !this.model;
+      this.model = false;
       this.filterOptions();
       this.checkValue();
+      // this.isValided = false;
       this.$emit("setDepartmentName", this.option);
     },
     /**
@@ -159,12 +165,16 @@ export default {
      * Date: 11/5/2021
      */
     enter() {
-      console.log(this.indexSelect);
+      // console.log(this.indexSelect);
       if (this.indexSelect >= 0)
         this.option = this.filteredOptions[this.indexSelect];
-      this.model = false;
+      this.checkValue();
       this.filterOptions();
       this.indexSelect = -1;
+      this.model = false;
+    },
+    blurInput() {
+      // this.checkValue();
     },
     /**
      * Check giá trị của ô input có phải đúng phòng ban hay Không
@@ -173,7 +183,6 @@ export default {
      */
     checkValue() {
       this.$emit("setPssBlured", true);
-      this.model = false;
       this.isChecked = false;
       this.options.forEach((element) => {
         if (this.option == element) {
@@ -189,6 +198,7 @@ export default {
         this.isValided = true;
         // this.setOption("");
       }
+      this.model = false;
     },
   },
   watch: {
@@ -200,6 +210,9 @@ export default {
     option() {
       if (this.option == "") this.$emit("setDepartmentName", this.option);
     },
+    // pssBlured() {
+    //   if (this.pssBlured) this.checkValue();
+    // },
   },
   mounted() {
     this.filterOptions();

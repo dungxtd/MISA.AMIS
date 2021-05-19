@@ -20,6 +20,12 @@ Vue.filter("formatIndexPageNext", function (value) {
     return value;
   }
 });
+Vue.filter("formatPagePre2", function (value) {
+  if (value) {
+    value = value - 2;
+    return value;
+  }
+});
 Vue.filter("formatGender", function (value) {
   if (value == 0) {
     return "Nam";

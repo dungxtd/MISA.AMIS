@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tddung\\Desktop\\MISA\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj",
+      "projectUniqueName": "F:\\tddung\\dotnet\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj",
       "projectName": "MISA.Core",
-      "projectPath": "C:\\Users\\tddung\\Desktop\\MISA\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj",
+      "projectPath": "F:\\tddung\\dotnet\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj",
       "packagesPath": "C:\\Users\\tddung\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tddung\\Desktop\\MISA\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\obj\\",
+      "outputPath": "F:\\tddung\\dotnet\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tddung\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

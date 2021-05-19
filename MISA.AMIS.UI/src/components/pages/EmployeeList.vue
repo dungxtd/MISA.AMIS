@@ -124,15 +124,114 @@
               />
             </div>
             <div style="margin: auto; display: flex">
-              <div class="pre-page">Trước</div>
-              <div class="number-page">
-                <div class="page">...</div>
-                <div class="page pageSelected">1</div>
-                <div class="page">2</div>
-                <div class="page">3</div>
-                <div class="page">...</div>
+              <div
+                class="pre-page"
+                @click="toPrePage()"
+                :class="{ hideBtn: pageIndex == 1 }"
+              >
+                Trước
               </div>
-              <div class="next-page">Sau</div>
+              <div class="number-page">
+                <div
+                  class="page"
+                  @click="toFirstPage()"
+                  :class="{ pageSelected: pageIndex == 1 }"
+                >
+                  1
+                </div>
+                <div
+                  class="page"
+                  @click="toPageIndexDisplayPre()"
+                  v-if="pageIndex >= 3 && pageIndexDisplay > 3 && pageMax > 4"
+                >
+                  ...
+                </div>
+                <div
+                  class="page"
+                  @click="
+                    pageIndex = pageMax - 2;
+                    pageIndexDisplay = pageMax - 2;
+                  "
+                  v-if="pageIndex == pageMax && pageMax > 3"
+                >
+                  {{ pageMax | formatPagePre2 }}
+                </div>
+                <div
+                  class="page"
+                  v-if="pageIndex > 2"
+                  :class="{
+                    pageSelected:
+                      pageIndex - 1 == pageIndexDisplay &&
+                      pageIndex > 1 &&
+                      pageIndex < pageMax,
+                  }"
+                  @click="btnFirst()"
+                >
+                  {{ pageIndexDisplay | formatIndexPagePre }}
+                </div>
+                <div
+                  class="page"
+                  v-if="pageIndex != 1 && pageIndex != pageMax && pageMax >= 3"
+                  @click="btnSecond()"
+                  :class="{
+                    pageSelected:
+                      pageIndex == pageIndexDisplay &&
+                      pageIndex > 1 &&
+                      pageIndex < pageMax,
+                  }"
+                >
+                  {{ pageIndexDisplay }}
+                </div>
+                <div
+                  class="page"
+                  v-if="pageIndex < pageMax - 1"
+                  :class="{
+                    pageSelected:
+                      pageIndex + 1 == pageIndexDisplay &&
+                      pageIndex > 1 &&
+                      pageIndex < pageMax,
+                  }"
+                  @click="btnThird()"
+                >
+                  {{ pageIndexDisplay | formatIndexPageNext }}
+                </div>
+                <div
+                  class="page"
+                  @click="
+                    pageIndex = 3;
+                    pageIndexDisplay = 3;
+                  "
+                  v-if="pageIndex == 1 && pageMax != 0 && pageMax > 3"
+                >
+                  3
+                </div>
+                <div
+                  class="page"
+                  @click="toPageIndexDisplayNext()"
+                  v-if="
+                    pageIndex <= pageMax - 2 &&
+                    pageIndexDisplay < pageMax - 2 &&
+                    pageMax > 4
+                  "
+                >
+                  ...
+                </div>
+              </div>
+              <div
+                v-if="pageMax > 1"
+                class="page"
+                @click="toMaxPage()"
+                :class="{ pageSelected: pageIndex == pageMax }"
+              >
+                {{ pageMax }}
+              </div>
+              <div
+                class="page"
+                @click="toNextPage()"
+                :class="{ hideBtn: pageIndex == pageMax || pageMax == 0 }"
+              >
+                Sau
+              </div>
             </div>
           </div>
         </div>
@@ -228,8 +327,9 @@ export default {
         email: "",
         accountState: "",
       }, //Biến nhân viên dùng để backup form
-      maxPage: 0, // Số số trang
       pageIndex: 1, // Biến chỉ trang hiện tại
+      pageIndexDisplay: 1, // Biến chỉ trang hiển thị trên màn hình
+      pageMax: 0, //// Biến chỉ tổng số trang
       pageSize: 20, // Biến chứa số lượng bản ghi 1 trang
       indexTemp: 0, //Biến tạm chỉ giá trị index vòng for
       isShowMoreOption: false, //Bien hien thi bang more option
@@ -244,6 +344,7 @@ export default {
       mesStatus: "", // Biến chứa câu thông báo lỗi
       isShowWarningLog: false, //Biến hiển thị cửa sổ thồn báo trùng nhân viên
       errMsg: "", //Biến chứa câu thông báo cảnh báo
+      timeout: 500, //Biến chứa thời gian trễ
     };
   },
   created() {
@@ -305,7 +406,7 @@ export default {
         .catch((err) => {
           console.log(err);
         });
-      this.maxPage = (this.count / this.pageSize).toFixed();
+      this.pageMax = Math.ceil(this.count / this.pageSize);
     },
     /**
      * Ham tim kiem va sap xep trang
@@ -314,6 +415,7 @@ export default {
      */
     searchAndArrangePage() {
       this.pageIndex = 1;
+      this.pageIndexDisplay = 1;
       this.getData();
       this.getCount();
     },
@@ -498,6 +600,97 @@ export default {
     hideWarningLog() {
       this.isShowWarningLog = false;
     },
+    /**
+     * Ham chuyen den trang truoc
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
+    toPrePage() {
+      if (this.pageIndex > 1) {
+        this.pageIndex--;
+        this.pageIndexDisplay = this.pageIndex;
+      }
+    },
+    /**
+     * Ham chuyen den trang ke tiep
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
+    toNextPage() {
+      if (this.pageIndex < this.pageMax) {
+        this.pageIndex++;
+        this.pageIndexDisplay = this.pageIndex;
+      }
+    },
+    /**
+     * Ham review den trang truoc
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
+    toPageIndexDisplayPre() {
+      if (this.pageMax > 5 && this.pageIndex < this.pageMax - 1) {
+        if (this.pageIndexDisplay > 4) {
+          this.pageIndexDisplay = this.pageIndexDisplay - 2;
+        }
+      }
+    },
+    /**
+     * Ham review den trang ke tiep
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
+    toPageIndexDisplayNext() {
+      if (this.pageMax > 5 && this.pageIndex > 2) {
+        if (this.pageIndexDisplay < this.pageMax - 3) {
+          this.pageIndexDisplay = this.pageIndexDisplay + 2;
+        }
+      }
+    },
+    /**
+     * Nút trang thứ nhất
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
+    btnFirst() {
+      this.pageIndex = this.pageIndexDisplay - 1;
+      this.pageIndexDisplay = this.pageIndex;
+    },
+    /**
+     * Nút trang thứ hai
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
+    btnThird() {
+      this.pageIndex = this.pageIndexDisplay + 1;
+      this.pageIndexDisplay = this.pageIndex;
+    },
+    /**
+     * Nút trang thứ ba
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
+    btnSecond() {
+      this.pageIndex = this.pageIndexDisplay;
+      this.pageIndexDisplay = this.pageIndex;
+    },
+    /**
+     * Nút đến trang đầu tiên
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
+    toFirstPage() {
+      this.pageIndex = 1;
+      this.pageIndexDisplay = this.pageIndex;
+    },
+    /**
+     * Nút đến trng cúng cuồi
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
+    toMaxPage() {
+      this.pageIndex = this.pageMax;
+      this.pageIndexDisplay = this.pageIndex;
+    },
   },
   computed: {
     /**
@@ -528,10 +721,22 @@ export default {
         this.searchAndArrangePage();
       }
     },
+    /**
+     * Ham theo dõi biến page index
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
+    pageIndex() {
+      this.getData();
+    },
   },
 };
 </script>
 
 <style>
 @import "../../assets/css/common/table.css";
+.hideBtn {
+  cursor: default !important;
+  color: #9e9e9e;
+}
 </style>

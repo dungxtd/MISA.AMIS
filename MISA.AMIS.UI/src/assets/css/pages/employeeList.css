@@ -95,7 +95,7 @@
   overflow: scroll;
   top: 60px;
   max-height: calc(100vh - 230px);
-  min-height: calc(100vh - 370px);
+  min-height: calc(100vh - 230px);
   height: 100%;
 }
 
@@ -127,6 +127,10 @@
   font-weight: 500;
   padding: 0 8px;
   cursor: pointer;
+  -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .pageSelected {
   border: 1px solid #e0e0e0;
