@@ -33,8 +33,8 @@ table tbody td {
 }
 
 table tr {
-    border-bottom: 1px solid #c7c7c7;
-    height: 48px;
+  border-bottom: 1px solid #c7c7c7;
+  height: 48px;
 }
 
 table tr th,
@@ -74,7 +74,7 @@ td:first-child {
   top: 0px !important;
   z-index: 10;
   background: white;
-  border-right: 1px dotted #c7c7c7
+  border-right: 1px dotted #c7c7c7;
 }
 
 th:first-child {
@@ -87,7 +87,7 @@ th:first-child {
   left: 0;
   z-index: 2;
   background: #ffffff;
-  border-right: 1px dotted #c7c7c7
+  border-right: 1px dotted #c7c7c7;
 }
 table {
   border-spacing: 0;
@@ -123,7 +123,7 @@ table {
 
 .action {
   border-left: 1px dotted #c7c7c7;
-  /* border-bottom: 1px solid #c7c7c7; */
+  border-bottom: 1px solid #c7c7c7;
   right: 0px;
   padding-top: 18px;
   padding-bottom: 5px;

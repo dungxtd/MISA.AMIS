@@ -136,7 +136,7 @@ export default {
       this.filteredOptions = this.options;
       // this.checkValue();
       // this.isValided = false;
-      this.$emit("setDepartmentName", this.option);
+      this.searchIdByName();
     },
     /**
      * Bắt sự kiện khi nhấn phím xuống
@@ -164,11 +164,13 @@ export default {
      */
     enter() {
       // console.log(this.indexSelect);
+      this.$emit("setPssBlured", true);
       if (this.indexSelect >= 0)
         this.option = this.filteredOptions[this.indexSelect];
       this.model = false;
       this.filteredOptions = this.options;
       this.indexSelect = -1;
+      this.searchIdByName();
     },
     /**
      * Check giá trị của ô input có phải đúng phòng ban hay Không
@@ -176,7 +178,7 @@ export default {
      * Date: 11/5/2021
      */
     checkValue() {
-      this.$emit("setPssBlured", true);
+      // this.$emit("setPssBlured", true);
       this.isChecked = false;
       this.options.forEach((element) => {
         if (this.option == element) {
@@ -194,15 +196,27 @@ export default {
         // this.setOption("");
       }
     },
+    searchIdByName() {
+      this.departments.find((o) => {
+        if (o.departmentName === this.option)
+          this.$emit("setDepartmentName", o.departmentId, o.departmentName);
+      });
+    },
   },
   watch: {
     // Theo dõi biến tên phòng ban
     departmentName() {
       this.option = this.departmentName;
     },
-    // Theo dõi biến ô input
-    option() {
-      if (this.option == "") this.$emit("setDepartmentName", this.option);
+    // // Theo dõi biến ô input
+    // option() {
+    //   if (this.option == "") this.$emit("setDepartmentName", this.option);
+    // },
+    pssBlured() {
+      this.checkValue();
+    },
+    model() {
+      if (!this.model) this.$emit("setPssBlured", true);
     },
   },
   mounted() {
@@ -249,7 +263,7 @@ input:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
+  width: 100%;
 }
 .header-combobox {
   display: flex;
@@ -258,7 +272,7 @@ input:focus-visible {
 }
 .wrap-option {
   position: absolute;
-  width: 90%;
+  width: 100%;
   background-color: rgb(255, 255, 255);
   cursor: pointer;
   padding: 0;

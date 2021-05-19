@@ -39,7 +39,7 @@
                 <th style="min-width: 150px">Mã nhân viên</th>
                 <th style="min-width: 250px">Tên nhân viên</th>
                 <th style="min-width: 120px">Giới tính</th>
-                <th style="min-width: 150px">Ngày sinh</th>
+                <th style="min-width: 150px; text-align: center">Ngày sinh</th>
                 <th style="min-width: 200px">Số CMND</th>
                 <th style="min-width: 250px">Chức danh</th>
                 <th style="min-width: 250px">Tên đơn vị</th>
@@ -62,30 +62,32 @@
                   <input type="checkbox" />
                   <div class="border-checkbox-th"></div>
                 </th>
-                <td>{{ employee.employeeCode }}</td>
-                <td>{{ employee.employeeName }}</td>
-                <td>{{ employee.gender | formatGender }}</td>
-                <td>{{ employee.dateOfBirth | formatDate }}</td>
-                <td>{{ employee.identityNumber }}</td>
-                <td>{{ employee.employeePosition }}</td>
-                <td>{{ employee.departmentName }}</td>
-                <td>{{ employee.bankAccountNumber }}</td>
-                <td>{{ employee.bankName }}</td>
+                <td>{{ employee.EmployeeCode }}</td>
+                <td>{{ employee.EmployeeName }}</td>
+                <td>{{ employee.Gender | formatGender }}</td>
+                <td style="text-align: center">
+                  {{ employee.DateOfBirth | formatDate }}
+                </td>
+                <td>{{ employee.IdentityNumber }}</td>
+                <td>{{ employee.EmployeePosition }}</td>
+                <td>{{ employee.DepartmentName }}</td>
+                <td>{{ employee.BankAccountNumber }}</td>
+                <td>{{ employee.BankName }}</td>
                 <td style="border-right: 0 !important">
-                  {{ employee.bankBranchName }}
+                  {{ employee.BankBranchName }}
                 </td>
                 <div class="action">
                   <div
                     class="edit-text"
                     style="font-weight: 600; margin: 0 20px; cursor: pointer"
-                    @click="clickEditEmployee(employee)"
+                    @click="clickEditEmployee(employee.EmployeeId)"
                   >
                     Sửa
                   </div>
                   <div
                     class="icon icon-24 icon-more"
                     :class="{ outLine: index == indexTemp && isShowMoreOption }"
-                    v-on:click="clickShowMoreOption(index, employee)"
+                    v-on:click="clickShowMoreOption(index, employee.EmployeeId)"
                     @click="someMethod"
                   ></div>
                 </div>
@@ -93,7 +95,7 @@
                   @getData="getData()"
                   @hideMoreOption="hideMoreOption()"
                   @cloneEmployee="cloneEmployee"
-                  :employeeProp="employee"
+                  :employee="employee"
                   :screenX="screenX"
                   :screenY="screenY"
                   v-if="index == indexTemp && isShowMoreOption"
@@ -240,8 +242,7 @@
     </div>
     <EmployeeDetail
       v-if="isShowDetail == true"
-      :employeeProp="employee"
-      :employeeBackUp="employeeBackUp"
+      :employeeSelectId="employeeSelectId"
       :formMode="formMode"
       @hideDetailPage="hideDetailPage"
       @showStatusLog="showStatusLog"
@@ -287,46 +288,7 @@ export default {
   data() {
     return {
       employees: [], //Bien chua mang nhan vien
-      employee: {
-        employeeCode: "",
-        employeeName: "",
-        gender: null,
-        dateOfBirth: null,
-        identityNumber: "",
-        identityDate: null,
-        identityPlace: "",
-        employeePosition: "",
-        address: "",
-        departmentId: null,
-        departmentName: "",
-        bankAccountNumber: "",
-        bankName: "",
-        bankBranchName: "",
-        phoneNumber: "",
-        telephoneNumber: "",
-        email: "",
-        accountState: "",
-      }, // Biến nhân viên
-      employeeBackUp: {
-        employeeCode: "",
-        employeeName: "",
-        gender: null,
-        dateOfBirth: null,
-        identityNumber: "",
-        identityDate: null,
-        identityPlace: "",
-        employeePosition: "",
-        address: "",
-        departmentId: null,
-        departmentName: "",
-        bankAccountNumber: "",
-        bankName: "",
-        bankBranchName: "",
-        phoneNumber: "",
-        telephoneNumber: "",
-        email: "",
-        accountState: "",
-      }, //Biến nhân viên dùng để backup form
+      employee: {}, // Biến nhân viên
       pageIndex: 1, // Biến chỉ trang hiện tại
       pageIndexDisplay: 1, // Biến chỉ trang hiển thị trên màn hình
       pageMax: 0, //// Biến chỉ tổng số trang
@@ -345,6 +307,7 @@ export default {
       isShowWarningLog: false, //Biến hiển thị cửa sổ thồn báo trùng nhân viên
       errMsg: "", //Biến chứa câu thông báo cảnh báo
       timeout: 500, //Biến chứa thời gian trễ
+      employeeSelectId: "", //Biến chứa id nhân viên đã chọn
     };
   },
   created() {
@@ -376,37 +339,19 @@ export default {
         this.pageSize;
       if (this.inputFilter != String.Empty)
         aipUrl += "&filter=" + this.inputFilter;
-      console.log(this.pageSize);
+      // console.log(this.pageSize);
       await axios
         .get(aipUrl)
         .then((res) => {
-          this.employees = res.data;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      this.getCount();
-      this.status = SUCCESS;
-      // console.log(this.employees);
-    },
-    /**
-     * Ham dem so luong ban ghi
-     * CreatedBy: TDDUNG
-     * DATE: 16/5/2021
-     */
-    async getCount() {
-      var aipUrl =
-        "https://localhost:44368/api/v1/Employees/count-paging?filter=" +
-        this.inputFilter;
-      await axios
-        .get(aipUrl)
-        .then((res) => {
-          this.count = res.data[0];
+          this.employees = res.data.employees;
+          this.count = res.data.countEmployees[0];
         })
         .catch((err) => {
           console.log(err);
         });
       this.pageMax = Math.ceil(this.count / this.pageSize);
+      this.status = SUCCESS;
+      // console.log(this.employees);
     },
     /**
      * Ham tim kiem va sap xep trang
@@ -417,7 +362,6 @@ export default {
       this.pageIndex = 1;
       this.pageIndexDisplay = 1;
       this.getData();
-      this.getCount();
     },
     /**
      * Ham set pageSize từ PageSizeBox
@@ -428,7 +372,6 @@ export default {
       this.pageSize = pageSize;
       this.pageIndex = 1;
       this.getData();
-      this.getCount();
     },
     /**
      * Ham xuat ra file excel
@@ -455,10 +398,9 @@ export default {
      * CreatedBy: TDDUNG
      * DATE: 16/5/2021
      */
-    clickShowMoreOption(index, employee) {
+    clickShowMoreOption(index, employeeId) {
       this.indexTemp = index;
-      this.employee = employee;
-      // console.log(index + " " + this.indexTemp);
+      this.employeeSelectId = employeeId;
       this.isShowMoreOption = !this.isShowMoreOption;
     },
     /**
@@ -488,22 +430,8 @@ export default {
      * CreatedBy: TDDUNG
      * DATE: 16/5/2021
      */
-    async showDialogDetail() {
+    showDialogDetail() {
       this.formMode = "add";
-      this.employee = { ...this.employeeBackUp };
-      var aipUrl = "https://localhost:44368/api/v1/Employees/getMaxCode";
-      await axios
-        .get(aipUrl)
-        .then((res) => {
-          var temp = res.data[0].split("-");
-          this.employee.employeeCode =
-            temp[0] + "-" + (parseInt(temp[1]) + 1).toString();
-          this.employee.employeeCode;
-          console.log(this.employee.employeeCode);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
       this.isShowDetail = true;
     },
     /**
@@ -520,16 +448,9 @@ export default {
      * CreatedBy: TDDUNG
      * DATE: 16/5/2021
      */
-    clickEditEmployee(employee) {
+    clickEditEmployee(employeeId) {
       this.formMode = "edit";
-      this.employee = employee;
-      if (this.employee.dateOfBirth != null)
-        this.employee.dateOfBirth = this.employee.dateOfBirth.substring(0, 10);
-      if (this.employee.identityDate != null)
-        this.employee.identityDate = this.employee.identityDate.substring(
-          0,
-          10
-        );
+      this.employeeSelectId = employeeId;
       this.isShowDetail = true;
     },
     /**
@@ -537,16 +458,9 @@ export default {
      * CreatedBy: TDDUNG
      * DATE: 16/5/2021
      */
-    async cloneEmployee(employee) {
-      this.formMode = "add";
-      this.employee = employee;
-      if (this.employee.dateOfBirth != null)
-        this.employee.dateOfBirth = this.employee.dateOfBirth.substring(0, 10);
-      if (this.employee.identityDate != null)
-        this.employee.identityDate = this.employee.identityDate.substring(
-          0,
-          10
-        );
+    cloneEmployee(employeeId) {
+      this.formMode = "clone";
+      this.employeeSelectId = employeeId;
       this.isShowDetail = true;
     },
     /**

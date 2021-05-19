@@ -5,15 +5,14 @@
         <div class="report-content">
           <div
             class="icon icon-edit-warning"
-            style="margin: auto 0; margin-right: 10px"
+            style="margin: auto 0; margin-right: 5px"
           ></div>
           <div class="text-edit-warning">
-            Bạn có thật sự muốn xoá nhân viên <br />
-            &#60;{{ codeDelete }}&#62; không ?
+            Bạn có thực sự muốn xoá Nhân viên &#60;{{ codeDelete }}&#62; không ?
           </div>
         </div>
         <div class="mess-line"></div>
-        <div class="report-footer" style="flex: 3 1 0%">
+        <div class="report-footer" style="flex: 4">
           <div class="no-btn" @click="noClick">Không</div>
           <div class="yes-btn" @click="yesClick">Có</div>
         </div>
@@ -60,9 +59,9 @@ export default {
 }
 .text-edit-warning {
   font-size: 13px;
-  margin: auto;
+  margin: auto 0;
   color: rgb(17, 17, 17) !important;
-  width: 254px;
+  width: 300px;
   padding-left: 20px;
   font-weight: 100 !important;
 }
@@ -79,7 +78,7 @@ export default {
 }
 .report-content {
   display: flex;
-  margin: 0 50px;
+  margin: 0 auto;
   flex: 6;
   /* display: flex; */
   padding: 0;
@@ -87,7 +86,7 @@ export default {
 }
 .report-body {
   height: 200px;
-  width: 400px;
+  width: 450px;
   top: calc(50% - 100px);
   left: calc(50% - 200px);
   background-color: #fff;
@@ -104,15 +103,15 @@ export default {
 }
 .report-footer .yes-btn {
   font-weight: 600;
-  padding: 15px 35px;
+  padding: 12px 35px;
   border-radius: 4px;
   display: inline-block;
   margin: auto;
   transition: all 0.25s ease;
-  background-color: #35bf22;
+  background-color: #2ca01c;
   color: #fff;
   position: absolute;
-  left: 77%;
+  left: 80%;
   transform: translateX(-50%);
   white-space: nowrap;
   font-size: 13px;
@@ -121,9 +120,13 @@ export default {
   align-items: center;
   cursor: pointer;
 }
+.report-footer .yes-btn:hover {
+  background-color: #35bf22;
+  color: #fff;
+}
 .report-footer .no-btn {
   font-weight: 600;
-  padding: 15px 25px;
+  padding: 12px 25px;
   border-radius: 4px;
   display: inline-block;
   margin: auto;
@@ -131,7 +134,7 @@ export default {
   background-color: #ffffff;
   /* color: #fff; */
   position: absolute;
-  left: 23%;
+  left: 20%;
   transform: translateX(-50%);
   white-space: nowrap;
   font-size: 13px;

@@ -30,13 +30,12 @@ export default {
   props: {
     screenX: { type: NaN, default: 0 }, //Biến chứa toạ độ x của chuột khi ấn
     screenY: { type: NaN, default: 0 }, //Biến chứa toạ độ y của chuột khi ấn
-    employeeProp: { type: Object, default: Object.create(null) }, //Biến chứa thông tin nhân viên khi truyền lên
+    employee: { type: Object, default: Object.create(null) }, //Biến chứa thông tin nhân viên khi truyền lên
   },
   data() {
     return {
       isShowReportLog: false, //Bien hien thi report
       codeDeleteTemp: "", //Bien tạm thời lưu code nhân viên cần xoá
-      employee: {}, // Biến chứa thông tin nhân viên
     };
   },
 
@@ -47,7 +46,7 @@ export default {
      * Date: 11/5/2021
      */
     deleteClick() {
-      this.codeDeleteTemp = this.employeeProp.employeeCode;
+      this.codeDeleteTemp = this.employee.EmployeeCode;
       this.isShowReportLog = true;
     },
     /**
@@ -56,34 +55,21 @@ export default {
      * Date: 11/5/2021
      */
     async clickClone() {
-      this.employee = { ...this.employeeProp };
-      var aipUrl = "https://localhost:44368/api/v1/Employees/getMaxCode";
-      await axios
-        .get(aipUrl)
-        .then((res) => {
-          var temp = res.data[0].split("-");
-          this.employee.employeeCode =
-            temp[0] + "-" + (parseInt(temp[1]) + 1).toString();
-          // console.log(this.employee.employeeCode);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      this.$emit("cloneEmployee", this.employee);
+      this.$emit("cloneEmployee", this.employee.EmployeeId);
     },
     /**
      * Hàm gọi api xoá nhân viên
      * Createby: TDDUNG
      * Date: 11/5/2021
      */
-    async deleteEmployee() {
+    deleteEmployee() {
       var aipUrl =
         "https://localhost:44368/api/v1/Employees?id=" +
-        this.employeeProp.employeeId;
+        this.employee.EmployeeId;
       axios
         .delete(aipUrl)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           if (res.status == 200) {
             this.$emit("hideMoreOption");
           }
@@ -91,7 +77,7 @@ export default {
         .catch((err) => {
           console.log(err);
         });
-      await this.$emit("getData");
+      this.$emit("getData");
     },
     /**
      * Hàm ẩn cửa sổ thông báo

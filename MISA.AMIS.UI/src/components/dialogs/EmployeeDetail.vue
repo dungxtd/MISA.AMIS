@@ -1,42 +1,45 @@
 <template>
-  <div id="EmployeeDetail" class="dialog">
-    <div class="detail" title="Thông tin nhân viên">
-      <div class="dialog-model"></div>
-      <div class="dialog-content">
-        <div class="dialog-header">
-          <div class="left-header">
-            Thông tin nhân viên
-            <div class="customer">
-              <input type="checkbox" />
-              <div class="tit">Là khách hàng</div>
+  <div class="dialog">
+    <div class="dialog-model"></div>
+    <div class="detail-dialog-content">
+      <div class="detail-dialog-header">
+        <div class="detail-header-title">
+          <div class="wrap-header-title">
+            <div class="header-title-text">Thông tin nhân viên</div>
+            <div class="header-title-customer">
+              <input type="checkbox" class="customer-checkbox" />
+              <div class="customer-content">Là khách hàng</div>
             </div>
-            <div class="provider">
-              <input type="checkbox" />
-              <div class="tit">Là nhà cung cấp</div>
+            <div class="header-title-customer">
+              <input type="checkbox" class="customer-checkbox" />
+              <div class="customer-content">Là nhà cung cấp</div>
             </div>
-          </div>
-          <div class="right-header">
-            <div class="icon icon-24 icon-help"></div>
-            <div
-              class="icon icon-24 icon-cancel"
-              @click="cancelDetailPage()"
-            ></div>
           </div>
         </div>
-        <div class="dialog-body">
-          <div class="flex first-inf">
-            <div class="flex-1 left-f-inf">
-              <div class="flex">
-                <div class="flex flex-1">
-                  <div style="position: relative">
-                    <div class="label">
-                      Mã
-                      <div style="color: red; display: inline">*</div>
-                    </div>
+        <div class="detail-header-close">
+          <div class="icon icon-24 detail-icon-help"></div>
+          <div
+            class="icon icon-24 detail-icon-close"
+            @click="cancelDetailPage()"
+          ></div>
+        </div>
+      </div>
+      <div class="detail-dialog-main">
+        <div class="layer-detail-inf">
+          <div class="dflex">
+            <div style="padding-right: 26px; width: 50% !important">
+              <div class="dflex">
+                <div style="padding-right: 6px; width: 40% !important">
+                  <div class="dflex">
+                    <div class="input-title">Mã</div>
+                    <div class="input-title-require">*</div>
+                  </div>
+                  <div class="detail-inf-label">
                     <input
                       type="text"
+                      maxlength="20"
+                      class="detail-inf-input"
                       v-model="employee.employeeCode"
-                      style="width: 95%"
                       ref="employeeCode"
                       v-bind:class="{
                         error:
@@ -46,149 +49,298 @@
                     />
                     <div class="warning-text">Mã không được để trống.</div>
                   </div>
-                  <div class="flex-1" style="position: relative">
-                    <div class="label">
-                      Tên
-                      <div style="color: red; display: inline">*</div>
-                    </div>
-                    <input
-                      type="text"
-                      style="width: 83%"
-                      v-model="employee.employeeName"
-                      v-bind:class="{
-                        error:
-                          formValidate(employee.employeeName) && nameBlured,
-                      }"
-                      v-on:blur="nameBlured = true"
-                    />
-                    <div class="warning-text">Tên không được để trống.</div>
-                  </div>
                 </div>
-                <div class="flex flex-1">
-                  <div class="mgr10 flex-1">
-                    <div class="label">Ngày sinh</div>
-                    <input type="date" v-model="employee.dateOfBirth" />
-                  </div>
-                  <div class="flex-1">
-                    <div class="label">Giới tính</div>
-                    <div class="flex options">
+                <div style="width: 60% !important">
+                  <div style="position: relative; width: 100%">
+                    <div class="dflex">
+                      <div class="input-title">Tên</div>
+                      <div class="input-title-require">&nbsp;*</div>
+                    </div>
+                    <div class="detail-inf-label">
                       <input
-                        type="radio"
-                        id="male"
-                        name="gender"
-                        value="0"
-                        v-model="employee.gender"
+                        type="text"
+                        maxlength="100"
+                        class="detail-inf-input"
+                        v-model="employee.employeeName"
+                        v-bind:class="{
+                          error:
+                            formValidate(employee.employeeName) && nameBlured,
+                        }"
+                        v-on:blur="nameBlured = true"
                       />
-                      <label for="male" class="margin0">Nam</label>
-                      <input
-                        type="radio"
-                        id="female"
-                        name="gender"
-                        value="1"
-                        v-model="employee.gender"
-                      />
-                      <label for="female" class="margin0">Nữ</label>
-                      <input
-                        type="radio"
-                        id="other"
-                        name="gender"
-                        value="2"
-                        v-model="employee.gender"
-                      />
-                      <label for="other" class="margin0">Khác</label>
+                      <div class="warning-text">Tên không được để trống.</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="flex">
-                <div class="flex-1" style="position: relative">
-                  <div class="label">
-                    Đơn vị
-                    <div style="color: red; display: inline">*</div>
+              <div class="detail-inf-lable">
+                <div class="w-100">
+                  <div class="dflex">
+                    <div class="input-title">Đơn vị</div>
+                    <div class="input-title-require">&nbsp;*</div>
                   </div>
-                  <ComboBox
-                    @setPssBlured="setPssBlured"
-                    @setDepartmentName="setDepartmentName"
-                    :pssBlured="pssBlured"
-                    :departmentName="employee.departmentName"
-                  />
-                </div>
-                <div class="flex flex-1">
-                  <div class="mgr10 flex-1">
-                    <div class="label">Số CMND</div>
-                    <input type="text" v-model="employee.identityNumber" />
-                  </div>
-                  <div class="flex-1">
-                    <div class="label">Ngày cấp</div>
-                    <input
-                      type="date"
-                      style="width: 90%"
-                      v-model="employee.identityDate"
+                  <div class="detail-inf-label">
+                    <ComboBox
+                      @setPssBlured="setPssBlured"
+                      @setDepartmentName="setDepartmentName"
+                      :pssBlured="pssBlured"
+                      :departmentName="employee.departmentName"
                     />
                   </div>
                 </div>
               </div>
-              <div class="flex">
-                <div class="flex-1">
-                  <div class="label">Chức danh</div>
-                  <input
-                    type="text"
-                    style="width: 90%"
-                    v-model="employee.employeePosition"
-                  />
+              <div class="detail-inf-lable">
+                <div class="w-100">
+                  <div class="w-100">
+                    <div class="dflex">
+                      <div class="input-title">Chức danh</div>
+                    </div>
+                    <div class="detail-inf-label">
+                      <input
+                        maxlength="225"
+                        type="text"
+                        class="detail-inf-input"
+                        v-model="employee.employeePosition"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div class="flex-1">
-                  <div class="label">Nơi cấp</div>
-                  <input
-                    type="text"
-                    class="width95"
-                    v-model="employee.identityPlace"
-                  />
+              </div>
+            </div>
+            <div style="width: 50% !important">
+              <div class="dflex">
+                <div style="padding-right: 6px; width: 40% !important">
+                  <div class="detail-inf-lable">
+                    <div class="dflex">
+                      <div class="input-title">Ngày sinh</div>
+                    </div>
+                    <div class="detail-inf-label">
+                      <input
+                        type="date"
+                        class="detail-inf-input"
+                        v-model="employee.dateOfBirth"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div style="padding-right: 6px; width: 60% !important">
+                  <div class="detail-inf-lable">
+                    <div class="dflex">
+                      <div class="input-title">Giới tính</div>
+                    </div>
+                    <div
+                      class="detail-inf-label dflex"
+                      style="justify-content: space-around; height: 32px"
+                    >
+                      <div class="dflex">
+                        <input
+                          type="radio"
+                          name="gender"
+                          class="checkboxGender"
+                          value="0"
+                          v-model="employee.gender"
+                        />
+                        <label class="lable-input-radio">Nam</label>
+                      </div>
+                      <div class="dflex">
+                        <input
+                          type="radio"
+                          name="gender"
+                          class="checkboxGender"
+                          value="1"
+                          v-model="employee.gender"
+                        />
+                        <label class="lable-input-radio">Nữ</label>
+                      </div>
+                      <div class="dflex">
+                        <input
+                          type="radio"
+                          class="checkboxGender"
+                          name="gender"
+                          value="2"
+                          v-model="employee.gender"
+                        />
+                        <label class="lable-input-radio">Khác</label>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="second-inf">
-            <div>
-              <div class="label">Địa chỉ</div>
-              <input type="text" class="width97" v-model="employee.address" />
-            </div>
-            <div class="flex">
-              <div class="mgr10">
-                <div class="label">ĐT di động</div>
-                <input type="text" v-model="employee.phoneNumber" />
+              <div style="display: flex !important">
+                <div style="padding-right: 6px; width: 60% !important">
+                  <div class="detail-inf-lable">
+                    <div class="dflex">
+                      <div class="input-title">Số CMND</div>
+                    </div>
+                    <div class="detail-inf-label">
+                      <input
+                        maxlength="20"
+                        type="text"
+                        class="detail-inf-input"
+                        v-model="employee.identityNumber"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div style="padding-right: 6px; width: 40% !important">
+                  <div class="detail-inf-lable">
+                    <div class="dflex">
+                      <div class="input-title">Ngày cấp</div>
+                    </div>
+                    <div class="detail-inf-label">
+                      <input
+                        type="date"
+                        class="detail-inf-input"
+                        v-model="employee.identityDate"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="padding-bottom: 12px; display: flex !important"
+                ></div>
               </div>
-              <div class="mgr10">
-                <div class="label">ĐT cố định</div>
-                <input type="text" v-model="employee.telephoneNumber" />
-              </div>
-              <div class="mgr10">
-                <div class="label">Email</div>
-                <input type="text" v-model="employee.email" />
-              </div>
-            </div>
-            <div class="flex">
-              <div class="mgr10">
-                <div class="label">Tài khoản ngân hàng</div>
-                <input type="text" v-model="employee.bankAccountNumber" />
-              </div>
-              <div class="mgr10">
-                <div class="label">Tên ngân hàng</div>
-                <input type="text" v-model="employee.bankName" />
-              </div>
-              <div class="mgr10">
-                <div class="label">Chi nhánh</div>
-                <input type="text" v-model="employee.bankBranchName" />
+              <div class="detail-inf-lable">
+                <div class="w-100">
+                  <div class="w-100">
+                    <div class="dflex">
+                      <div class="input-title">Nơi cấp</div>
+                    </div>
+                    <div class="detail-inf-label">
+                      <input
+                        maxlength="225"
+                        type="text"
+                        class="detail-inf-input"
+                        v-model="employee.identityPlace"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="divide"></div>
-        <div class="dialog-footer">
-          <div class="cancel-botton" @click="hideDetailPage()">Huỷ</div>
-          <div class="flex">
-            <div class="accept-btn1" @click="btnAddEdit">Cất</div>
-            <div class="accept-btn2" @click="btnAddMore">Cất và Thêm</div>
+        <div class="layer-detail-inf">
+          <div class="w-100">
+            <div class="dflex">
+              <div class="input-title">Địa chỉ</div>
+            </div>
+            <div class="detail-inf-label">
+              <input
+                maxlength="20"
+                type="text"
+                class="detail-inf-input"
+                v-model="employee.address"
+              />
+            </div>
+          </div>
+          <div class="w-100 dflex">
+            <div class="pnumber">
+              <div class="detail-inf-lable">
+                <div class="dflex">
+                  <div class="input-title">ĐT di động</div>
+                </div>
+                <div class="detail-inf-label">
+                  <input
+                    maxlength="20"
+                    type="text"
+                    class="detail-inf-input"
+                    v-model="employee.phoneNumber"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="pnumber">
+              <div class="detail-inf-lable">
+                <div class="dflex">
+                  <div class="input-title">ĐT cố định</div>
+                </div>
+                <div class="detail-inf-label">
+                  <input
+                    maxlength="20"
+                    type="text"
+                    class="detail-inf-input"
+                    v-model="employee.telephoneNumber"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="pnumber">
+              <div class="detail-inf-lable">
+                <div class="dflex">
+                  <div class="input-title">Email</div>
+                </div>
+                <div class="detail-inf-label">
+                  <input
+                    maxlength="50"
+                    type="text"
+                    class="detail-inf-input"
+                    v-model="employee.email"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-100 dflex">
+            <div class="pnumber">
+              <div class="detail-inf-lable">
+                <div class="dflex">
+                  <div class="input-title">Tài khoản ngân hàng</div>
+                </div>
+                <div class="detail-inf-label">
+                  <input
+                    type="text"
+                    maxlength="20"
+                    class="detail-inf-input"
+                    v-model="employee.bankAccountNumber"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="pnumber">
+              <div class="detail-inf-lable">
+                <div class="dflex">
+                  <div class="input-title">Tên ngân hàng</div>
+                </div>
+                <div class="detail-inf-label">
+                  <input
+                    maxlength="225"
+                    type="text"
+                    class="detail-inf-input"
+                    v-model="employee.bankName"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="pnumber">
+              <div class="detail-inf-lable">
+                <div class="dflex">
+                  <div class="input-title">Chi nhánh</div>
+                </div>
+                <div class="detail-inf-label">
+                  <input
+                    type="text"
+                    maxlength="225"
+                    class="detail-inf-input"
+                    v-model="employee.bankBranchName"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="divide-footer"></div>
+        <div class="detail-dialog-footer">
+          <div class="btn-footer">
+            <div class="btn-footer-left">
+              <button class="btn-detail" @click="hideDetailPage()">Huỷ</button>
+            </div>
+            <div class="btn-footer-right">
+              <button class="btn-detail" @click="btnAddEdit">Cất</button>
+              <button class="btn-detail btn-detail-yes" @click="btnAddMore">
+                Cất và thêm
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -209,20 +361,42 @@ export default {
   components: { ComboBox, DataChangedDialog },
   created() {
     //focus vào ô mã nhân viên
+
+    if (this.formMode == "edit") this.getEmployeeById();
+    if (this.formMode == "add") this.getMaxCode();
+    if (this.formMode == "clone") {
+      this.getEmployeeCodeMaxById();
+      this.$emit("setFormModeAdd");
+    }
+    this.employeeBackUp = { ...this.employee };
     this.$nextTick(() => this.$refs.employeeCode.focus());
-    //gán nhân viên bằng giá trị truyền lên từ list
-    this.employee = { ...this.employeeProp };
-    this.employeeEqual = { ...this.employeeProp };
   },
   props: {
-    employeeProp: { type: Object, default: Object.create(null) }, //biến employee truyền lên từ employee list
-    employeeBackUp: { type: Object, default: Object.create(null) }, // biến dùng để backup employee khi reset form
+    employeeSelectId: { type: String, default: "" }, //Biến truyền Id nhân viên đã chọn lên
     formMode: { type: String, default: "" }, // biến chỉ kiểu cất là sửa hay thêm
   },
   data() {
     return {
-      employee: {},
+      employee: {
+        employeeCode: "",
+        employeeName: "",
+        departmentName: "",
+        employeePosition: "",
+        dateOfBirth: null,
+        gender: null,
+        identityNumber: "",
+        identityDate: null,
+        identityPlace: "",
+        address: "",
+        telephoneNumber: "",
+        phoneNumber: "",
+        email: "",
+        bankAccountNumber: "",
+        bankName: "",
+        bankBranchName: "",
+      },
       employeeEqual: {},
+      employeeBackUp: {},
       isShowDataChanged: false, //Biến hiển thị cửa sổ thồn báo data đã bị thay đổi
       codeBlured: false, //Blur ra khỏi ô input code
       nameBlured: false, //Blur ra khỏi ô input name
@@ -240,7 +414,72 @@ export default {
         this.isShowDataChanged = true;
       else this.hideDetailPage();
     },
-
+    /**
+     * Hàm gọi API lấy về thông tin nhân viên đã max code
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
+    getEmployeeCodeMaxById() {
+      var aipUrl =
+        "https://localhost:44368/api/v1/Employees/employeeMaxCode/" +
+        this.employeeSelectId;
+      axios
+        .get(aipUrl)
+        .then((res) => {
+          this.employee = res.data;
+          this.employee.dateOfBirth = this.filterDate(
+            this.employee.dateOfBirth
+          );
+          this.employee.identityDate = this.filterDate(
+            this.employee.identityDate
+          );
+          this.employeeEqual = { ...this.employee };
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    /**
+     * Hàm gọi API lấy về thông tin nhân viên
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
+    getEmployeeById() {
+      var aipUrl =
+        "https://localhost:44368/api/v1/Employees/" + this.employeeSelectId;
+      axios
+        .get(aipUrl)
+        .then((res) => {
+          this.employee = res.data;
+          this.employee.dateOfBirth = this.filterDate(
+            this.employee.dateOfBirth
+          );
+          this.employee.identityDate = this.filterDate(
+            this.employee.identityDate
+          );
+          this.employeeEqual = { ...this.employee };
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    /**
+     * Hàm gọi API lấy về max code
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
+    getMaxCode() {
+      var aipUrl = "https://localhost:44368/api/v1/Employees/getMaxCode";
+      axios
+        .get(aipUrl)
+        .then((res) => {
+          this.employee.employeeCode = res.data;
+          this.employeeEqual = { ...this.employee };
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
     /**
      * Hàm so sánh sâu 2 object
      * CreatedBy: TDDUNG
@@ -281,6 +520,80 @@ export default {
     hideDetailPage() {
       this.$emit("hideDetailPage");
     },
+
+    /**
+     * Hàm gọi API thêm nhân viên và cất form chi tiết
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
+    //Goi ipa them nhan vien
+    addEmployee() {
+      var aipUrl = "https://localhost:44368/api/v1/Employees/";
+      this.employee.employeeCode = this.employee.employeeCode.trim();
+      if (this.formMode == "add") {
+        axios
+          .post(aipUrl, this.employee)
+          .then((res) => {
+            if (res.status == 200) {
+              this.hideDetailPage();
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+            this.$emit("showWarningLog", err.response.data.errMsg);
+          });
+      }
+      // Goi api sua nhan vien
+      else {
+        axios
+          .put(aipUrl, this.employee)
+          .then((res) => {
+            if (res.status == 200) {
+              this.hideDetailPage();
+            }
+          })
+          .catch((err) => {
+            console.log(err.response);
+            this.$emit("showWarningLog", err.response.data.errMsg);
+          });
+      }
+    },
+    /**
+     * Hàm gọi API thêm nhân viên nhưng không cất form chi tiết
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
+    addMoreEmployee() {
+      //Goi ipa them nhan vien
+      var aipUrl = "https://localhost:44368/api/v1/Employees/";
+      this.employee.employeeCode = this.employee.employeeCode.trim();
+      if (this.formMode == "add") {
+        axios
+          .post(aipUrl, this.employee)
+          .then((res) => {
+            if (res.status == 200) {
+              this.resetForm();
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+            this.$emit("showWarningLog", err.response.data.errMsg);
+          });
+      } else {
+        //Goi ipa sửa nhan vien
+        axios
+          .put(aipUrl, this.employee)
+          .then((res) => {
+            if (res.status == 200) {
+              this.resetForm();
+            }
+          })
+          .catch((err) => {
+            console.log(err.response);
+            this.$emit("showWarningLog", err.response.data.errMsg);
+          });
+      }
+    },
     /**
      * Hàm ấn vào nút cất
      * CreatedBy: TDDUNG
@@ -290,95 +603,7 @@ export default {
       this.codeBlured = true;
       this.nameBlured = true;
       this.pssBlured = true;
-      this.employee;
-      this.addEmployee();
-    },
-    /**
-     * Hàm gọi API thêm nhân viên và cất form chi tiết
-     * CreatedBy: TDDUNG
-     * Date: 11/5/2021
-     */
-    //Goi ipa them nhan vien
-    async addEmployee() {
-      var aipUrl = "https://localhost:44368/api/v1/Employees/";
-      if (this.formMode == "add") {
-        await axios
-          .post(aipUrl, this.employee)
-          .then((res) => {
-            console.log(res);
-            if (res.status == 200) {
-              this.hideDetailPage();
-              console.log(res);
-            }
-          })
-          .catch((err) => {
-            console.log(err);
-            var errMsg = err.response.data.errMsg.split("/");
-            if (errMsg[0] == 1) this.$emit("showStatusLog", errMsg[1]);
-            else if (errMsg[0] == 0) this.$emit("showWarningLog", errMsg[1]);
-          });
-      }
-      // Goi api sua nhan vien
-      else {
-        await axios
-          .put(aipUrl, this.employee)
-          .then((res) => {
-            console.log(res.data);
-            if (res.status == 200) {
-              this.hideDetailPage();
-              console.log(res);
-            }
-          })
-          .catch((err) => {
-            console.log(err.response);
-            var errMsg = err.response.data.errMsg.split("/");
-            if (errMsg[0] == 1) this.$emit("showStatusLog", errMsg[1]);
-            else if (errMsg[0] == 0) this.$emit("showWarningLog", errMsg[1]);
-          });
-      }
-    },
-    /**
-     * Hàm gọi API thêm nhân viên nhưng không cất form chi tiết
-     * CreatedBy: TDDUNG
-     * Date: 11/5/2021
-     */
-    async addMoreEmployee() {
-      //Goi ipa them nhan vien
-      var aipUrl = "https://localhost:44368/api/v1/Employees/";
-      if (this.formMode == "add") {
-        await axios
-          .post(aipUrl, this.employee)
-          .then((res) => {
-            console.log(res);
-            if (res.status == 200) {
-              this.resetForm();
-              console.log(res);
-            }
-          })
-          .catch((err) => {
-            console.log(err);
-            var errMsg = err.response.data.errMsg.split("/");
-            if (errMsg[0] == 1) this.$emit("showStatusLog", errMsg[1]);
-            else if (errMsg[0] == 0) this.$emit("showWarningLog", errMsg[1]);
-          });
-      } else {
-        //Goi ipa sửa nhan vien
-        await axios
-          .put(aipUrl, this.employee)
-          .then((res) => {
-            console.log(res.data);
-            if (res.status == 200) {
-              this.resetForm();
-              console.log(res);
-            }
-          })
-          .catch((err) => {
-            console.log(err.response);
-            var errMsg = err.response.data.errMsg.split("/");
-            if (errMsg[0] == 1) this.$emit("showStatusLog", errMsg[1]);
-            else if (errMsg[0] == 0) this.$emit("showWarningLog", errMsg[1]);
-          });
-      }
+      if (this.checkAndAlert()) this.addEmployee();
     },
     /**
      * Hàm ấn vào nút cất và thêm
@@ -386,7 +611,10 @@ export default {
      * Date: 11/5/2021
      */
     btnAddMore() {
-      this.addMoreEmployee();
+      this.codeBlured = true;
+      this.nameBlured = true;
+      this.pssBlured = true;
+      if (this.checkAndAlert()) this.addMoreEmployee();
       this.$nextTick(() => this.$refs.employeeCode.focus());
     },
     /**
@@ -395,25 +623,13 @@ export default {
      * Date: 11/5/2021
      */
     async resetForm() {
-      this.employee = { ...this.employeeBackUp };
-      this.employeeEqual = this.employee;
+      this.$emit("setFormModeAdd");
+      this.getMaxCode();
       this.codeBlured = false;
       this.nameBlured = false;
       this.pssBlured = false;
-      this.$emit("setFormModeAdd");
-      var aipUrl = "https://localhost:44368/api/v1/Employees/getMaxCode";
-      await axios
-        .get(aipUrl)
-        .then((res) => {
-          var temp = res.data[0].split("-");
-          this.employee.employeeCode =
-            temp[0] + "-" + (parseInt(temp[1]) + 1).toString();
-          this.employee.employeeCode;
-          console.log(this.employee.employeeCode);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      this.employee = { ...this.employeeBackUp };
+      this.employeeEqual = this.employee;
     },
     /**
      * CreatedBy: TDDUNG
@@ -437,30 +653,10 @@ export default {
      * CreatedBy: TDDUNG
      * Date: 11/5/2021
      */
-    setDepartmentName(value) {
-      this.employee.departmentName = value;
-      switch (value) {
-        case "Phòng Nhân sự":
-          this.employee.departmentId = "11452b0c-768e-5ff7-0d63-eeb1d8ed8cef";
-          break;
-        case "Phòng Kế toán":
-          this.employee.departmentId = "142cb08f-7c31-21fa-8e90-67245e8b283e";
-          break;
-        case "Phòng Đào tạo":
-          this.employee.departmentId = "17120d02-6ab5-3e43-18cb-66948daf6128";
-          break;
-        case "Phòng Marketing":
-          this.employee.departmentId = "469b3ece-744a-45d5-957d-e8c757976496";
-          break;
-        case "Phòng Nghiên cứu":
-          this.employee.departmentId = "4e272fc4-7875-78d6-7d32-6a1673ffca7c";
-          break;
-        case "":
-          this.employee.departmentId = null;
-          break;
-        default:
-          this.employee.departmentId = null;
-      }
+    setDepartmentName(departmentId, departmentName) {
+      // this.employee.departmentName = value;
+      this.employee.departmentId = departmentId;
+      this.employee.departmentName = departmentName;
     },
     /**
      * Hàm ẩn cửa sổ dữ liệu đã bị thay đổi
@@ -479,106 +675,38 @@ export default {
       this.hideDataChangedDialog();
       this.btnAddEdit();
     },
+    filterDate(dateString) {
+      if (dateString === null || dateString === "") {
+        return null;
+      } else {
+        return dateString.substring(0, 10);
+      }
+    },
+    checkAndAlert() {
+      if (this.formValidate(this.employee.employeeCode) && this.codeBlured) {
+        this.$emit("showStatusLog", "Mã nhân viên không được để trống,");
+        return false;
+      } else if (
+        this.formValidate(this.employee.employeeName) &&
+        this.nameBlured
+      ) {
+        this.$emit("showStatusLog", "Tên nhân viên không được để trống,");
+        return false;
+      } else if (
+        this.formValidate(this.employee.departmentId) &&
+        this.pssBlured
+      ) {
+        this.$emit("showStatusLog", "Đơn vị không được để trống,");
+        return false;
+      }
+      return true;
+    },
   },
   watch: {},
   computed: {},
 };
 </script>
-<style scoped>
-.cancel-botton:hover,
-.accept-btn1:hover,
-.accept-btn2:hover {
-  background-color: #babec5;
-}
-input[type="text"],
-select[type="text"],
-input[type="date"] {
-  padding: 6px 10px;
-  font-size: 13px;
-  height: 32px;
-  color: inherit;
-  position: relative;
-  padding: 6px 10px;
-  border-radius: 2px;
-  border: 1px solid #babec5;
-  box-sizing: border-box;
-  width: 100%;
-  outline: none;
-}
-input[type="radio"] {
-  margin: 5px;
-  padding: 0px !important;
-  width: 20px;
-  height: 20px;
-}
-label {
-  margin-bottom: 0;
-}
-.dialog-hide {
-  display: none;
-}
-.options {
-  justify-content: space-around;
-  padding-right: 83px;
-}
-.margin0 {
-  margin: auto 0;
-}
-.error {
-  border: 1px solid red !important;
-}
-.warning-text {
-  position: absolute;
-  display: none;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50% -50%);
-  font-size: 10px;
-  z-index: 20;
-  width: fit-content;
-  height: 16px;
-  text-align: center;
-  background: rgb(49, 49, 49);
-  padding: 0 5px;
-  border: 1px solid #111;
-  color: #fff;
-}
-.error:hover + .warning-text {
-  display: block;
-}
-input:focus {
-  border: 1px solid #2ca01c;
-}
-select:focus {
-  border: 1px solid #2ca01c;
-}
-input[type="radio"] {
-  width: 18px;
-  height: 18px;
-  appearance: none;
-  -webkit-appearance: none;
-  border-radius: 50%;
-  background: white;
-  border: 1px solid #afafaf;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-input:checked[type="radio"] {
-  border: 1px solid #2ca01c;
-}
-
-input[type="radio"]::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #2ca01c;
-  display: none;
-}
-
-input:checked[type="radio"]::before {
-  display: block;
-}
+<style>
+@import "../../assets/css/pages/employeeDetail.css";
 </style>
