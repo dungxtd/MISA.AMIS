@@ -96,14 +96,17 @@ namespace MISA.Core.Service
         /// <returns></returns>
         /// Created: TDDung
         /// Date: 10/5/2021
-        public IEnumerable<Employee> GetPaging(int pageIndex, int pageSize, string filter)
+        public Object GetPaging(int pageIndex, int pageSize, string filter)
         {
             if (pageIndex <= 0 || pageSize <= 0) throw new BadRequestException(Properties.Resources.pagingErr);
             var employees = _employeeRepository.GetPaging(pageIndex, pageSize, filter);
             return employees;
         }
         #endregion
-
+        public Employee GetEmployeeMaxCodeById(Guid entityId)
+        {
+            return _employeeRepository.GetEmployeeMaxCodeById(entityId);
+        }
         #region Hàm đếm số lượng bản ghi
         /// <summary>
         /// Hàm đếm số lượng bản ghi
@@ -124,7 +127,7 @@ namespace MISA.Core.Service
         /// Hàm lấy mã lớn nhất
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<String> GetMaxCode()
+        public String GetMaxCode()
         {
             var count = _employeeRepository.GetMaxCode();
             return count;

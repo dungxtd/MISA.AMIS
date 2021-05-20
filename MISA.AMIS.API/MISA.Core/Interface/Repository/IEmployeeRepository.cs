@@ -10,9 +10,10 @@ namespace MISA.Core.Interface.Repository
     public interface IEmployeeRepository : IBaseRepository<Employee>
     {
         public IEnumerable<bool> CheckEmployeeCodeExits(string employeeCode);
-        IEnumerable<Employee> GetPaging(int pageIndex, int pageSize,string filter);
+        Object GetPaging(int pageIndex, int pageSize,string filter);
         public IEnumerable<int> GetEmployeeCount(string filter);
-        public IEnumerable<String> GetMaxCode();
+        public String GetMaxCode();
         public IEnumerable<bool> CheckEmployeeCodeExitsUpdate(string employeeCode, Guid employeeId);
+        public Employee GetEmployeeMaxCodeById(Guid entityId);
     }
 }

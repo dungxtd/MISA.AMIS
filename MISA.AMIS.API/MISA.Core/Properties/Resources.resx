@@ -121,24 +121,24 @@
     <value>&gt; đã tồn tại trên hệ thống, vui lòng kiểm tra lại.</value>
   </data>
   <data name="duplidateEmployeeCodeBefore" xml:space="preserve">
-    <value>0/Mã nhân viên &lt;</value>
+    <value>Mã nhân viên &lt;</value>
   </data>
   <data name="employeeLengthErr" xml:space="preserve">
-    <value>1/Mã nhân viên không được dài quá 20 kí tự.</value>
+    <value>Mã nhân viên không được dài quá 20 kí tự.</value>
   </data>
   <data name="emptyEmployeeCode" xml:space="preserve">
-    <value>1/Mã nhân viên không được phép để trống.</value>
+    <value>Mã nhân viên không được phép để trống.</value>
   </data>
   <data name="emptyEmployeeName" xml:space="preserve">
-    <value>1/Tên nhân viên không được phép để trống.</value>
+    <value>Tên nhân viên không được phép để trống.</value>
   </data>
   <data name="emptyEmployeePss" xml:space="preserve">
-    <value>1/Phòng ban không được phép để trống.</value>
+    <value>Phòng ban không được phép để trống.</value>
   </data>
   <data name="emptyErr" xml:space="preserve">
-    <value>1/không được phép để trống.</value>
+    <value>không được phép để trống.</value>
   </data>
   <data name="pagingErr" xml:space="preserve">
-    <value>1/Page size và page index phải là số nguyên</value>
+    <value>Page size và page index phải là số nguyên</value>
   </data>
 </root>

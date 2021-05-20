@@ -13,8 +13,9 @@ namespace MISA.Core.Interface.Service
     /// CreatedBy: TDDUNG (27/4/2021)
     public interface IEmployeeService : IBaseService<Employee>
     {
-        IEnumerable<Employee> GetPaging(int pageIndex, int pageSize, string filter);
+        Object GetPaging(int pageIndex, int pageSize, string filter);
         IEnumerable<int> GetEmployeeCount(string filter);
-        IEnumerable<String> GetMaxCode();
+        String GetMaxCode();
+        Employee GetEmployeeMaxCodeById(Guid entityId);
     }
 }

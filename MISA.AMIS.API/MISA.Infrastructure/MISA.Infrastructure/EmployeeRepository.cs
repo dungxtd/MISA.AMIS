@@ -43,7 +43,7 @@ namespace MISA.Infrastructure.MISA.Infrastructure
         /// <returns></returns>
         /// Created: TDDung
         /// Date: 10/5/2021
-        public IEnumerable<Employee> GetPaging(int pageIndex, int pageSize, string filter)
+        public Object GetPaging(int pageIndex, int pageSize, string filter)
         {
             using (dbConnection = new MySqlConnection(connectionString))
             {
@@ -51,8 +51,16 @@ namespace MISA.Infrastructure.MISA.Infrastructure
                 dynamicParameters.Add("@m_PageIndex", pageIndex);
                 dynamicParameters.Add("@m_PageSize", pageSize);
                 dynamicParameters.Add("@filter", filter);
-                var employees = dbConnection.Query<Employee>("Proc_EmployeeFilter", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                return employees;
+                var employees = dbConnection.Query<Object>("Proc_EmployeeFilter", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                DynamicParameters dynamic = new DynamicParameters();
+                dynamic.Add("@filter", filter);
+                var count = dbConnection.Query<int>("Proc_EmployeeFilterCount", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                var response = new
+                {
+                    employees = employees,
+                    countEmployees = count
+                };
+                return response;
             }
         }
         #endregion
@@ -73,28 +81,52 @@ namespace MISA.Infrastructure.MISA.Infrastructure
                 DynamicParameters dynamicParameters = new DynamicParameters();
                 dynamicParameters.Add("@filter", filter);
                 var count = dbConnection.Query<int>("Proc_EmployeeFilterCount", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                
                 return count;
             }
         }
         #endregion
 
-        #region Hàm lấy bản ghi lớn nhất
         /// <summary>
-        /// Hàm lấy bản ghi lớn nhất
+        /// Hàm lấy mã lớn nhất
         /// </summary>
         /// <returns></returns>
         /// Created: TDDung
         /// Date: 10/5/2021
-        public IEnumerable<String> GetMaxCode()
+        public String GetMaxCode()
         {
 
             using (dbConnection = new MySqlConnection(connectionString))
             {
                 var count = dbConnection.Query<String>("Proc_EmployeeGetMaxCode", commandType: CommandType.StoredProcedure);
-                return count;
+                var employeeCode = string.Join(",", count.ToArray());
+                var temp = employeeCode.Split("-");
+                employeeCode =
+                  temp[0] + "-" + (long.Parse(temp[1]) + 1).ToString();
+                return employeeCode;
             }
         }
-        #endregion
+        /// <summary>
+        /// Hàm lấy bản ghi có mã lớn nhất
+        /// </summary>
+        /// <returns></returns>
+        /// Created: TDDung
+        /// Date: 10/5/2021
+        public Employee GetEmployeeMaxCodeById(Guid entityId)
+        {
+            using (dbConnection = new MySqlConnection(connectionString))
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@employeeId", entityId);
+                var employee = dbConnection.QueryFirstOrDefault<Employee>("Proc_GetEmployeeById", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                var count = dbConnection.Query<String>("Proc_EmployeeGetMaxCode", commandType: CommandType.StoredProcedure);
+                employee.EmployeeCode = string.Join(",", count.ToArray());
+                var temp = employee.EmployeeCode.Split("-");
+                employee.EmployeeCode =
+                  temp[0] + "-" + (long.Parse(temp[1]) + 1).ToString();
+                return employee;
+            }
+        }
 
         #region Hàm check tồn tại mã nhân viên khi sửa
         /// <summary>

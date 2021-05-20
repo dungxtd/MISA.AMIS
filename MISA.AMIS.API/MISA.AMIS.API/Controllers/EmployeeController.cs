@@ -42,7 +42,7 @@ namespace MISA.AMIS.API.Controllers
         public IActionResult GetPaging(int pageIndex, int pageSize, string filter)
         {
             var employees = _employeeService.GetPaging(pageIndex, pageSize, filter);
-            if (employees.Count() > 0)
+            if (employees != null)
             {
                 return Ok(employees);
             }
@@ -183,5 +183,16 @@ namespace MISA.AMIS.API.Controllers
 
         }
         #endregion
+
+        [HttpGet("employeeMaxCode/{id}")]
+        public ActionResult GetEmployeeMaxCodeById(Guid id)
+        {
+            var employee = _employeeService.GetEmployeeMaxCodeById(id);
+            if (employee != null)
+            {
+                return Ok(employee);
+            }
+            else return NoContent();
+        }
     }
 }
