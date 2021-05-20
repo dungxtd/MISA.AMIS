@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\MISA.Infrastructure.csproj": {}
+    "F:\\tddung\\dotnet\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\MISA.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj": {
+    "F:\\tddung\\dotnet\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj",
+        "projectUniqueName": "F:\\tddung\\dotnet\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj",
         "projectName": "MISA.Core",
-        "projectPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj",
-        "packagesPath": "C:\\Users\\dungxtd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\obj\\",
+        "projectPath": "F:\\tddung\\dotnet\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj",
+        "packagesPath": "C:\\Users\\tddung\\.nuget\\packages\\",
+        "outputPath": "F:\\tddung\\dotnet\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dungxtd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tddung\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,6 +39,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -61,20 +64,17 @@
         }
       }
     },
-    "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\MISA.Infrastructure.csproj": {
+    "F:\\tddung\\dotnet\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\MISA.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\MISA.Infrastructure.csproj",
+        "projectUniqueName": "F:\\tddung\\dotnet\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\MISA.Infrastructure.csproj",
         "projectName": "MISA.Infrastructure",
-        "projectPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\MISA.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\dungxtd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\obj\\",
+        "projectPath": "F:\\tddung\\dotnet\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\MISA.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\tddung\\.nuget\\packages\\",
+        "outputPath": "F:\\tddung\\dotnet\\MISA.AMIS\\MISA.AMIS.API\\MISA.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dungxtd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tddung\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,8 +88,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj": {
-                "projectPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj"
+              "F:\\tddung\\dotnet\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj": {
+                "projectPath": "F:\\tddung\\dotnet\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj"
               }
             }
           }

@@ -117,6 +117,7 @@
                     <div class="detail-inf-label">
                       <input
                         type="date"
+                        :max="today"
                         class="detail-inf-input"
                         v-model="employee.dateOfBirth"
                       />
@@ -190,6 +191,7 @@
                     <div class="detail-inf-label">
                       <input
                         type="date"
+                        :max="today"
                         class="detail-inf-input"
                         v-model="employee.identityDate"
                       />
@@ -401,6 +403,7 @@ export default {
       codeBlured: false, //Blur ra khỏi ô input code
       nameBlured: false, //Blur ra khỏi ô input name
       pssBlured: false, //Blur ra khỏi ô input đơn vị
+      today: new Date().toISOString().split("T")[0],
     };
   },
   methods: {
@@ -637,7 +640,7 @@ export default {
      * Hàm check thông tin ở client ( 1 hàm dùng chung nhaaaaaaaaaaa)
      */
     formValidate(value) {
-      if (value == "" || value == null) return true;
+      if (value.trim() == "" || value.trim() == null) return true;
       else return false;
     },
     /**
@@ -675,6 +678,11 @@ export default {
       this.hideDataChangedDialog();
       this.btnAddEdit();
     },
+    /**
+     * Hàm định dạng lại ngày tháng cho date
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     filterDate(dateString) {
       if (dateString === null || dateString === "") {
         return null;
@@ -682,21 +690,26 @@ export default {
         return dateString.substring(0, 10);
       }
     },
+    /**
+     * Hàm check validate các mục bắt buộc nhật và gọi thông báo
+     * CreatedBy: TDDUNG
+     * Date: 11/5/2021
+     */
     checkAndAlert() {
       if (this.formValidate(this.employee.employeeCode) && this.codeBlured) {
-        this.$emit("showStatusLog", "Mã nhân viên không được để trống,");
+        this.$emit("showStatusLog", "Mã nhân viên không được để trống.");
         return false;
       } else if (
         this.formValidate(this.employee.employeeName) &&
         this.nameBlured
       ) {
-        this.$emit("showStatusLog", "Tên nhân viên không được để trống,");
+        this.$emit("showStatusLog", "Tên nhân viên không được để trống.");
         return false;
       } else if (
         this.formValidate(this.employee.departmentId) &&
         this.pssBlured
       ) {
-        this.$emit("showStatusLog", "Đơn vị không được để trống,");
+        this.$emit("showStatusLog", "Đơn vị không được để trống.");
         return false;
       }
       return true;

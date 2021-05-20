@@ -61,6 +61,87 @@ namespace MISA.Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to STT.
+        /// </summary>
+        internal static string cell1 {
+            get {
+                return ResourceManager.GetString("cell1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mã nhân viên.
+        /// </summary>
+        internal static string cell2 {
+            get {
+                return ResourceManager.GetString("cell2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên nhân viên.
+        /// </summary>
+        internal static string cell3 {
+            get {
+                return ResourceManager.GetString("cell3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Giới tính.
+        /// </summary>
+        internal static string cell4 {
+            get {
+                return ResourceManager.GetString("cell4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ngày sinh.
+        /// </summary>
+        internal static string cell5 {
+            get {
+                return ResourceManager.GetString("cell5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chức danh.
+        /// </summary>
+        internal static string cell6 {
+            get {
+                return ResourceManager.GetString("cell6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên đơn vị.
+        /// </summary>
+        internal static string cell7 {
+            get {
+                return ResourceManager.GetString("cell7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số tài khoản.
+        /// </summary>
+        internal static string cell8 {
+            get {
+                return ResourceManager.GetString("cell8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên ngân hàng.
+        /// </summary>
+        internal static string cell9 {
+            get {
+                return ResourceManager.GetString("cell9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &gt; đã tồn tại trên hệ thống, vui lòng kiểm tra lại..
         /// </summary>
         internal static string duplidateEmployeeCodeAfter {
@@ -124,11 +205,74 @@ namespace MISA.Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.
+        /// </summary>
+        internal static string excelFileLink {
+            get {
+                return ResourceManager.GetString("excelFileLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to employees.xlsx.
+        /// </summary>
+        internal static string excelFileName {
+            get {
+                return ResourceManager.GetString("excelFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nữ.
+        /// </summary>
+        internal static string Female {
+            get {
+                return ResourceManager.GetString("Female", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nam.
+        /// </summary>
+        internal static string Male {
+            get {
+                return ResourceManager.GetString("Male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DANH SÁCH NHÂN VIÊN.
+        /// </summary>
+        internal static string nameExcelFile {
+            get {
+                return ResourceManager.GetString("nameExcelFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Khác.
+        /// </summary>
+        internal static string Other {
+            get {
+                return ResourceManager.GetString("Other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Page size và page index phải là số nguyên.
         /// </summary>
         internal static string pagingErr {
             get {
                 return ResourceManager.GetString("pagingErr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chưa biết.
+        /// </summary>
+        internal static string Unknow {
+            get {
+                return ResourceManager.GetString("Unknow", resourceCulture);
             }
         }
     }

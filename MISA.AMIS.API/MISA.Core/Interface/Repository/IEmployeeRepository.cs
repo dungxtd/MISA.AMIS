@@ -11,7 +11,6 @@ namespace MISA.Core.Interface.Repository
     {
         public IEnumerable<bool> CheckEmployeeCodeExits(string employeeCode);
         Object GetPaging(int pageIndex, int pageSize,string filter);
-        public IEnumerable<int> GetEmployeeCount(string filter);
         public String GetMaxCode();
         public IEnumerable<bool> CheckEmployeeCodeExitsUpdate(string employeeCode, Guid employeeId);
         public Employee GetEmployeeMaxCodeById(Guid entityId);

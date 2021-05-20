@@ -13,12 +13,12 @@ namespace MISA.Infrastructure.MISA.Infrastructure
 {
     public class EmployeeRepository : BaseRepository<Employee>, IEmployeeRepository
     {
-        #region Hàm check tồn tại mã nhân viên
         /// <summary>
         /// Hàm check tồn tại mã nhân viên
         /// </summary>
         /// <param name="employeeCode"></param>
-        /// <returns></returns>
+        /// <returns>true: mã đã tồn tại</returns>
+        /// <returns>false: mã chưa tồn tại</returns>
         /// Created: TDDung
         /// Date: 10/5/2021
         public IEnumerable<bool>  CheckEmployeeCodeExits(string employeeCode)
@@ -31,16 +31,15 @@ namespace MISA.Infrastructure.MISA.Infrastructure
                 return isExist;
             }
         }
-        #endregion
 
-        #region Hàm phân trang có filter
         /// <summary>
         /// Hàm phân trang có filter
         /// </summary>
         /// <param name="pageIndex"></param>
         /// <param name="pageSize"></param>
         /// <param name="filter"></param>
-        /// <returns></returns>
+        /// <returns>employees: danh sách nhân viên</returns
+        /// <returns>count: tổng số bản ghi lọc theo filter</returns>
         /// Created: TDDung
         /// Date: 10/5/2021
         public Object GetPaging(int pageIndex, int pageSize, string filter)
@@ -63,34 +62,11 @@ namespace MISA.Infrastructure.MISA.Infrastructure
                 return response;
             }
         }
-        #endregion
-
-        #region Hàm đếm số lượng bản ghi
-        /// <summary>
-        /// Hàm đếm số lượng bản ghi
-        /// </summary>
-        /// <param name="filter"></param>
-        /// <returns></returns>
-        /// Created: TDDung
-        /// Date: 10/5/2021
-        public IEnumerable<int> GetEmployeeCount(string filter)
-        {
-
-            using (dbConnection = new MySqlConnection(connectionString))
-            {
-                DynamicParameters dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@filter", filter);
-                var count = dbConnection.Query<int>("Proc_EmployeeFilterCount", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                
-                return count;
-            }
-        }
-        #endregion
 
         /// <summary>
         /// Hàm lấy mã lớn nhất
         /// </summary>
-        /// <returns></returns>
+        /// <returns>employeeCode: mã nhân viên lớn nhất cộng thêm 1</returns>
         /// Created: TDDung
         /// Date: 10/5/2021
         public String GetMaxCode()
@@ -109,7 +85,7 @@ namespace MISA.Infrastructure.MISA.Infrastructure
         /// <summary>
         /// Hàm lấy bản ghi có mã lớn nhất
         /// </summary>
-        /// <returns></returns>
+        /// <returns>employee: bản ghi có dữ liệu thep id và có mã lớn nhất cộng thêm 1</returns>
         /// Created: TDDung
         /// Date: 10/5/2021
         public Employee GetEmployeeMaxCodeById(Guid entityId)
@@ -128,12 +104,11 @@ namespace MISA.Infrastructure.MISA.Infrastructure
             }
         }
 
-        #region Hàm check tồn tại mã nhân viên khi sửa
         /// <summary>
         /// Hàm check tồn tại mã nhân viên khi sửa
         /// </summary>
         /// <param name="employeeCode"></param>
-        /// <returns></returns>
+        /// <returns>isExist: mã nhân viên đã tồn tại trên hệ thống</returns>
         /// Created: TDDung
         /// Date: 10/5/2021
         public IEnumerable<bool> CheckEmployeeCodeExitsUpdate(string employeeCode, Guid employeeId)
@@ -147,6 +122,5 @@ namespace MISA.Infrastructure.MISA.Infrastructure
                 return isExist;
             }
         }
-        #endregion
     }
 }

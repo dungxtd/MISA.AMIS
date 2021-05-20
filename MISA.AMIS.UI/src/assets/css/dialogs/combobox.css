@@ -1,0 +1,95 @@
+.icon-combobox {
+    width: 32px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-position: -553px -354px !important;
+    border-right: 1px solid #babec5;
+    border-top: 1px solid #babec5;
+    border-bottom: 1px solid #babec5;
+    background: url(/img/Sprites.5f05e81f.svg) no-repeat;
+  }
+  input {
+    border: none;
+    font-size: 13px;
+    padding: 5px 10px;
+    padding-right: unset;
+    text-overflow: ellipsis;
+    background-color: transparent;
+    width: 100%;
+    background: white;
+    color: black !important;
+    border: 1px solid #babec5;
+  }
+  input:focus-visible {
+    outline: none;
+    border: 1px solid #2ca01c;
+  }
+  .warning-combox {
+    border: 1px solid red !important;
+  }
+  .combobox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .header-combobox {
+    display: flex;
+    z-index: 10;
+    width: 100%;
+  }
+  .wrap-option {
+    position: absolute;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+  }
+  .main-cbb {
+    z-index: 10;
+    width: 100%;
+  }
+  .select {
+    color: #ebedf0 !important;
+    background-color: #35bf22 !important;
+  }
+  .option-combobox {
+    border-right: 1px solid #babec5;
+    border-bottom: 1px solid #babec5;
+    border-left: 1px solid #babec5;
+  }
+  .option-combobox:hover {
+    color: #35bf22;
+    background-color: #ebedf0;
+  }
+  ul div {
+    text-align: left !important;
+    padding: 5px 0px 5px 11px;
+    border: 1px solid #ebedf0;
+  }
+  .error {
+    border: 1px solid red !important;
+  }
+  .warning-text {
+    position: absolute;
+    display: none;
+    top: 30%;
+    left: 60%;
+    transform: translate(-50% -50%);
+    font-size: 10px;
+    z-index: 20;
+    width: fit-content;
+    height: 16px;
+    text-align: center;
+    background: rgb(49, 49, 49);
+    padding: 0 5px;
+    border: 1px solid #111;
+    color: #fff;
+  }
+  .error:hover + .warning-text {
+    display: block;
+  }

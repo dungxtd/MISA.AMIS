@@ -117,40 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="cell1" xml:space="preserve">
-    <value>STT</value>
-  </data>
-  <data name="cell2" xml:space="preserve">
-    <value>Mã nhân viên</value>
-  </data>
-  <data name="cell3" xml:space="preserve">
-    <value>Tên nhân viên</value>
-  </data>
-  <data name="cell4" xml:space="preserve">
-    <value>Giới tính</value>
-  </data>
-  <data name="cell5" xml:space="preserve">
-    <value>Ngày sinh</value>
-  </data>
-  <data name="cell6" xml:space="preserve">
-    <value>Chức danh</value>
-  </data>
-  <data name="cell7" xml:space="preserve">
-    <value>Tên đơn vị</value>
-  </data>
-  <data name="cell8" xml:space="preserve">
-    <value>Số tài khoản</value>
-  </data>
-  <data name="cell9" xml:space="preserve">
-    <value>Tên ngân hàng</value>
-  </data>
-  <data name="excelFileLink" xml:space="preserve">
-    <value>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</value>
-  </data>
-  <data name="excelFileName" xml:space="preserve">
-    <value>employees.xlsx</value>
-  </data>
-  <data name="nameExcelFile" xml:space="preserve">
-    <value>DANH SÁCH NHÂN VIÊN</value>
-  </data>
 </root>

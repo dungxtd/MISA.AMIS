@@ -330,6 +330,12 @@ export default {
      * CreatedBy: TDDUNG
      * DATE: 16/5/2021
      */
+
+    /**
+     * Ham gọi API lấy data về
+     * CreatedBy: TDDUNG
+     * DATE: 16/5/2021
+     */
     async getData() {
       this.status = LOADING;
       var aipUrl =
@@ -388,7 +394,7 @@ export default {
         var fileURL = window.URL.createObjectURL(new Blob([response.data]));
         var fileLink = document.createElement("a");
         fileLink.href = fileURL;
-        fileLink.setAttribute("download", "DanhSachNhanVien.xlsx");
+        fileLink.setAttribute("download", "Danh_sach_nhan_vien.xlsx");
         document.body.appendChild(fileLink);
         fileLink.click();
       });

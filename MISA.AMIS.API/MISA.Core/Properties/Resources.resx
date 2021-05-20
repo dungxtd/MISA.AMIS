@@ -117,6 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="cell1" xml:space="preserve">
+    <value>STT</value>
+  </data>
+  <data name="cell2" xml:space="preserve">
+    <value>Mã nhân viên</value>
+  </data>
+  <data name="cell3" xml:space="preserve">
+    <value>Tên nhân viên</value>
+  </data>
+  <data name="cell4" xml:space="preserve">
+    <value>Giới tính</value>
+  </data>
+  <data name="cell5" xml:space="preserve">
+    <value>Ngày sinh</value>
+  </data>
+  <data name="cell6" xml:space="preserve">
+    <value>Chức danh</value>
+  </data>
+  <data name="cell7" xml:space="preserve">
+    <value>Tên đơn vị</value>
+  </data>
+  <data name="cell8" xml:space="preserve">
+    <value>Số tài khoản</value>
+  </data>
+  <data name="cell9" xml:space="preserve">
+    <value>Tên ngân hàng</value>
+  </data>
   <data name="duplidateEmployeeCodeAfter" xml:space="preserve">
     <value>&gt; đã tồn tại trên hệ thống, vui lòng kiểm tra lại.</value>
   </data>
@@ -138,7 +165,28 @@
   <data name="emptyErr" xml:space="preserve">
     <value>không được phép để trống.</value>
   </data>
+  <data name="excelFileLink" xml:space="preserve">
+    <value>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</value>
+  </data>
+  <data name="excelFileName" xml:space="preserve">
+    <value>employees.xlsx</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Nữ</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Nam</value>
+  </data>
+  <data name="nameExcelFile" xml:space="preserve">
+    <value>DANH SÁCH NHÂN VIÊN</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Khác</value>
+  </data>
   <data name="pagingErr" xml:space="preserve">
     <value>Page size và page index phải là số nguyên</value>
+  </data>
+  <data name="Unknow" xml:space="preserve">
+    <value>Chưa biết</value>
   </data>
 </root>

@@ -123,7 +123,7 @@ table {
 
 .action {
   border-left: 1px dotted #c7c7c7;
-  border-bottom: 1px solid #c7c7c7;
+  /* border-bottom: 1px solid #c7c7c7; */
   right: 0px;
   padding-top: 18px;
   padding-bottom: 5px;

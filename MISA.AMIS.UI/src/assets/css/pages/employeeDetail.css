@@ -158,10 +158,17 @@
   font-weight: 700;
   font-size: 13px;
 }
+.btn-detail:hover{
+  background-color: #d2d3d6;
+}
 .btn-detail-yes {
   margin-left: 12px;
   color: #fff;
   background-color: #2ca01c;
+}
+.btn-detail-yes:hover{
+  background-color: #35bf22!important;
+  color: #fff;
 }
 .lable-input-radio {
   padding-left: 4px;

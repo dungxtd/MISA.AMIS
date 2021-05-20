@@ -21,7 +21,7 @@ namespace MISA.Core.Entities
         ///Mã nhân viên
         /// </summary>
         [MISARequired]
-        [MISAMaxLength(maxLength:20)]
+        [MISAMaxLength(maxLength: 20)]
         public string EmployeeCode { get; set; }
 
         ///<summary>
@@ -34,7 +34,28 @@ namespace MISA.Core.Entities
         //Giới tính
         /// </summary>
         public int? Gender { get; set; }
-
+        /// <summary>
+        /// Tên giới tính
+        /// </summary>
+        /// CreatedDate: 05/08/2021
+        /// CreatedBy: THTung
+        public string GenderName
+        {
+            get
+            {
+                switch (Gender)
+                {
+                    case 0:
+                        return Properties.Resources.Male;
+                    case 1:
+                        return Properties.Resources.Female;
+                    case 2:
+                        return Properties.Resources.Other;
+                    default:
+                        return Properties.Resources.Unknow;
+                }
+            }
+        }
         ///<summary>
         ///Ngày sinh
         /// </summary>
