@@ -31,6 +31,10 @@
   transition: all 0.2s ease;
   border-radius: 4px;
 }
+.btn-add:hover {
+  background-color: #35bf22 !important;
+  color: #fff;
+}
 .grid-list {
   background: #fff;
   padding: 16px;
@@ -128,9 +132,9 @@
   padding: 0 8px;
   cursor: pointer;
   -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .pageSelected {
   border: 1px solid #e0e0e0;

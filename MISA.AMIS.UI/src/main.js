@@ -5,7 +5,7 @@ Vue.config.productionTip = false
 Vue.filter("formatDate", function (value) {
   if (value) {
     value = value.substring(0, 10);
-    return moment(String(value)).format("MM/DD/YYYY");
+    return moment(String(value)).format("DD/MM/YYYY");
   }
 });
 Vue.filter("formatIndexPagePre", function (value) {

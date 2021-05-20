@@ -383,6 +383,7 @@ export default {
         employeeCode: "",
         employeeName: "",
         departmentName: "",
+        departmentId: "",
         employeePosition: "",
         dateOfBirth: null,
         gender: null,

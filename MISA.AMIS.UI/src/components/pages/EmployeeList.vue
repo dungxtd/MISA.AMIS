@@ -120,6 +120,7 @@
                   '30 bản ghi trên 1 trang',
                   '40 bản ghi trên 1 trang',
                 ]"
+                :isHidePageSize="isHidePageSize"
                 :default="'20 bản ghi trên 1 trang'"
                 :pageSize="pageSize"
                 class="select"
@@ -309,10 +310,10 @@ export default {
       errMsg: "", //Biến chứa câu thông báo cảnh báo
       timeout: 500, //Biến chứa thời gian trễ
       employeeSelectId: "", //Biến chứa id nhân viên đã chọn
+      isHidePageSize: false, //Bien an hay hien page size
     };
   },
   created() {
-    // Load data khi bắt đầu
     this.loadData();
   },
   methods: {
@@ -326,12 +327,6 @@ export default {
       this.pageSize = 20;
       this.getData();
     },
-    /**
-     * Ham gọi API lấy data về
-     * CreatedBy: TDDUNG
-     * DATE: 16/5/2021
-     */
-
     /**
      * Ham gọi API lấy data về
      * CreatedBy: TDDUNG
@@ -420,8 +415,6 @@ export default {
       this.screenX = event.clientX;
       this.screenY = event.clientY;
       if (this.screenY > 770) this.screenY = 770;
-      // console.log(this.screenX);
-      // console.log(this.screenY);
     },
     /**
      * Ham hien dialog xoa
@@ -521,6 +514,7 @@ export default {
     hideWarningLog() {
       this.isShowWarningLog = false;
     },
+    //#region Các hàm gán sự kiện cho nút phân trang
     /**
      * Ham chuyen den trang truoc
      * CreatedBy: TDDUNG
@@ -567,6 +561,7 @@ export default {
         }
       }
     },
+
     /**
      * Nút trang thứ nhất
      * CreatedBy: TDDUNG
@@ -585,6 +580,7 @@ export default {
       this.pageIndex = this.pageIndexDisplay + 1;
       this.pageIndexDisplay = this.pageIndex;
     },
+
     /**
      * Nút trang thứ ba
      * CreatedBy: TDDUNG
@@ -612,6 +608,7 @@ export default {
       this.pageIndex = this.pageMax;
       this.pageIndexDisplay = this.pageIndex;
     },
+    //#endregion
   },
   computed: {
     /**
@@ -656,8 +653,4 @@ export default {
 
 <style>
 @import "../../assets/css/common/table.css";
-.hideBtn {
-  cursor: default !important;
-  color: #9e9e9e;
-}
 </style>

@@ -93,7 +93,7 @@ export default {
 }
 .custom-select .selected {
   background-color: white;
-  border-radius: 2px;
+  /* border-radius: 2px; */
   /* border: 1px solid #babec5; */
   color: black;
   flex: 1;

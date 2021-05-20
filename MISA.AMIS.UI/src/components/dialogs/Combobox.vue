@@ -6,15 +6,11 @@
         autocomplete="off"
         v-model="option"
         @input="filterOptions()"
-        @focus="focusInput"
-        @keyup.up="keyup"
-        @keyup.down="keydown"
-        @keyup.enter="enter"
-        @keydown.tab="keyout"
-        @keydown="model = true"
+        v-on:keyup="keyUp"
+        v-on:keydown="keyDown"
+        v-on:blur="blurInput"
         @click="model = !model"
-        @blur="checkValue"
-        v-bind:class="{ error: isValided && pssBlured }"
+        v-bind:class="{ error: !isValided && pssBlured }"
       />
       <div class="warning-text">Vị trí không được để trống.</div>
       <div class="icon-combobox" @click="model = !model"></div>
@@ -54,7 +50,7 @@ export default {
       filteredOptions: [], //Biến chứa tên phòng ban sau khi lọc
       indexSelect: -1, //Biến chỉ index đầu tiền khi ấn từ bàn phím
       isChecked: false, //Biến chỉ đã check trống hay chưa
-      isValided: false, //Biến chỉ đã check validate hay chưa
+      isValided: false, //Biến chỉ trạng thái validate
     };
   },
   created() {
@@ -94,22 +90,12 @@ export default {
       this.checkValue();
     },
     /**
-     * Bắt sự kiện khi focus vào ô input
-     * CrearedBy: TDDUNG
-     * Date: 11/5/2021
-     */
-    focusInput() {
-      // this.model = true;
-      this.filterOptions();
-    },
-    /**
      * Bắt sự kiện khi click bên ngoài
      * CrearedBy: TDDUNG
      * Date: 11/5/2021
      */
     clickOutSide() {
       this.model = false;
-      // this.checkValue();
     },
     /**
      * Hàm lọc giá trị input với mảng departments
@@ -125,53 +111,67 @@ export default {
       });
     },
     /**
+     * Bắt sự kiện khi ấn phím
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
+    keyUp(e) {
+      // Bắt sự kiện khi ấn phím lên
+      if (e.keyCode === 38) {
+        if (this.indexSelect > 0) this.indexSelect--;
+      }
+      // Bắt sự kiện khi ấn phím xuống
+      else if (e.keyCode === 40) {
+        this.model = true;
+        if (this.indexSelect < this.filteredOptions.length - 1)
+          this.indexSelect++;
+        else this.indexSelect = 0;
+      }
+      // Bắt sự kiện khi ấn phím enter
+      else if (e.keyCode === 13) {
+        this.$emit("setPssBlured", true);
+        this.checkValue();
+        if (this.indexSelect >= 0)
+          this.option = this.filteredOptions[this.indexSelect];
+        this.model = false;
+        this.filteredOptions = this.options;
+        this.indexSelect = -1;
+        this.searchIdByName();
+      }
+    },
+    /**
+     * Bắt sự kiện khi thả phím
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
+    keyDown(e) {
+      // Bắt sự kiện khi thả phím  tab
+      if (e.keyCode === 9) {
+        this.checkValue();
+        this.$emit("setPssBlured", true);
+        this.model = false;
+      }
+    },
+    /**
+     * Check value khi blur khỏi ô input
+     * CrearedBy: TDDUNG
+     * Date: 11/5/2021
+     */
+    blurInput() {
+      this.checkValue();
+    },
+    /**
      * Set giá trị cho ô input khi click
      * CrearedBy: TDDUNG
      * Date: 11/5/2021
      */
     setOption(option) {
-      this.isValided = false;
+      this.isValided = true;
       this.option = option;
       this.model = false;
-      this.filteredOptions = this.options;
-      // this.checkValue();
-      // this.isValided = false;
-      this.searchIdByName();
-    },
-    /**
-     * Bắt sự kiện khi nhấn phím xuống
-     * CrearedBy: TDDUNG
-     * Date: 11/5/2021
-     */
-    keydown() {
-      this.model = true;
-      if (this.indexSelect < this.filteredOptions.length - 1)
-        this.indexSelect++;
-      else this.indexSelect = 0;
-    },
-    /**
-     * Bắt sự kiện khi nhấn phím lên
-     * CrearedBy: TDDUNG
-     * Date: 11/5/2021
-     */
-    keyup() {
-      if (this.indexSelect > 0) this.indexSelect--;
-    },
-    /**
-     * Bắt sự kiện khi nhấn phím enter
-     * CrearedBy: TDDUNG
-     * Date: 11/5/2021
-     */
-    enter() {
-      // console.log(this.indexSelect);
-      this.$emit("setPssBlured", true);
-      if (this.indexSelect >= 0)
-        this.option = this.filteredOptions[this.indexSelect];
-      this.model = false;
       this.checkValue();
-      this.filteredOptions = this.options;
-      this.indexSelect = -1;
       this.searchIdByName();
+      this.filteredOptions = this.options;
     },
     /**
      * Check giá trị của ô input có phải đúng phòng ban hay Không
@@ -184,16 +184,16 @@ export default {
       this.options.forEach((element) => {
         if (this.option == element) {
           this.isChecked = true;
-          this.isValided = false;
+          this.isValided = true;
           this.filteredOptions = this.options;
         }
       });
       if (!this.isChecked) {
         this.option = "";
-        this.isValided = true;
+        this.isValided = false;
       }
       if (this.option == "") {
-        this.isValided = true;
+        this.isValided = false;
         // this.setOption("");
       }
     },
@@ -213,20 +213,18 @@ export default {
     // Theo dõi biến tên phòng ban
     departmentName() {
       this.option = this.departmentName;
+      this.isValided = true;
     },
     // Theo dõi biến ô input
     option() {
-      if (this.option == "") this.$emit("setDepartmentName", this.option);
+      if (this.option == "") this.$emit("setDepartmentName", "", "");
     },
     pssBlured() {
-      this.checkValue();
+      if (!this.pssBlured) this.checkValue();
     },
     model() {
       if (!this.model) this.$emit("setPssBlured", true);
     },
-  },
-  mounted() {
-    // this.filterOptions();
   },
   computed: {},
 };
