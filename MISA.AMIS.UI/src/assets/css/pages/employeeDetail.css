@@ -13,7 +13,7 @@
 }
 .detail-dialog-content {
   position: fixed;
-  /* border-radius: 5px; */
+  border-radius: 4px;
   min-width: 900px;
   max-width: 900px;
   /* width: 900px; */

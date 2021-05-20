@@ -121,6 +121,7 @@
                   '40 bản ghi trên 1 trang',
                 ]"
                 :default="'20 bản ghi trên 1 trang'"
+                :pageSize="pageSize"
                 class="select"
                 @setPageSize="setPageSize"
               />
@@ -377,6 +378,7 @@ export default {
     setPageSize(pageSize) {
       this.pageSize = pageSize;
       this.pageIndex = 1;
+      this.pageIndexDisplay = 1;
       this.getData();
     },
     /**
@@ -417,8 +419,7 @@ export default {
     someMethod(event) {
       this.screenX = event.clientX;
       this.screenY = event.clientY;
-      if (this.indexTemp == this.employees.length - 1)
-        this.screenY = this.screenY - 80;
+      if (this.screenY > 770) this.screenY = 770;
       // console.log(this.screenX);
       // console.log(this.screenY);
     },

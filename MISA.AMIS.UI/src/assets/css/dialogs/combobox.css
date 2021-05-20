@@ -39,15 +39,19 @@
   .header-combobox {
     display: flex;
     z-index: 10;
+    height: 32px;
     width: 100%;
   }
   .wrap-option {
     position: absolute;
-    width: 100%;
+    width: calc(100% - 2px);
     background-color: rgb(255, 255, 255);
     cursor: pointer;
     padding: 0;
     margin: 0;
+    border-left: 1px solid #babec5;
+    border-right: 1px solid #babec5;
+    border-bottom: 1px solid #babec5;
   }
   .main-cbb {
     z-index: 10;
@@ -58,9 +62,13 @@
     background-color: #35bf22 !important;
   }
   .option-combobox {
-    border-right: 1px solid #babec5;
+    /* border-right: 1px solid #babec5;
     border-bottom: 1px solid #babec5;
-    border-left: 1px solid #babec5;
+    border-left: 1px solid #babec5; */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
   .option-combobox:hover {
     color: #35bf22;
@@ -68,8 +76,8 @@
   }
   ul div {
     text-align: left !important;
-    padding: 5px 0px 5px 11px;
-    border: 1px solid #ebedf0;
+    padding: 7px 0px 7px 11px;
+    /* border: 1px solid #ebedf0; */
   }
   .error {
     border: 1px solid red !important;

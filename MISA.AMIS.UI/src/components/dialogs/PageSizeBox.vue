@@ -32,7 +32,8 @@ export default {
   props: {
     options: { type: Array, required: true }, // Biến chứa mảng sau khi đã lọc
     default: { type: String, required: false, default: null }, // Biến mặc định cho ô input
-    tabindex: { type: Number, required: false, default: 0 }, //
+    tabindex: { type: Number, required: false, default: 0 }, //Biến tabinex
+    pageSize: { type: Number, required: false, default: 0 }, // Biến hiển thị size page
   },
   data() {
     return {
@@ -51,6 +52,9 @@ export default {
     selected() {
       this.numberSelected = parseInt(this.selected.split(" ")[0]);
       this.$emit("setPageSize", this.numberSelected);
+    },
+    pageSize() {
+      this.selected = this.pageSize + " bản ghi trên 1 trang";
     },
   },
 };

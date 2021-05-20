@@ -36,9 +36,15 @@ export default {
     return {
       isShowReportLog: false, //Bien hien thi report
       codeDeleteTemp: "", //Bien tạm thời lưu code nhân viên cần xoá
+      screenXDialog: 0, //Biến chứa toạ độ x của dialog
+      screenYDialog: 0, //Biến chứa toạ độ y của dialog
     };
   },
-
+  watch: {
+    screenY() {
+      if (this.screenY > 770) this.screenYDialog = 770;
+    },
+  },
   methods: {
     /**
      * Bắt sự kiện khi nhấn xoá
@@ -111,6 +117,10 @@ ul li {
   text-decoration: none;
   font-weight: 100;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 ul li:hover {
   background-color: #eee;

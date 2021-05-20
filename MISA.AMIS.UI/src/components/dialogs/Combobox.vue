@@ -25,7 +25,7 @@
         <div
           class="option-combobox"
           v-for="(filteredOption, index) in filteredOptions"
-          v-on:click="setOption(filteredOption)"
+          v-on:mouseup="setOption(filteredOption)"
           :key="index"
           :class="{ select: index == indexSelect }"
         >
@@ -168,6 +168,7 @@ export default {
       if (this.indexSelect >= 0)
         this.option = this.filteredOptions[this.indexSelect];
       this.model = false;
+      this.checkValue();
       this.filteredOptions = this.options;
       this.indexSelect = -1;
       this.searchIdByName();
