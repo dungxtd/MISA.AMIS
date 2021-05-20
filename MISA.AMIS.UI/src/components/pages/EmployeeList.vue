@@ -100,6 +100,7 @@
                   :screenY="screenY"
                   v-if="index == indexTemp && isShowMoreOption"
                   v-click-outside="clickOutSide"
+                  @shownoti="shownoti"
                 />
               </tr>
             </tbody>
@@ -250,6 +251,7 @@
       @showStatusLog="showStatusLog"
       @setFormModeAdd="setFormModeAdd"
       @showWarningLog="showWarningLog"
+      @shownoti="shownoti"
     />
     <StatusDialog
       v-if="isShowStatusLog == true"
@@ -261,6 +263,9 @@
       :warningMsg="errMsg"
       @hideWarningLog="hideWarningLog"
     />
+    <transition name="slide-fade">
+      <Notification v-if="isShowNoti == true" :msgStatus="msgStatus" />
+    </transition>
   </div>
 </template>
 <script>
@@ -272,6 +277,7 @@ import StatusDialog from "../dialogs/StatusDialog";
 import WarningDialog from "../dialogs/WarningDialog";
 import PageSizeBox from "../dialogs/PageSizeBox";
 import EmptyData from "../dialogs/EmptyData";
+import Notification from "../dialogs/Notification";
 import Vue from "vue";
 import vClickOutside from "v-click-outside";
 Vue.use(vClickOutside);
@@ -286,6 +292,7 @@ export default {
     WarningDialog,
     PageSizeBox,
     EmptyData,
+    Notification,
   },
   data() {
     return {
@@ -311,6 +318,8 @@ export default {
       timeout: 500, //Biến chứa thời gian trễ
       employeeSelectId: "", //Biến chứa id nhân viên đã chọn
       isHidePageSize: false, //Bien an hay hien page size
+      msgStatus: "", //Câu thông báo truyền lên noti
+      isShowNoti: false, //Biến hiển thị noti
     };
   },
   created() {
@@ -609,6 +618,17 @@ export default {
       this.pageIndexDisplay = this.pageIndex;
     },
     //#endregion
+
+    shownoti(msg) {
+      this.msgStatus = msg;
+      this.isShowNoti = true;
+      setTimeout(() => {
+        this.isShowNoti = false;
+      }, 1500);
+    },
+  },
+  mounted() {
+    // this.shownoti();
   },
   computed: {
     /**
@@ -653,4 +673,15 @@ export default {
 
 <style>
 @import "../../assets/css/common/table.css";
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
 </style>

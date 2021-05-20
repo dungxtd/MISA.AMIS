@@ -130,13 +130,15 @@ export default {
       // Bắt sự kiện khi ấn phím enter
       else if (e.keyCode === 13) {
         this.$emit("setPssBlured", true);
-        this.checkValue();
+
         if (this.indexSelect >= 0)
           this.option = this.filteredOptions[this.indexSelect];
         this.model = false;
         this.filteredOptions = this.options;
         this.indexSelect = -1;
         this.searchIdByName();
+        this.$emit("setPssBlured", true);
+        this.checkValue();
       }
     },
     /**
@@ -172,6 +174,7 @@ export default {
       this.checkValue();
       this.searchIdByName();
       this.filteredOptions = this.options;
+      this.$emit("setPssBlured", true);
     },
     /**
      * Check giá trị của ô input có phải đúng phòng ban hay Không

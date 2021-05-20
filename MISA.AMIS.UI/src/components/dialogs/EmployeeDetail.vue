@@ -540,6 +540,7 @@ export default {
           .then((res) => {
             if (res.status == 200) {
               this.hideDetailPage();
+              this.$emit("shownoti", "Thêm nhân viên thành công");
             }
           })
           .catch((err) => {
@@ -554,6 +555,7 @@ export default {
           .then((res) => {
             if (res.status == 200) {
               this.hideDetailPage();
+              this.$emit("shownoti", "Sửa nhân viên thành công");
             }
           })
           .catch((err) => {
@@ -577,6 +579,7 @@ export default {
           .then((res) => {
             if (res.status == 200) {
               this.resetForm();
+              this.$emit("shownoti", "Thêm nhân viên thành công");
             }
           })
           .catch((err) => {
@@ -590,6 +593,7 @@ export default {
           .then((res) => {
             if (res.status == 200) {
               this.resetForm();
+              this.$emit("shownoti", "Sửa nhân viên thành công");
             }
           })
           .catch((err) => {

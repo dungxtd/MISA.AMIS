@@ -75,8 +75,8 @@ export default {
       axios
         .delete(aipUrl)
         .then((res) => {
-          // console.log(res);
           if (res.status == 200) {
+            this.$emit("shownoti", "Sửa nhân viên thành công");
             this.$emit("hideMoreOption");
           }
         })
