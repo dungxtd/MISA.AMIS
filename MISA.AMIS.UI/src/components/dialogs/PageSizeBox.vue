@@ -15,9 +15,14 @@
       </div>
     </div>
     <div class="wrap-header" @click="open = !open" :class="{ open: open }">
-      <div class="selected">
-        {{ selected }}
-      </div>
+      <input
+        class="input-selected selected"
+        v-model="selected"
+        READONLY
+        @keyup.up="keyup"
+        @keyup.down="keydown"
+        @keyup.enter="enter"
+      />
       <div class="box-action">
         <div class="wrap-action">
           <div class="icon icon-24 box-icon"></div>
@@ -34,6 +39,19 @@ export default {
     default: { type: String, required: false, default: null }, // Biến mặc định cho ô input
     tabindex: { type: Number, required: false, default: 0 }, //Biến tabinex
     pageSize: { type: Number, required: false, default: 0 }, // Biến hiển thị size page
+  },
+  methods: {
+    keyup() {
+      if (this.pageSize > 10)
+        this.selected = this.pageSize - 10 + " bản ghi trên 1 trang";
+    },
+    keydown() {
+      if (this.pageSize < 40)
+        this.selected = this.pageSize + 10 + " bản ghi trên 1 trang";
+    },
+    enter() {
+      this.open = false;
+    },
   },
   data() {
     return {
@@ -124,8 +142,12 @@ export default {
 }
 .box-action {
   display: flex;
-  background-color: #babec5;
-  border-left: 1px solid #babec5;
+  background-color: #ffffff;
+  /* border-left: 1px solid #babec5; */
+}
+.box-action:hover {
+  background-color: #e0e0e0;
+  border-color: #e0e0e0;
 }
 .wrap-action {
   width: 32px;
@@ -140,5 +162,11 @@ export default {
   transform: rotate(0deg);
   transition: transform 0.15s linear;
   background-position: -556px -355px;
+}
+.input-selected {
+  border: 0 !important;
+}
+.input-selected:hover {
+  border: 0 !important;
 }
 </style>
