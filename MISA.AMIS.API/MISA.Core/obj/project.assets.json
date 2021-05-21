@@ -4485,23 +4485,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dungxtd\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\tddung\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj",
+      "projectUniqueName": "C:\\Users\\tddung\\Desktop\\Vue\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj",
       "projectName": "MISA.Core",
-      "projectPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj",
-      "packagesPath": "C:\\Users\\dungxtd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dungxtd\\Desktop\\MISA.AMIS\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\obj\\",
+      "projectPath": "C:\\Users\\tddung\\Desktop\\Vue\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\MISA.Core.csproj",
+      "packagesPath": "C:\\Users\\tddung\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tddung\\Desktop\\Vue\\MISA.AMIS\\MISA.AMIS.API\\MISA.Core\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\dungxtd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tddung\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

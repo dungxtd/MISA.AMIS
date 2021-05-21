@@ -39,7 +39,15 @@
                 <th style="min-width: 150px">Mã nhân viên</th>
                 <th style="min-width: 250px">Tên nhân viên</th>
                 <th style="min-width: 120px">Giới tính</th>
-                <th style="min-width: 150px; text-align: center">Ngày sinh</th>
+                <th
+                  style="
+                    min-width: 150px;
+                    text-align: center;
+                    padding-left: 3px !important;
+                  "
+                >
+                  Ngày sinh
+                </th>
                 <th style="min-width: 200px">Số CMND</th>
                 <th style="min-width: 250px">Chức danh</th>
                 <th style="min-width: 250px">Tên đơn vị</th>
@@ -65,7 +73,7 @@
                 <td>{{ employee.EmployeeCode }}</td>
                 <td>{{ employee.EmployeeName }}</td>
                 <td>{{ employee.Gender | formatGender }}</td>
-                <td style="text-align: center">
+                <td style="text-align: center; padding-left: 0 !important">
                   {{ employee.DateOfBirth | formatDate }}
                 </td>
                 <td>{{ employee.IdentityNumber }}</td>
@@ -92,15 +100,15 @@
                   ></div>
                 </div>
                 <MoreOptions
-                  @getData="getData()"
-                  @hideMoreOption="hideMoreOption()"
+                  @getData="getData"
+                  @hideMoreOption="hideMoreOption"
                   @cloneEmployee="cloneEmployee"
+                  @clickOutSide="clickOutSide"
                   :employee="employee"
                   :screenX="screenX"
                   :screenY="screenY"
                   v-if="index == indexTemp && isShowMoreOption"
                   v-click-outside="clickOutSide"
-                  @shownoti="shownoti"
                 />
               </tr>
             </tbody>
@@ -333,7 +341,8 @@ export default {
      */
     loadData() {
       this.pageIndex = 1;
-      this.pageSize = 20;
+      // this.pageSize = 20;
+      this.pageIndexDisplay = 1;
       this.getData();
     },
     /**
@@ -433,6 +442,7 @@ export default {
     hideMoreOption() {
       this.isShowMoreOption = false;
       this.employee = Object.create(null);
+      this.shownoti("Xoá nhân viên thành công");
     },
     /**
      * Ham lay so ban ghi lon nhat va hien cua so them
@@ -496,7 +506,8 @@ export default {
      */
     clickOutSide() {
       // console.log("click out side");
-      this.hideMoreOption();
+      // this.hideMoreOption();
+      this.isShowMoreOption = false;
     },
     /**
      * Ham set form mode là add khi sửa nhưng nhấn cất và thêm

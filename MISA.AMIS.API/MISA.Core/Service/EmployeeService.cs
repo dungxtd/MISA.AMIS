@@ -103,6 +103,11 @@ namespace MISA.Core.Service
             var employees = _employeeRepository.GetPaging(pageIndex, pageSize, filter);
             return employees;
         }
+        /// <summary>
+        /// Hàm nhân bản nhân viên có thêm mã lớn nhất
+        /// </summary>
+        /// <param name="entityId"></param>
+        /// <returns></returns>
         public Employee GetEmployeeMaxCodeById(Guid entityId)
         {
             return _employeeRepository.GetEmployeeMaxCodeById(entityId);
@@ -117,6 +122,10 @@ namespace MISA.Core.Service
             var count = _employeeRepository.GetMaxCode();
             return count;
         }
+        /// <summary>
+        /// Hàm xuất ra file excel
+        /// </summary>
+        /// <returns>file export</returns>
         public FileExport Export()
         {
             // query data from database  
@@ -137,10 +146,10 @@ namespace MISA.Core.Service
                 workSheet.Column(8).Width = 15;
                 workSheet.Column(9).Width = 30;
 
-                using (var range = workSheet.Cells["A1:I1"])
+                using (var range = workSheet.Cells[Properties.Resources.cellFirst])
                 {
                     range.Merge = true;
-                    range.Value = "DANH SÁCH NHÂN VIÊN";
+                    range.Value = Properties.Resources.titleFile;
                     range.Style.Font.Bold = true;
                     range.Style.Font.Size = 16;
                     range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
@@ -158,7 +167,7 @@ namespace MISA.Core.Service
                 workSheet.Cells[3, 9].Value = Properties.Resources.cell9;
 
                 //Style cho chữ dưới bảng
-                using (var range = workSheet.Cells["A3:I3"])
+                using (var range = workSheet.Cells[Properties.Resources.cellThird])
                 {
                     range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     range.Style.Fill.BackgroundColor.SetColor(Color.LightGray);
@@ -175,7 +184,7 @@ namespace MISA.Core.Service
                     workSheet.Cells[i + 4, 2].Value = e.EmployeeCode;
                     workSheet.Cells[i + 4, 3].Value = e.EmployeeName;
                     workSheet.Cells[i + 4, 4].Value = e.GenderName;
-                    workSheet.Cells[i + 4, 5].Value = e.DateOfBirth != null ? e.DateOfBirth?.ToString("dd/MM/yyyy") : "";
+                    workSheet.Cells[i + 4, 5].Value = e.DateOfBirth != null ? e.DateOfBirth?.ToString(Properties.Resources.stringDateFormat) : "";
                     workSheet.Cells[i + 4, 6].Value = e.EmployeePosition;
                     workSheet.Cells[i + 4, 7].Value = e.DepartmentName;
                     workSheet.Cells[i + 4, 8].Value = e.BankAccountNumber;

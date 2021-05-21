@@ -144,6 +144,12 @@
   <data name="cell9" xml:space="preserve">
     <value>Tên ngân hàng</value>
   </data>
+  <data name="cellFirst" xml:space="preserve">
+    <value>A1:I1</value>
+  </data>
+  <data name="cellThird" xml:space="preserve">
+    <value>A3:I3</value>
+  </data>
   <data name="duplidateEmployeeCodeAfter" xml:space="preserve">
     <value>&gt; đã tồn tại trên hệ thống, vui lòng kiểm tra lại.</value>
   </data>
@@ -185,6 +191,12 @@
   </data>
   <data name="pagingErr" xml:space="preserve">
     <value>Page size và page index phải là số nguyên</value>
+  </data>
+  <data name="stringDateFormat" xml:space="preserve">
+    <value>dd/MM/yyyy</value>
+  </data>
+  <data name="titleFile" xml:space="preserve">
+    <value>DANH SÁCH NHÂN VIÊN</value>
   </data>
   <data name="Unknow" xml:space="preserve">
     <value>Chưa biết</value>

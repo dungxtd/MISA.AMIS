@@ -142,6 +142,24 @@ namespace MISA.Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A1:I1.
+        /// </summary>
+        internal static string cellFirst {
+            get {
+                return ResourceManager.GetString("cellFirst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A3:I3.
+        /// </summary>
+        internal static string cellThird {
+            get {
+                return ResourceManager.GetString("cellThird", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &gt; đã tồn tại trên hệ thống, vui lòng kiểm tra lại..
         /// </summary>
         internal static string duplidateEmployeeCodeAfter {
@@ -264,6 +282,24 @@ namespace MISA.Core.Properties {
         internal static string pagingErr {
             get {
                 return ResourceManager.GetString("pagingErr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to dd/MM/yyyy.
+        /// </summary>
+        internal static string stringDateFormat {
+            get {
+                return ResourceManager.GetString("stringDateFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DANH SÁCH NHÂN VIÊN.
+        /// </summary>
+        internal static string titleFile {
+            get {
+                return ResourceManager.GetString("titleFile", resourceCulture);
             }
         }
         

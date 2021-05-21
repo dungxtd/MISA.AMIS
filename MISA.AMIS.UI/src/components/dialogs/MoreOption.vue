@@ -76,7 +76,6 @@ export default {
         .delete(aipUrl)
         .then((res) => {
           if (res.status == 200) {
-            this.$emit("shownoti", "Sửa nhân viên thành công");
             this.$emit("hideMoreOption");
           }
         })
@@ -92,7 +91,7 @@ export default {
      */
     hideReportLog() {
       this.isShowReportLog = false;
-      this.$emit("hideMoreOption");
+      this.$emit("clickOutSide");
       this.$emit("getData");
     },
   },

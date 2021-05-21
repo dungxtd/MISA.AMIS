@@ -160,6 +160,7 @@ export default {
      * Date: 11/5/2021
      */
     blurInput() {
+      this.isValided = false;
       this.checkValue();
     },
     /**
@@ -216,7 +217,8 @@ export default {
     // Theo dõi biến tên phòng ban
     departmentName() {
       this.option = this.departmentName;
-      this.isValided = true;
+      if (this.departmentName != "" && this.departmentName != null)
+        this.isValided = true;
     },
     // Theo dõi biến ô input
     option() {

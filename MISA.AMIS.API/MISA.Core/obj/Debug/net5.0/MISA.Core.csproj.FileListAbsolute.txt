@@ -134,3 +134,17 @@ F:\tddung\dotnet\MISA.AMIS\MISA.AMIS.API\MISA.Core\obj\Debug\net5.0\MISA.Core.cs
 F:\tddung\dotnet\MISA.AMIS\MISA.AMIS.API\MISA.Core\obj\Debug\net5.0\MISA.Core.dll
 F:\tddung\dotnet\MISA.AMIS\MISA.AMIS.API\MISA.Core\obj\Debug\net5.0\ref\MISA.Core.dll
 F:\tddung\dotnet\MISA.AMIS\MISA.AMIS.API\MISA.Core\obj\Debug\net5.0\MISA.Core.pdb
+C:\Users\tddung\Desktop\Vue\MISA.AMIS\MISA.AMIS.API\MISA.Core\bin\Debug\net5.0\MISA.Core.deps.json
+C:\Users\tddung\Desktop\Vue\MISA.AMIS\MISA.AMIS.API\MISA.Core\bin\Debug\net5.0\MISA.Core.dll
+C:\Users\tddung\Desktop\Vue\MISA.AMIS\MISA.AMIS.API\MISA.Core\bin\Debug\net5.0\ref\MISA.Core.dll
+C:\Users\tddung\Desktop\Vue\MISA.AMIS\MISA.AMIS.API\MISA.Core\bin\Debug\net5.0\MISA.Core.pdb
+C:\Users\tddung\Desktop\Vue\MISA.AMIS\MISA.AMIS.API\MISA.Core\obj\Debug\net5.0\MISA.Core.csprojAssemblyReference.cache
+C:\Users\tddung\Desktop\Vue\MISA.AMIS\MISA.AMIS.API\MISA.Core\obj\Debug\net5.0\MISA.Core.Properties.Resources.resources
+C:\Users\tddung\Desktop\Vue\MISA.AMIS\MISA.AMIS.API\MISA.Core\obj\Debug\net5.0\MISA.Core.csproj.GenerateResource.cache
+C:\Users\tddung\Desktop\Vue\MISA.AMIS\MISA.AMIS.API\MISA.Core\obj\Debug\net5.0\MISA.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tddung\Desktop\Vue\MISA.AMIS\MISA.AMIS.API\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfoInputs.cache
+C:\Users\tddung\Desktop\Vue\MISA.AMIS\MISA.AMIS.API\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfo.cs
+C:\Users\tddung\Desktop\Vue\MISA.AMIS\MISA.AMIS.API\MISA.Core\obj\Debug\net5.0\MISA.Core.csproj.CoreCompileInputs.cache
+C:\Users\tddung\Desktop\Vue\MISA.AMIS\MISA.AMIS.API\MISA.Core\obj\Debug\net5.0\MISA.Core.dll
+C:\Users\tddung\Desktop\Vue\MISA.AMIS\MISA.AMIS.API\MISA.Core\obj\Debug\net5.0\ref\MISA.Core.dll
+C:\Users\tddung\Desktop\Vue\MISA.AMIS\MISA.AMIS.API\MISA.Core\obj\Debug\net5.0\MISA.Core.pdb
